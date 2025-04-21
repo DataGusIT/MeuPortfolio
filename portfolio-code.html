@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio de Desenvolvimento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style/index/footer.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #2563eb;
+            --accent: #6366f1;
+            --text: #1f2937;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --gradient-start: #6366f1;
+            --gradient-end: #2563eb;
+        }
+
+        .dark-mode {
+            --primary: #1e293b;
+            --secondary: #334155;
+            --accent: #818cf8;
+            --text: #f1f5f9;
+            --background: #0f172a;
+            --card-bg: #1e293b;
+            --shadow: rgba(0, 0, 0, 0.5);
+            --gradient-start: #4f46e5;
+            --gradient-end: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="30" height="30" rx="5" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="20" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-repeat: repeat;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .intro h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            bottom: 0;
+            left: 20%;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            border-radius: 2px;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .tech-badge {
+            background-color: var(--card-bg);
+            color: var(--accent);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 5px var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .tech-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-gap: 30px;
+            padding: 20px 0;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px var(--shadow);
+            transition: transform 0.5s, box-shadow 0.5s;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .project-img-container {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .project-content p {
+            color: var(--text);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project-tag {
+            background-color: var(--background);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            border: none;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            flex: 1;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            position: relative;
+            color: var(--accent);
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            bottom: 0;
+            left: 20%;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            border-radius: 2px;
+        }
+
+        .project-detail-section {
+            margin: 50px 0;
+            padding: 40px 20px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px var(--shadow);
+        }
+
+        .project-detail-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-detail-title {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .project-detail-description {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        .project-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .showcase-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .showcase-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .showcase-item:nth-child(even) .showcase-content {
+            direction: ltr;
+        }
+
+        .showcase-media {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            max-height: 400px;
+        }
+
+        .showcase-gif {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .showcase-content {
+            padding: 20px;
+        }
+
+        .showcase-title {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .showcase-description {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .showcase-tech-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 20px 0 10px;
+            color: var(--accent);
+        }
+
+        .showcase-tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .showcase-tech {
+            background-color: var(--background);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 2px 5px var(--shadow);
+        }
+
+        .showcase-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .back-to-portfolio {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-portfolio:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Tema escuro botão */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Botão voltar ao topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animation classes */
+        [data-aos] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        [data-aos].aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 992px) {
+            .showcase-item {
+                grid-template-columns: 1fr;
+            }
+
+            .showcase-item:nth-child(even) {
+                direction: ltr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .back-to-portfolio,
+            .theme-toggle {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+
+            .btn-container {
+                flex-direction: column;
+            }
+
+            .showcase-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/index.html" class="back-to-portfolio">
+        <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+    </a>
+
+    <header>
+        <div class="header-content">
+            <h1>Meu Portfólio de Desenvolvimento</h1>
+            <p>Transformando código em soluções inovadoras</p>
+            <button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i> Modo Escuro</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <h2>Minha Jornada como Desenvolvedor</h2>
+            <p>Olá! Bem-vindo ao meu portfólio de desenvolvimento. Aqui estão os projetos que desenvolvi durante minha
+                jornada como programador. Cada projeto representa desafios únicos e soluções criativas para problemas
+                reais.</p>
+            <p>Como estudante de TI, tenho explorado várias tecnologias e frameworks para criar aplicações web,
+                interfaces interativas e sistemas funcionais que entregam valor aos usuários.</p>
+
+            <div class="tech-stack">
+                <div class="tech-badge"><i class="fab fa-html5"></i> HTML5</div>
+                <div class="tech-badge"><i class="fab fa-css3-alt"></i> CSS3</div>
+                <div class="tech-badge"><i class="fab fa-js"></i> JavaScript</div>
+                <div class="tech-badge"><i class="fab fa-react"></i> React</div>
+                <div class="tech-badge"><i class="fab fa-node-js"></i> Node.js</div>
+                <div class="tech-badge"><i class="fas fa-database"></i> MongoDB</div>
+                <div class="tech-badge"><i class="fas fa-server"></i> Express</div>
+                <div class="tech-badge"><i class="fab fa-git-alt"></i> Git</div>
+            </div>
+        </section>
+
+        <div class="section-header">
+            <h2 class="section-title">Meus Projetos</h2>
+        </div>
+
+        <div class="project-grid">
+            <!-- Projeto 1 -->
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-img-container">
+                    <img src="/api/placeholder/400/220" alt="Sistema de Gerenciamento de Tarefas" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>Sistema de Gerenciamento de Tarefas</h3>
+                    <p>Aplicação web completa com autenticação de usuários, criação e gerenciamento de tarefas,
+                        notificações e dashboard analítico.</p>
+                    <div class="project-tags">
+                        <span class="project-tag"><i class="fab fa-react"></i> React</span>
+                        <span class="project-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                        <span class="project-tag"><i class="fas fa-database"></i> MongoDB</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#detail-projeto1" class="btn btn-primary"><i class="fas fa-info-circle"></i>
+                            Detalhes</a>
+                        <a href="https://github.com/username/task-manager" class="btn btn-secondary"><i
+                                class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-img-container">
+                    <img src="/api/placeholder/400/220" alt="E-commerce React" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>E-commerce React</h3>
+                    <p>Plataforma de e-commerce completa com catálogo de produtos, carrinho de compras, checkout e
+                        sistema de avaliações. Integrada com API de pagamentos.</p>
+                    <div class="project-tags">
+                        <span class="project-tag"><i class="fab fa-react"></i> React</span>
+                        <span class="project-tag"><i class="fas fa-shopping-cart"></i> Redux</span>
+                        <span class="project-tag"><i class="fab fa-stripe"></i> Stripe</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#detail-projeto2" class="btn btn-primary"><i class="fas fa-info-circle"></i>
+                            Detalhes</a>
+                        <a href="https://github.com/username/react-ecommerce" class="btn btn-secondary"><i
+                                class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-img-container">
+                    <img src="/api/placeholder/400/220" alt="API RESTful" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>API RESTful para Blog</h3>
+                    <p>Backend completo para aplicação de blog com autenticação JWT, CRUD para posts e comentários,
+                        upload de imagens e sistema de permissões.</p>
+                    <div class="project-tags">
+                        <span class="project-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                        <span class="project-tag"><i class="fas fa-server"></i> Express</span>
+                        <span class="project-tag"><i class="fas fa-database"></i> MongoDB</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#detail-projeto3" class="btn btn-primary"><i class="fas fa-info-circle"></i>
+                            Detalhes</a>
+                        <a href="https://github.com/username/blog-api" class="btn btn-secondary"><i
+                                class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 4 -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-img-container">
+                    <img src="/api/placeholder/400/220" alt="Aplicativo de Clima" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>Aplicativo de Clima</h3>
+                    <p>Aplicação que consome API de previsão do tempo e exibe informações detalhadas sobre o clima atual
+                        e previsão para os próximos dias, com geolocalização.</p>
+                    <div class="project-tags">
+                        <span class="project-tag"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="project-tag"><i class="fas fa-cloud"></i> OpenWeather API</span>
+                        <span class="project-tag"><i class="fas fa-map-marker-alt"></i> Geolocation</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#detail-projeto4" class="btn btn-primary"><i class="fas fa-info-circle"></i>
+                            Detalhes</a>
+                        <a href="https://github.com/username/weather-app" class="btn btn-secondary"><i
+                                class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 5 -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-img-container">
+                    <img src="/api/placeholder/400/220" alt="Chat em Tempo Real" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>Chat em Tempo Real</h3>
+                    <p>Aplicação de chat com comunicação em tempo real, salas de conversa privadas e públicas,
+                        notificações e
+                        histórico de mensagens.</p>
+                    <div class="project-tags">
+                        <span class="project-tag"><i class="fab fa-react"></i> React</span>
+                        <span class="project-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                        <span class="project-tag"><i class="fas fa-comment-dots"></i> Socket.io</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#detail-projeto5" class="btn btn-primary"><i class="fas fa-info-circle"></i>
+                            Detalhes</a>
+                        <a href="https://github.com/username/realtime-chat" class="btn btn-secondary"><i
+                                class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 6 -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="project-img-container">
+                    <img src="/api/placeholder/400/220" alt="Dashboard Administrativo" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>Dashboard Administrativo</h3>
+                    <p>Painel de administração completo com estatísticas, gráficos, gerenciamento de usuários e
+                        produtos,
+                        controle de permissões e relatórios.</p>
+                    <div class="project-tags">
+                        <span class="project-tag"><i class="fab fa-react"></i> React</span>
+                        <span class="project-tag"><i class="fas fa-chart-line"></i> Chart.js</span>
+                        <span class="project-tag"><i class="fas fa-table"></i> Material-UI</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#detail-projeto6" class="btn btn-primary"><i class="fas fa-info-circle"></i>
+                            Detalhes</a>
+                        <a href="https://github.com/username/admin-dashboard" class="btn btn-secondary"><i
+                                class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detalhes dos Projetos -->
+        <section id="detail-projeto1" class="project-detail-section" data-aos="fade-up">
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">Sistema de Gerenciamento de Tarefas</h2>
+                <p class="project-detail-description">Um aplicativo web completo que permite aos usuários gerenciar suas
+                    tarefas diárias com recursos avançados de organização, lembretes e análise de produtividade.</p>
+            </div>
+
+            <div class="project-showcase">
+                <div class="showcase-item">
+                    <div class="showcase-media">
+                        <img src="/api/placeholder/600/400" alt="Sistema de Gerenciamento de Tarefas em ação"
+                            class="showcase-gif">
+                    </div>
+                    <div class="showcase-content">
+                        <h3 class="showcase-title">Funcionalidades Principais</h3>
+                        <p class="showcase-description">
+                            Este sistema permite que os usuários criem, organizem e acompanhem suas tarefas diárias. Os
+                            usuários podem categorizar tarefas, definir prazos, adicionar lembretes e marcar como
+                            concluídas. O dashboard principal exibe estatísticas de produtividade e gráficos de
+                            progresso.
+                        </p>
+                        <p class="showcase-description">
+                            O sistema inclui autenticação de usuários, sincronização em tempo real, notificações por
+                            e-mail para tarefas próximas do prazo e um design responsivo que funciona em qualquer
+                            dispositivo.
+                        </p>
+                        <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
+                        <div class="showcase-tech-list">
+                            <span class="showcase-tech"><i class="fab fa-react"></i> React</span>
+                            <span class="showcase-tech"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="showcase-tech"><i class="fas fa-database"></i> MongoDB</span>
+                            <span class="showcase-tech"><i class="fas fa-server"></i> Express</span>
+                            <span class="showcase-tech"><i class="fas fa-key"></i> JWT</span>
+                            <span class="showcase-tech"><i class="fas fa-chart-line"></i> Chart.js</span>
+                        </div>
+                        <div class="showcase-buttons">
+                            <a href="https://github.com/username/task-manager" class="btn btn-secondary"><i
+                                    class="fab fa-github"></i> Ver Código no GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="detail-projeto2" class="project-detail-section" data-aos="fade-up">
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">E-commerce React</h2>
+                <p class="project-detail-description">Uma plataforma de e-commerce completa desenvolvida com React,
+                    incluindo todas as funcionalidades necessárias para uma loja online moderna.</p>
+            </div>
+
+            <div class="project-showcase">
+                <div class="showcase-item">
+                    <div class="showcase-media">
+                        <img src="/api/placeholder/600/400" alt="E-commerce em funcionamento" class="showcase-gif">
+                    </div>
+                    <div class="showcase-content">
+                        <h3 class="showcase-title">Funcionalidades Principais</h3>
+                        <p class="showcase-description">
+                            Esta plataforma de e-commerce oferece um catálogo de produtos completo com filtros
+                            avançados, sistema de busca e visualização detalhada. Os usuários podem adicionar produtos
+                            ao carrinho, gerenciar quantidades, aplicar cupons de desconto e finalizar a compra com
+                            diversas opções de pagamento.
+                        </p>
+                        <p class="showcase-description">
+                            O sistema inclui gerenciamento de conta de usuário, histórico de pedidos, desejos e
+                            avaliações de produtos. Para administradores, há um painel de controle para gerenciar
+                            produtos, estoque, pedidos e relatórios de vendas.
+                        </p>
+                        <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
+                        <div class="showcase-tech-list">
+                            <span class="showcase-tech"><i class="fab fa-react"></i> React</span>
+                            <span class="showcase-tech"><i class="fas fa-shopping-cart"></i> Redux</span>
+                            <span class="showcase-tech"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="showcase-tech"><i class="fas fa-database"></i> MongoDB</span>
+                            <span class="showcase-tech"><i class="fab fa-stripe"></i> Stripe</span>
+                            <span class="showcase-tech"><i class="fas fa-lock"></i> Auth0</span>
+                        </div>
+                        <div class="showcase-buttons">
+                            <a href="https://github.com/username/react-ecommerce" class="btn btn-secondary"><i
+                                    class="fab fa-github"></i> Ver Código no GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="detail-projeto3" class="project-detail-section" data-aos="fade-up">
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">API RESTful para Blog</h2>
+                <p class="project-detail-description">Uma API completa para aplicações de blog com todos os recursos
+                    necessários para gerenciar conteúdo, usuários e interações.</p>
+            </div>
+
+            <div class="project-showcase">
+                <div class="showcase-item">
+                    <div class="showcase-media">
+                        <img src="/api/placeholder/600/400" alt="API RESTful em funcionamento" class="showcase-gif">
+                    </div>
+                    <div class="showcase-content">
+                        <h3 class="showcase-title">Funcionalidades Principais</h3>
+                        <p class="showcase-description">
+                            Esta API RESTful fornece endpoints para todas as operações necessárias em um blog: criação,
+                            edição e exclusão de posts, gerenciamento de comentários, sistema de tags e categorias, e
+                            estatísticas de visualização.
+                        </p>
+                        <p class="showcase-description">
+                            O sistema inclui autenticação JWT com diferentes níveis de acesso (administrador, autor,
+                            leitor), upload e otimização de imagens, validação de dados e documentação completa com
+                            Swagger.
+                        </p>
+                        <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
+                        <div class="showcase-tech-list">
+                            <span class="showcase-tech"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="showcase-tech"><i class="fas fa-server"></i> Express</span>
+                            <span class="showcase-tech"><i class="fas fa-database"></i> MongoDB</span>
+                            <span class="showcase-tech"><i class="fas fa-key"></i> JWT</span>
+                            <span class="showcase-tech"><i class="fas fa-file-image"></i> Multer</span>
+                            <span class="showcase-tech"><i class="fas fa-book"></i> Swagger</span>
+                        </div>
+                        <div class="showcase-buttons">
+                            <a href="https://github.com/username/blog-api" class="btn btn-secondary"><i
+                                    class="fab fa-github"></i> Ver Código no GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="detail-projeto4" class="project-detail-section" data-aos="fade-up">
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">Aplicativo de Clima</h2>
+                <p class="project-detail-description">Um aplicativo web que fornece informações meteorológicas
+                    detalhadas e previsões do tempo para qualquer localidade do mundo.</p>
+            </div>
+
+            <div class="project-showcase">
+                <div class="showcase-item">
+                    <div class="showcase-media">
+                        <img src="/api/placeholder/600/400" alt="Aplicativo de Clima em funcionamento"
+                            class="showcase-gif">
+                    </div>
+                    <div class="showcase-content">
+                        <h3 class="showcase-title">Funcionalidades Principais</h3>
+                        <p class="showcase-description">
+                            Este aplicativo detecta automaticamente a localização do usuário e exibe informações
+                            detalhadas sobre o clima atual, incluindo temperatura, umidade, velocidade do vento, pressão
+                            atmosférica e índice UV.
+                        </p>
+                        <p class="showcase-description">
+                            Os usuários podem pesquisar qualquer cidade do mundo, visualizar previsões para os próximos
+                            7 dias, gráficos de variação de temperatura e receber alertas sobre condições climáticas
+                            extremas. O aplicativo também permite salvar locais favoritos.
+                        </p>
+                        <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
+                        <div class="showcase-tech-list">
+                            <span class="showcase-tech"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="showcase-tech"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="showcase-tech"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="showcase-tech"><i class="fas fa-cloud"></i> OpenWeather API</span>
+                            <span class="showcase-tech"><i class="fas fa-map-marker-alt"></i> Geolocation API</span>
+                            <span class="showcase-tech"><i class="fas fa-chart-line"></i> Chart.js</span>
+                        </div>
+                        <div class="showcase-buttons">
+                            <a href="https://github.com/username/weather-app" class="btn btn-secondary"><i
+                                    class="fab fa-github"></i> Ver Código no GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="detail-projeto5" class="project-detail-section" data-aos="fade-up">
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">Chat em Tempo Real</h2>
+                <p class="project-detail-description">Uma aplicação de mensagens instantâneas com comunicação em tempo
+                    real, salas de chat privadas e públicas e recursos avançados de interação.</p>
+            </div>
+
+            <div class="project-showcase">
+                <div class="showcase-item">
+                    <div class="showcase-media">
+                        <img src="/api/placeholder/600/400" alt="Chat em Tempo Real funcionando" class="showcase-gif">
+                    </div>
+                    <div class="showcase-content">
+                        <h3 class="showcase-title">Funcionalidades Principais</h3>
+                        <p class="showcase-description">
+                            Este aplicativo de chat permite que os usuários se comuniquem em tempo real através de
+                            mensagens de texto, emojis e compartilhamento de arquivos. Os usuários podem criar salas de
+                            chat públicas ou privadas, participar de grupos e enviar mensagens diretas.
+                        </p>
+                        <p class="showcase-description">
+                            O sistema inclui notificações em tempo real, indicadores de digitação, status de leitura,
+                            histórico de mensagens, e permite personalização de perfil. A interface é responsiva e
+                            otimizada para uso em dispositivos móveis e desktop.
+                        </p>
+                        <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
+                        <div class="showcase-tech-list">
+                            <span class="showcase-tech"><i class="fab fa-react"></i> React</span>
+                            <span class="showcase-tech"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="showcase-tech"><i class="fas fa-comment-dots"></i> Socket.io</span>
+                            <span class="showcase-tech"><i class="fas fa-database"></i> MongoDB</span>
+                            <span class="showcase-tech"><i class="fas fa-key"></i> JWT</span>
+                            <span class="showcase-tech"><i class="fas fa-cloud-upload-alt"></i> Cloudinary</span>
+                        </div>
+                        <div class="showcase-buttons">
+                            <a href="https://github.com/username/realtime-chat" class="btn btn-secondary"><i
+                                    class="fab fa-github"></i> Ver Código no GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="detail-projeto6" class="project-detail-section" data-aos="fade-up">
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">Dashboard Administrativo</h2>
+                <p class="project-detail-description">Um painel de controle completo para administração de negócios, com
+                    visualizações de dados, relatórios e gerenciamento de usuários e recursos.</p>
+            </div>
+
+            <div class="project-showcase">
+                <div class="showcase-item">
+                    <div class="showcase-media">
+                        <img src="/api/placeholder/600/400" alt="Dashboard Administrativo em funcionamento"
+                            class="showcase-gif">
+                    </div>
+                    <div class="showcase-content">
+                        <h3 class="showcase-title">Funcionalidades Principais</h3>
+                        <p class="showcase-description">
+                            Este dashboard administrativo fornece uma visão completa das operações de negócio com
+                            gráficos interativos, indicadores de performance (KPIs) e relatórios personalizáveis.
+                            Administradores podem visualizar vendas, receitas, tráfego e conversões.
+                        </p>
+                        <p class="showcase-description">
+                            O sistema inclui gerenciamento completo de usuários com controle de permissões, ferramentas
+                            de moderação de conteúdo, gerenciamento de produtos/serviços e exportação de dados em
+                            diversos formatos (PDF, Excel, CSV).
+                        </p>
+                        <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
+                        <div class="showcase-tech-list">
+                            <span class="showcase-tech"><i class="fab fa-react"></i> React</span>
+                            <span class="showcase-tech"><i class="fas fa-chart-line"></i> Chart.js</span>
+                            <span class="showcase-tech"><i class="fas fa-table"></i> Material-UI</span>
+                            <span class="showcase-tech"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="showcase-tech"><i class="fas fa-database"></i> MongoDB</span>
+                            <span class="showcase-tech"><i class="fas fa-file-export"></i> ExcelJS</span>
+                        </div>
+                        <div class="showcase-buttons">
+                            <a href="https://github.com/username/admin-dashboard" class="btn btn-secondary"><i
+                                    class="fab fa-github"></i> Ver Código no GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre</h3>
+                <p>Especialista em TI e Dados com foco em soluções estratégicas que impulsionam o sucesso empresarial
+                    através da transformação digital.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> Sobre</a></li>
+                    <li><a href="#skills"><i class="fas fa-chevron-right"></i> Habilidades</a></li>
+                    <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projetos</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Conecte-se</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.linkedin.com/in/gustavo-moreno-8a925b26a/"><i class="fab fa-linkedin"></i>
+                            LinkedIn</a></li>
+                    <li><a href="https://github.com/DataGusIT"><i class="fab fa-github"></i> GitHub</a></li>
+                    <li><a href="#"><i class="fab fa-medium"></i> Medium</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/gustavo-moreno-8a925b26a/" class="social-icon"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/DataGusIT" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-medium"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2025 Seu Nome. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Função para alternar o tema (claro/escuro)
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const moonIcon = '<i class="fas fa-moon"></i> Modo Escuro';
+        const sunIcon = '<i class="fas fa-sun"></i> Modo Claro';
+
+        // Verificar se há uma preferência salva
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = sunIcon;
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.innerHTML = sunIcon;
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.innerHTML = moonIcon;
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Mostrar/ocultar botão de voltar ao topo
+        const backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animações ao rolar a página
+        const animateElements = document.querySelectorAll('[data-aos]');
+
+        const checkIfInView = () => {
+            animateElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('aos-animate');
+                }
+            });
+        };
+
+        // Executar na carga inicial e no scroll
+        window.addEventListener('load', checkIfInView);
+        window.addEventListener('scroll', checkIfInView);
+    </script>
+</body>
+
+</html>

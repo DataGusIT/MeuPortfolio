@@ -493,6 +493,7 @@
         <div class="header-content">
             <h1>Meu Portfólio de Business Intelligence</h1>
             <p>Transformando dados em insights visuais com Power BI</p>
+            <button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i> Modo Escuro</button>
         </div>
     </header>
 
@@ -581,18 +582,20 @@
 
             <!-- Dashboard 4 -->
             <div class="dashboard-card">
-                <img src="/api/placeholder/400/220" alt="E-commerce Analytics" class="dashboard-img">
+                <img src="/img/bi-producao.png" alt="Dashboard de Produção Industrial" class="dashboard-img">
                 <div class="dashboard-content">
-                    <h3>E-commerce Analytics</h3>
-                    <p>Dashboard para análise de loja virtual com métricas de tráfego, conversão, comportamento do
-                        cliente e desempenho de produtos. Inclui funil de vendas interativo.</p>
+                    <h3>Dashboard de Produção Industrial</h3>
+                    <p>Dashboard desenvolvido no Power BI para análise detalhada de indicadores de produção como total
+                        aprovado, total rejeitado, horas produtivas, horas paradas, taxas de produtividade e qualidade.
+                    </p>
                     <div class="dashboard-tags">
-                        <span class="dashboard-tag"><i class="fas fa-shopping-cart"></i> E-commerce</span>
-                        <span class="dashboard-tag"><i class="fas fa-users"></i> Clientes</span>
-                        <span class="dashboard-tag"><i class="fas fa-box"></i> Produtos</span>
+                        <span class="dashboard-tag"><i class="fas fa-industry"></i> Produção</span>
+                        <span class="dashboard-tag"><i class="fas fa-check-circle"></i> Qualidade</span>
+                        <span class="dashboard-tag"><i class="fas fa-clock"></i> Produtividade</span>
                     </div>
                     <div class="btn-container">
-                        <a href="#" class="btn btn-primary"><i class="fas fa-desktop"></i> Ver Dashboard</a>
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiM2FlZTU5NzMtNmQxZS00NDQyLTg2N2UtZGFhZGJlZDdiZGQ1IiwidCI6ImNmNzJlMmJkLTdhMmItNDc4My1iZGViLTM5ZDU3YjA3Zjc2ZiIsImMiOjR9"
+                            class="btn btn-primary"><i class="fas fa-desktop"></i> Ver Dashboard</a>
                         <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
@@ -600,7 +603,8 @@
 
             <!-- Dashboard 5 -->
             <div class="dashboard-card">
-                <img src="/api/placeholder/400/220" alt="Logística e Supply Chain" class="dashboard-img">
+                <img src="/api/placeholder/400/220" alt="Logística e Supply Chain" class="dashboard-img"
+                    id="dashboard5">
                 <div class="dashboard-content">
                     <h3>Logística e Supply Chain</h3>
                     <p>Análise da cadeia de suprimentos com rastreamento de entregas, níveis de estoque e performance de
@@ -619,7 +623,7 @@
 
             <!-- Dashboard 6 -->
             <div class="dashboard-card">
-                <img src="/api/placeholder/400/220" alt="Marketing Digital" class="dashboard-img">
+                <img src="/api/placeholder/400/220" alt="Marketing Digital" class="dashboard-img" id="dashboard6">
                 <div class="dashboard-content">
                     <h3>Marketing Digital</h3>
                     <p>Dashboard para análise de campanhas de marketing digital com métricas de redes sociais,
@@ -721,6 +725,24 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // === Lógica para exibir ou esconder dashboards ===
+            const mostrarDashboard5 = false; // ou false
+            const mostrarDashboard6 = false; // ou true
+
+            const dashboard5 = document.getElementById('dashboard5')?.closest('.dashboard-card');
+            const dashboard6 = document.getElementById('dashboard6')?.closest('.dashboard-card');
+
+            if (!mostrarDashboard5 && dashboard5) {
+                dashboard5.style.display = 'none';
+            }
+
+            if (!mostrarDashboard6 && dashboard6) {
+                dashboard6.style.display = 'none';
+            }
+
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
             // Gerenciamento de tema escuro/claro
             const themeToggle = document.getElementById('theme-toggle');
             const body = document.body;
@@ -781,6 +803,8 @@
                     }
                 });
             };
+
+
 
             // Iniciar animações
             animateOnScroll();
