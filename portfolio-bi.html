@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio de Business Intelligence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style/index/footer.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #2563eb;
+            --accent: #6366f1;
+            --text: #1f2937;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --gradient-start: #6366f1;
+            --gradient-end: #2563eb;
+        }
+
+        .dark-mode {
+            --primary: #1e293b;
+            --secondary: #334155;
+            --accent: #818cf8;
+            --text: #f1f5f9;
+            --background: #0f172a;
+            --card-bg: #1e293b;
+            --shadow: rgba(0, 0, 0, 0.5);
+            --gradient-start: #4f46e5;
+            --gradient-end: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="30" height="30" rx="5" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="20" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-repeat: repeat;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .intro h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            bottom: 0;
+            left: 20%;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            border-radius: 2px;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .tech-badge {
+            background-color: var(--card-bg);
+            color: var(--accent);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 5px var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .tech-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-gap: 30px;
+            padding: 20px 0;
+        }
+
+        .dashboard-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px var(--shadow);
+            transition: transform 0.5s, box-shadow 0.5s;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .dashboard-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent);
+            transition: transform 0.8s;
+        }
+
+        .dashboard-card:hover .dashboard-img {
+            transform: scale(1.05);
+        }
+
+        .dashboard-content {
+            padding: 25px;
+        }
+
+        .dashboard-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .dashboard-content p {
+            color: var(--text);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .dashboard-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-tag {
+            background-color: var(--background);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            border: none;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            flex: 1;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            position: relative;
+            color: var(--accent);
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            bottom: 0;
+            left: 20%;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            border-radius: 2px;
+        }
+
+        .dashboard-detail-section {
+            margin: 30px 0;
+            padding: 30px 0;
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .dashboard-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .detail-title {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .process-steps {
+            counter-reset: step-counter;
+        }
+
+        .process-step {
+            margin-bottom: 20px;
+            padding-left: 45px;
+            position: relative;
+            background-color: var(--card-bg);
+            padding: 1.8rem 1.8rem 1.8rem 60px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .process-step::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 15px;
+            top: 20px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .back-to-portfolio {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-portfolio:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Tema escuro botão */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Botão voltar ao topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animation classes */
+        [data-aos] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        [data-aos].aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animated progress bars */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .float-animation {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .back-to-portfolio,
+            .theme-toggle {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+
+            .btn-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/index.html" class="back-to-portfolio">
+        <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+    </a>
+
+    <header>
+        <div class="header-content">
+            <h1>Meu Portfólio de Business Intelligence</h1>
+            <p>Transformando dados em insights visuais com Power BI</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <h2>Minha Jornada com BI</h2>
+            <p>Olá! Bem-vindo ao meu portfólio de Business Intelligence. Aqui estão os dashboards que desenvolvi durante
+                minha jornada de aprendizado. Cada projeto representa um desafio único e uma oportunidade de aplicar
+                novos conhecimentos em análise de dados.</p>
+            <p>Como estudante de TI, tenho explorado o mundo dos dados através do Power BI, aprendendo a transformar
+                números brutos em visualizações interativas e insights valiosos.</p>
+
+            <div class="tech-stack">
+                <div class="tech-badge"><i class="fas fa-chart-line"></i> Power BI</div>
+                <div class="tech-badge"><i class="fas fa-database"></i> SQL</div>
+                <div class="tech-badge"><i class="fas fa-table"></i> DAX</div>
+                <div class="tech-badge"><i class="fas fa-chart-bar"></i> Visualização de Dados</div>
+                <div class="tech-badge"><i class="fas fa-sync"></i> ETL</div>
+            </div>
+        </section>
+
+        <div class="section-header">
+            <h2 class="section-title">Meus Dashboards</h2>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Dashboard 1 -->
+            <div class="dashboard-card">
+                <img src="/img/bi-vendas.png" alt="Dashboard de Vendas" class="dashboard-img">
+                <div class="dashboard-content">
+                    <h3>Dashboard de Vendas</h3>
+                    <p>Análise completa de métricas de vendas com filtros dinâmicos, gráficos interativos e metas de
+                        desempenho. Implementei medidas DAX personalizadas para calcular KPIs importantes.</p>
+                    <div class="dashboard-tags">
+                        <span class="dashboard-tag"><i class="fas fa-chart-line"></i> Vendas</span>
+                        <span class="dashboard-tag"><i class="fas fa-calculator"></i> DAX</span>
+                        <span class="dashboard-tag"><i class="fas fa-filter"></i> Filtros</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiNTM5YzUzMjMtYTlmNC00M2ZlLThhNDctZmYxYjQ3ZThkZjE2IiwidCI6ImNmNzJlMmJkLTdhMmItNDc4My1iZGViLTM5ZDU3YjA3Zjc2ZiIsImMiOjR9"
+                            class="btn btn-primary"><i class="fas fa-desktop"></i> Ver Dashboard</a>
+                        <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard 2 -->
+            <div class="dashboard-card">
+                <img src="/img/bi-financeiro.png" alt="Análise Financeira" class="dashboard-img">
+                <div class="dashboard-content">
+                    <h3>Análise Financeira</h3>
+                    <p>Dashboard para acompanhamento de receitas, despesas e fluxo de caixa com visualizações detalhadas
+                        por período e categoria. Inclui previsões baseadas em tendências históricas.</p>
+                    <div class="dashboard-tags">
+                        <span class="dashboard-tag"><i class="fas fa-coins"></i> Finanças</span>
+                        <span class="dashboard-tag"><i class="fas fa-chart-area"></i> Tendências</span>
+                        <span class="dashboard-tag"><i class="fas fa-calendar"></i> Temporal</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiMDIwMTdmNTYtNDNmNi00MTZmLWI3MGItYThkNzM2M2JhZDJmIiwidCI6ImNmNzJlMmJkLTdhMmItNDc4My1iZGViLTM5ZDU3YjA3Zjc2ZiIsImMiOjR9"
+                            class="btn btn-primary"><i class="fas fa-desktop"></i> Ver Dashboard</a>
+                        <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard 3 -->
+            <div class="dashboard-card">
+                <img src="/img/bi-rh.png" alt="Desempenho RH" class="dashboard-img">
+                <div class="dashboard-content">
+                    <h3>Desempenho de RH</h3>
+                    <p>Análise de métricas de recursos humanos como turnover, contratações, avaliações de desempenho e
+                        satisfação dos funcionários. Inclui filtros por departamento e localização.</p>
+                    <div class="dashboard-tags">
+                        <span class="dashboard-tag"><i class="fas fa-users"></i> RH</span>
+                        <span class="dashboard-tag"><i class="fas fa-user-tie"></i> Funcionários</span>
+                        <span class="dashboard-tag"><i class="fas fa-building"></i> Departamentos</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiYzdkYmU3MTctZTkzOS00MzgyLTgwYzItZDAyZTdhYmFiZGU0IiwidCI6ImNmNzJlMmJkLTdhMmItNDc4My1iZGViLTM5ZDU3YjA3Zjc2ZiIsImMiOjR9"
+                            class="btn btn-primary"><i class="fas fa-desktop"></i> Ver Dashboard</a>
+                        <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard 4 -->
+            <div class="dashboard-card">
+                <img src="/api/placeholder/400/220" alt="E-commerce Analytics" class="dashboard-img">
+                <div class="dashboard-content">
+                    <h3>E-commerce Analytics</h3>
+                    <p>Dashboard para análise de loja virtual com métricas de tráfego, conversão, comportamento do
+                        cliente e desempenho de produtos. Inclui funil de vendas interativo.</p>
+                    <div class="dashboard-tags">
+                        <span class="dashboard-tag"><i class="fas fa-shopping-cart"></i> E-commerce</span>
+                        <span class="dashboard-tag"><i class="fas fa-users"></i> Clientes</span>
+                        <span class="dashboard-tag"><i class="fas fa-box"></i> Produtos</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#" class="btn btn-primary"><i class="fas fa-desktop"></i> Ver Dashboard</a>
+                        <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard 5 -->
+            <div class="dashboard-card">
+                <img src="/api/placeholder/400/220" alt="Logística e Supply Chain" class="dashboard-img">
+                <div class="dashboard-content">
+                    <h3>Logística e Supply Chain</h3>
+                    <p>Análise da cadeia de suprimentos com rastreamento de entregas, níveis de estoque e performance de
+                        fornecedores. Inclui mapas interativos e análises de tempo.</p>
+                    <div class="dashboard-tags">
+                        <span class="dashboard-tag"><i class="fas fa-truck"></i> Logística</span>
+                        <span class="dashboard-tag"><i class="fas fa-boxes"></i> Estoque</span>
+                        <span class="dashboard-tag"><i class="fas fa-map-marked-alt"></i> Geo-análise</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#" class="btn btn-primary"><i class="fas fa-desktop"></i> Ver Dashboard</a>
+                        <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard 6 -->
+            <div class="dashboard-card">
+                <img src="/api/placeholder/400/220" alt="Marketing Digital" class="dashboard-img">
+                <div class="dashboard-content">
+                    <h3>Marketing Digital</h3>
+                    <p>Dashboard para análise de campanhas de marketing digital com métricas de redes sociais,
+                        investimento em mídia, ROI e performance de campanhas por canal.</p>
+                    <div class="dashboard-tags">
+                        <span class="dashboard-tag"><i class="fas fa-ad"></i> Marketing</span>
+                        <span class="dashboard-tag"><i class="fas fa-hashtag"></i> Redes Sociais</span>
+                        <span class="dashboard-tag"><i class="fas fa-funnel-dollar"></i> ROI</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#" class="btn btn-primary"><i class="fas fa-desktop"></i> Ver Dashboard</a>
+                        <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="dashboard-detail-section">
+            <div class="section-header">
+                <h2 class="section-title">Como Desenvolvo meus Dashboards</h2>
+            </div>
+
+            <div class="dashboard-detail">
+                <div class="process-steps">
+                    <div class="process-step">
+                        <h3 class="detail-title">Entendendo os Dados</h3>
+                        <p>Começo explorando o conjunto de dados para entender sua estrutura, relacionamentos e
+                            possíveis insights. Esta fase é crucial para determinar quais análises serão mais valiosas.
+                        </p>
+                    </div>
+
+                    <div class="process-step">
+                        <h3 class="detail-title">Limpeza e Transformação</h3>
+                        <p>Utilizo o Power Query para limpar, transformar e preparar os dados. Isso inclui tratamento de
+                            valores nulos, padronização de formatos e criação de relações entre tabelas.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <h3 class="detail-title">Modelagem de Dados</h3>
+                        <p>Estruturo o modelo de dados de forma eficiente, criando medidas DAX e colunas calculadas para
+                            facilitar a análise e garantir cálculos precisos dos KPIs.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <h3 class="detail-title">Design de Visualizações</h3>
+                        <p>Desenvolvo visualizações claras e interativas que comunicam efetivamente as informações mais
+                            importantes, focando na experiência do usuário e na facilidade de interpretação.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <h3 class="detail-title">Testes e Refinamento</h3>
+                        <p>Realizo testes extensivos para garantir que o dashboard funciona corretamente, é responsivo e
+                            fornece insights precisos. Faço ajustes conforme necessário para otimizar o desempenho.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre</h3>
+                <p>Especialista em TI e Dados com foco em soluções estratégicas que impulsionam o sucesso empresarial
+                    através da transformação digital.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> Sobre</a></li>
+                    <li><a href="#skills"><i class="fas fa-chevron-right"></i> Habilidades</a></li>
+                    <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projetos</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Conecte-se</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                    <li><a href="#"><i class="fab fa-medium"></i> Medium</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-medium"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2025 Seu Nome. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Gerenciamento de tema escuro/claro
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Verificar se há preferência salva
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
+            }
+
+            themeToggle.addEventListener('click', function () {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i> Modo Escuro';
+                }
+            });
+
+            // Botão voltar ao topo
+            const backToTop = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+
+            // Animação das barras de progresso
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            // Animar elementos quando entrarem no viewport
+            const animateOnScroll = function () {
+                const elements = document.querySelectorAll('[data-aos]');
+                elements.forEach(element => {
+                    if (isInViewport(element)) {
+                        element.classList.add('aos-animate');
+                    }
+                });
+
+                // Animar barras de progresso
+                const skillBars = document.querySelectorAll('.skill-bar');
+                skillBars.forEach(bar => {
+                    if (isInViewport(bar)) {
+                        bar.classList.add('active');
+                    }
+                });
+            };
+
+            // Iniciar animações
+            animateOnScroll();
+            window.addEventListener('scroll', animateOnScroll);
+        });
+    </script>
+</body>
+
+</html>

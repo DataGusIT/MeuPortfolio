@@ -1,0 +1,54 @@
+/* Adicione este código CSS */
+.project-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-buttons {
+    display: flex;
+    flex-direction: column;
+    /* Faz os botões ficarem em coluna (um embaixo do outro) */
+    gap: 10px;
+    /* Espaçamento entre os botões */
+    margin-top: 15px;
+    /* Espaço acima dos botões */
+}
+
+/* Mantenha o código existente dos botões que você compartilhou */
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--shadow);
+}
