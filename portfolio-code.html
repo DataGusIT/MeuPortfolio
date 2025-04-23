@@ -745,8 +745,12 @@
             <div class="project-showcase">
                 <div class="showcase-item">
                     <div class="showcase-media">
-                        <img src="/img/code-contatofacil.png" alt="Sistema Contato Fácil em ação" class="showcase-gif">
+                        <video class="showcase-gif" autoplay muted loop playsinline>
+                            <source src="/assets/videos/contato-facil.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeo.
+                        </video>
                     </div>
+
                     <div class="showcase-content">
                         <h3 class="showcase-title">Funcionalidades Principais</h3>
                         <p class="showcase-description">
@@ -785,10 +789,10 @@
 
             <div class="project-showcase">
                 <div class="showcase-item">
-                    <div class="showcase-media">
-                        <img src="/img/code-gestaohospitalar.png" alt="Sistema de Gestão Hospitalar em funcionamento"
-                            class="showcase-gif">
-                    </div>
+                    <video class="showcase-gif" autoplay muted loop playsinline>
+                        <source src="/assets/videos/gestao-hospitalar.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo.
+                    </video>
                     <div class="showcase-content">
                         <h3 class="showcase-title">Funcionalidades Principais</h3>
                         <p class="showcase-description">
@@ -827,9 +831,10 @@
 
             <div class="project-showcase">
                 <div class="showcase-item">
-                    <div class="showcase-media">
-                        <img src="/img/code-autismo.png" alt="Portal de Apoio ao Autismo" class="showcase-gif">
-                    </div>
+                    <video class="showcase-gif" autoplay muted loop playsinline>
+                        <source src="/assets/videos/autismo-info.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo.
+                    </video>
                     <div class="showcase-content">
                         <h3 class="showcase-title">Funcionalidades Principais</h3>
                         <p class="showcase-description">
@@ -909,9 +914,10 @@
 
             <div class="project-showcase">
                 <div class="showcase-item">
-                    <div class="showcase-media">
-                        <img src="/img/code-estacaodoces.png" alt="Estação Doces App funcionando" class="showcase-gif">
-                    </div>
+                    <video class="showcase-gif" autoplay muted loop playsinline>
+                        <source src="/assets/videos/app-desktop.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo.
+                    </video>
                     <div class="showcase-content">
                         <h3 class="showcase-title">Funcionalidades Principais</h3>
                         <p class="showcase-description">
@@ -995,11 +1001,12 @@
             <div class="footer-section">
                 <h3>Links Rápidos</h3>
                 <ul class="footer-links">
-                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
-                    <li><a href="#about"><i class="fas fa-chevron-right"></i> Sobre</a></li>
-                    <li><a href="#skills"><i class="fas fa-chevron-right"></i> Habilidades</a></li>
-                    <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projetos</a></li>
-                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                    <li><a href="index.html#home"><i class="fas fa-chevron-right"></i> Início</a></li>
+                    <li><a href="index.html#about"><i class="fas fa-chevron-right"></i> Sobre</a></li>
+                    <li><a href="index.html#skills"><i class="fas fa-chevron-right"></i> Habilidades</a></li>
+                    <li><a href="index.html#projects"><i class="fas fa-chevron-right"></i> Projetos</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                    <li><a href="portfolio-bi.html"><i class="fas fa-chevron-right"></i> Portfólio BI</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1040,6 +1047,16 @@
 
             if (!mostrarProjeto6 && projeto6) {
                 projeto6.style.display = 'none';
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            // === Lógica para exibir ou esconder detalhes do projeto 6 ===
+            const mostrarDetalheProjeto6 = false; // Mude para true se quiser exibir
+
+            const detalheProjeto6 = document.getElementById('detail-projeto6');
+
+            if (!mostrarDetalheProjeto6 && detalheProjeto6) {
+                detalheProjeto6.style.display = 'none';
             }
         });
         // Função para alternar o tema (claro/escuro)

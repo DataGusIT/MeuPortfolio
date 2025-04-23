@@ -8,6 +8,7 @@
     <link rel="icon" href="/img/favicon/powerbi.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style/index/footer.css">
+    <link rel="stylesheet" href="style/index/utilities.css">
     <style>
         :root {
             --primary: #1e3a8a;
@@ -694,11 +695,12 @@
             <div class="footer-section">
                 <h3>Links Rápidos</h3>
                 <ul class="footer-links">
-                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
-                    <li><a href="#about"><i class="fas fa-chevron-right"></i> Sobre</a></li>
-                    <li><a href="#skills"><i class="fas fa-chevron-right"></i> Habilidades</a></li>
-                    <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projetos</a></li>
-                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                    <li><a href="index.html#home"><i class="fas fa-chevron-right"></i> Início</a></li>
+                    <li><a href="index.html#about"><i class="fas fa-chevron-right"></i> Sobre</a></li>
+                    <li><a href="index.html#skills"><i class="fas fa-chevron-right"></i> Habilidades</a></li>
+                    <li><a href="index.html#projects"><i class="fas fa-chevron-right"></i> Projetos</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                    <li><a href="portfolio-code.html"><i class="fas fa-chevron-right"></i> Portfólio Code</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -713,8 +715,9 @@
         </div>
 
         <div class="social-icons">
-            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/gustavo-moreno-8a925b26a/" class="social-icon"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/DataGusIT" class="social-icon"><i class="fab fa-github"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-medium"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
         </div>
@@ -723,6 +726,10 @@
             &copy; 2025 Gustavo Moreno Souza. Todos os direitos reservados.
         </div>
     </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -804,9 +811,6 @@
                     }
                 });
             };
-
-
-
             // Iniciar animações
             animateOnScroll();
             window.addEventListener('scroll', animateOnScroll);
