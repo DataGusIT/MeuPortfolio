@@ -10,6 +10,10 @@ header {
     backdrop-filter: blur(10px);
 }
 
+.header-hidden {
+    transform: translateY(-100%);
+}
+
 .header-content {
     max-width: 1200px;
     margin: 0 auto;

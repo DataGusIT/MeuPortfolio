@@ -434,7 +434,7 @@
                     <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projetos</a></li>
                     <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
                     <li><a href="portfolio-bi.html"><i class="fas fa-chevron-right"></i> Portfólio BI</a></li>
-                    <li><a href="portfolio-code.html"><i class="fas fa-chevron-right"></i> Portfólio</a></li>
+                    <li><a href="portfolio-code.html"><i class="fas fa-chevron-right"></i> Portfólio Code</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -479,16 +479,19 @@
         const themeIcon = themeToggle.querySelector('i');
         const body = document.body;
 
+        // Modificando o texto e ícone inicial para refletir que o tema padrão agora é escuro
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
+
         themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
-            } else {
+            body.classList.toggle('light-mode');
+            if (body.classList.contains('light-mode')) {
                 themeIcon.classList.remove('fa-sun');
                 themeIcon.classList.add('fa-moon');
                 themeToggle.innerHTML = '<i class="fas fa-moon"></i> Modo Escuro';
+            } else {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
             }
         });
 
@@ -542,6 +545,38 @@
 
         skillBars.forEach(skillBar => {
             observer.observe(skillBar);
+        });
+
+        // Adicione este código ao final do seu script existente
+
+        // Header scroll behavior
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        // Função para controlar a visibilidade do header ao rolar
+        window.addEventListener('scroll', () => {
+            // Obtém a posição atual do scroll
+            const currentScrollY = window.scrollY;
+
+            // Determina a direção do scroll
+            if (currentScrollY > lastScrollY) {
+                // Rolagem para baixo - esconder o header
+                header.classList.add('header-hidden');
+            } else {
+                // Rolagem para cima - mostrar o header
+                header.classList.remove('header-hidden');
+            }
+
+            // Atualiza a posição anterior do scroll
+            lastScrollY = currentScrollY;
+        });
+
+        // Melhoramento: não esconder o header quando estiver no topo da página
+        window.addEventListener('scroll', () => {
+            if (window.scrollY === 0) {
+                // Quando estiver no topo da página, sempre mostrar o header
+                header.classList.remove('header-hidden');
+            }
         });
     </script>
 </body>

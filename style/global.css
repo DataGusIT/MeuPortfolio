@@ -1,16 +1,5 @@
 :root {
-    --primary: #1e3a8a;
-    --secondary: #2563eb;
-    --accent: #6366f1;
-    --text: #1f2937;
-    --background: #f8fafc;
-    --card-bg: #ffffff;
-    --shadow: rgba(0, 0, 0, 0.1);
-    --gradient-start: #6366f1;
-    --gradient-end: #2563eb;
-}
-
-.dark-mode {
+    /* Estes agora são os valores do tema escuro (padrão) */
     --primary: #1e293b;
     --secondary: #334155;
     --accent: #818cf8;
@@ -20,6 +9,19 @@
     --shadow: rgba(0, 0, 0, 0.5);
     --gradient-start: #4f46e5;
     --gradient-end: #3b82f6;
+}
+
+.light-mode {
+    /* Estes agora são os valores do tema claro (alternativo) */
+    --primary: #1e3a8a;
+    --secondary: #2563eb;
+    --accent: #6366f1;
+    --text: #1f2937;
+    --background: #f8fafc;
+    --card-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --gradient-start: #6366f1;
+    --gradient-end: #2563eb;
 }
 
 * {
