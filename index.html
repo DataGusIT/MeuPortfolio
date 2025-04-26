@@ -38,7 +38,7 @@
                     <li><a href="#contact"><i class="fas fa-envelope"></i> Contato</a></li>
                 </ul>
             </nav>
-            <button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i> Modo Escuro</button>
+            <button class="theme-toggle" id="theme-toggle"></button>
         </div>
     </header>
 
@@ -480,18 +480,18 @@
         const body = document.body;
 
         // Modificando o texto e ícone inicial para refletir que o tema padrão agora é escuro
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
 
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('light-mode');
             if (body.classList.contains('light-mode')) {
                 themeIcon.classList.remove('fa-sun');
                 themeIcon.classList.add('fa-moon');
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i> Modo Escuro';
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
             } else {
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
             }
         });
 
