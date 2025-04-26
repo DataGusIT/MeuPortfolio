@@ -534,6 +534,7 @@
             .theme-toggle {
                 padding: 8px 12px;
                 font-size: 0.9rem;
+                transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             }
 
             .btn-container {
@@ -1113,6 +1114,32 @@
                 }
             });
         };
+
+        // Controlar visibilidade dos botões conforme rolagem
+        let lastScrollTop = 0;
+        const backToPortfolio = document.querySelector('.back-to-portfolio');
+        const themeToggleBtn = document.querySelector('.theme-toggle');
+
+        window.addEventListener('scroll', () => {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop) {
+                // Rolando para baixo
+                if (backToPortfolio) backToPortfolio.style.opacity = '0';
+                if (themeToggleBtn) themeToggleBtn.style.opacity = '0';
+                if (backToPortfolio) backToPortfolio.style.visibility = 'hidden';
+                if (themeToggleBtn) themeToggleBtn.style.visibility = 'hidden';
+            } else {
+                // Rolando para cima
+                if (backToPortfolio) backToPortfolio.style.opacity = '1';
+                if (themeToggleBtn) themeToggleBtn.style.opacity = '1';
+                if (backToPortfolio) backToPortfolio.style.visibility = 'visible';
+                if (themeToggleBtn) themeToggleBtn.style.visibility = 'visible';
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Para não ter valor negativo
+        });
+
 
         // Executar na carga inicial e no scroll
         window.addEventListener('load', checkIfInView);

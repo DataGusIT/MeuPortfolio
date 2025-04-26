@@ -433,6 +433,11 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
+        .back-to-portfolio,
+        .theme-toggle {
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
         /* Animation classes */
         [data-aos] {
             opacity: 0;
@@ -733,27 +738,11 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // === Lógica para exibir ou esconder dashboards ===
-            const mostrarDashboard5 = false; // ou false
-            const mostrarDashboard6 = false; // ou true
-
-            const dashboard5 = document.getElementById('dashboard5')?.closest('.dashboard-card');
-            const dashboard6 = document.getElementById('dashboard6')?.closest('.dashboard-card');
-
-            if (!mostrarDashboard5 && dashboard5) {
-                dashboard5.style.display = 'none';
-            }
-
-            if (!mostrarDashboard6 && dashboard6) {
-                dashboard6.style.display = 'none';
-            }
-
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
             // Gerenciamento de tema escuro/claro
             const themeToggle = document.getElementById('theme-toggle');
+            const backToPortfolio = document.querySelector('.back-to-portfolio');
             const body = document.body;
+            let lastScrollTop = 0;
 
             // Verificar se há preferência salva
             const savedTheme = localStorage.getItem('theme');
@@ -773,10 +762,34 @@
                 }
             });
 
-            // Botão voltar ao topo
-            const backToTop = document.querySelector('.back-to-top');
+            // Controle de visibilidade dos botões ao rolar
             window.addEventListener('scroll', function () {
-                if (window.scrollY > 300) {
+                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+                // Se estiver rolando para baixo
+                if (currentScroll > lastScrollTop && currentScroll > 100) {
+                    themeToggle.style.opacity = '0';
+                    backToPortfolio.style.opacity = '0';
+                    setTimeout(() => {
+                        themeToggle.style.visibility = 'hidden';
+                        backToPortfolio.style.visibility = 'hidden';
+                    }, 300);
+                }
+                // Se estiver rolando para cima
+                else {
+                    themeToggle.style.visibility = 'visible';
+                    backToPortfolio.style.visibility = 'visible';
+                    setTimeout(() => {
+                        themeToggle.style.opacity = '1';
+                        backToPortfolio.style.opacity = '1';
+                    }, 10);
+                }
+
+                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+
+                // Botão voltar ao topo
+                const backToTop = document.querySelector('.back-to-top');
+                if (currentScroll > 300) {
                     backToTop.classList.add('active');
                 } else {
                     backToTop.classList.remove('active');
@@ -811,9 +824,25 @@
                     }
                 });
             };
+
             // Iniciar animações
             animateOnScroll();
             window.addEventListener('scroll', animateOnScroll);
+
+            // === Lógica para exibir ou esconder dashboards ===
+            const mostrarDashboard5 = false; // ou false
+            const mostrarDashboard6 = false; // ou true
+
+            const dashboard5 = document.getElementById('dashboard5')?.closest('.dashboard-card');
+            const dashboard6 = document.getElementById('dashboard6')?.closest('.dashboard-card');
+
+            if (!mostrarDashboard5 && dashboard5) {
+                dashboard5.style.display = 'none';
+            }
+
+            if (!mostrarDashboard6 && dashboard6) {
+                dashboard6.style.display = 'none';
+            }
         });
     </script>
 </body>
