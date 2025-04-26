@@ -45,22 +45,73 @@ nav ul li {
     margin-left: 1.5rem;
 }
 
+/* Estilo base aprimorado para links do menu */
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    position: relative;
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    padding: 0.5rem;
+    padding: 0.5rem 0.8rem;
     border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
+/* Efeito de hover principal */
 nav ul li a:hover {
     color: var(--accent);
     background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de sublinhado animado */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Efeito de brilho ao passar o mouse */
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    transition: left 0.7s;
+}
+
+nav ul li a:hover::before {
+    left: 100%;
+    transition: left 0.7s;
+}
+
+/* Efeito nos ícones */
+nav ul li a i {
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover i {
+    transform: scale(1.2) rotate(5deg);
+    color: var(--accent);
 }
 
 .theme-toggle {
