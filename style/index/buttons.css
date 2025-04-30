@@ -5,13 +5,21 @@
 }
 
 .project-buttons {
+    margin-top: auto;
+    /* Isso alinha os botões na parte inferior */
     display: flex;
     flex-direction: column;
-    /* Faz os botões ficarem em coluna (um embaixo do outro) */
+    /* ou row, se preferir lado a lado */
     gap: 10px;
-    /* Espaçamento entre os botões */
-    margin-top: 15px;
-    /* Espaço acima dos botões */
+}
+
+.education-buttons {
+    margin-top: auto;
+    /* Isso alinha os botões na parte inferior */
+    display: flex;
+    flex-direction: column;
+    /* ou row, se preferir lado a lado */
+    gap: 10px;
 }
 
 /* Mantenha o código existente dos botões que você compartilhou */
@@ -51,4 +59,27 @@
     color: white;
     transform: translateY(-5px);
     box-shadow: 0 5px 15px var(--shadow);
+}
+
+.btn-timeline {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    letter-spacing: 0.3px;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.btn-timeline:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.6);
 }

@@ -1,22 +1,33 @@
-/* Media Queries */
 @media (max-width: 992px) {
+    .education-timeline {
+        padding: 0 1rem;
+    }
+
     .education-timeline::after {
-        left: 31px;
+        left: 20px;
     }
 
     .timeline-item {
         width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
+        padding-left: 50px;
+        padding-right: 20px;
         text-align: left;
     }
 
     .timeline-item::after {
-        left: 21px;
+        left: 12px;
     }
 
+    .left,
     .right {
-        left: 0;
+        left: 0 !important;
+        text-align: left !important;
+    }
+
+    .left::after,
+    .right::after {
+        left: 12px;
+        right: auto;
     }
 }
 
@@ -77,5 +88,17 @@
     .footer-section h3::after {
         left: 25%;
         width: 50%;
+    }
+}
+
+/* Esconde o botão de tema no mobile */
+@media (max-width: 768px) {
+    .theme-toggle {
+        display: none;
+    }
+
+    nav.active .theme-toggle {
+        display: flex;
+        margin: 1rem auto;
     }
 }

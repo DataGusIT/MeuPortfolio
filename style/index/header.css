@@ -179,3 +179,10 @@ nav ul li a:hover i {
     font-size: 1.5rem;
     cursor: pointer;
 }
+
+#main-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
