@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio de Análise de Dados</title>
+    <link rel="icon" href="/api/placeholder/32/32" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style/index/footer.css">
+    <link rel="stylesheet" href="style/index/utilities.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #2563eb;
+            --accent: #6366f1;
+            --text: #1f2937;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --gradient-start: #6366f1;
+            --gradient-end: #2563eb;
+        }
+
+        .dark-mode {
+            --primary: #1e293b;
+            --secondary: #334155;
+            --accent: #818cf8;
+            --text: #f1f5f9;
+            --background: #0f172a;
+            --card-bg: #1e293b;
+            --shadow: rgba(0, 0, 0, 0.5);
+            --gradient-start: #4f46e5;
+            --gradient-end: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Animação de dados */
+        .data-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .data-viz {
+            position: absolute;
+            opacity: 0.7;
+            animation: float-element 6s infinite ease-in-out;
+        }
+
+        @keyframes float-element {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(2deg);
+            }
+        }
+
+        .chart-bar {
+            fill: rgba(255, 255, 255, 0.8);
+            transition: height 0.5s;
+        }
+
+        .chart-line {
+            stroke: rgba(255, 255, 255, 0.8);
+            stroke-width: 2;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 5s linear forwards infinite;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .data-point {
+            fill: rgba(255, 255, 255, 0.9);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .pie-segment {
+            animation: fade-in 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fade-in {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .viz-1 {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0.5s;
+        }
+
+        .viz-2 {
+            top: 65%;
+            left: 15%;
+            animation-delay: 1s;
+        }
+
+        .viz-3 {
+            top: 15%;
+            right: 8%;
+            animation-delay: 1.5s;
+        }
+
+        .viz-4 {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .viz-5 {
+            top: 40%;
+            left: 50%;
+            animation-delay: 0s;
+            transform: translateX(-50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .intro h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            bottom: 0;
+            left: 20%;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            border-radius: 2px;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .tech-badge {
+            background-color: var(--card-bg);
+            color: var(--accent);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 5px var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .tech-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            position: relative;
+            color: var(--accent);
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            bottom: 0;
+            left: 20%;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            border-radius: 2px;
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 40px 20px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .coming-soon h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .coming-soon p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            height: 20px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            width: 75%;
+            transition: width 1s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(-45deg,
+                    rgba(255, 255, 255, 0.2) 25%,
+                    transparent 25%,
+                    transparent 50%,
+                    rgba(255, 255, 255, 0.2) 50%,
+                    rgba(255, 255, 255, 0.2) 75%,
+                    transparent 75%,
+                    transparent);
+            background-size: 50px 50px;
+            animation: progress-animation 2s linear infinite;
+            overflow: hidden;
+        }
+
+        @keyframes progress-animation {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        .game-container {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px var(--shadow);
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .game-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .game-container h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .game-container p {
+            margin-bottom: 20px;
+        }
+
+        #game-canvas {
+            background-color: rgba(56, 189, 248, 0.05);
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+            border: 2px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .game-instructions {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        .game-score {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: var(--accent);
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin: 10px 5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.6);
+        }
+
+        .newsletter {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px var(--shadow);
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: center;
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .newsletter h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .newsletter p {
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .newsletter-input {
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            background-color: var(--background);
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+            outline: none;
+        }
+
+        .back-to-portfolio {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-portfolio:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        [data-aos] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        [data-aos].aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .back-to-portfolio,
+            .theme-toggle {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/index.html" class="back-to-portfolio">
+        <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+    </a>
+
+    <header>
+        <!-- Camada de animação de dados -->
+        <div class="data-bg">
+            <!-- Gráfico de barras -->
+            <svg class="data-viz viz-1" width="120" height="80" viewBox="0 0 120 80">
+                <rect class="chart-bar" x="10" y="20" width="15" height="60" rx="2"></rect>
+                <rect class="chart-bar" x="35" y="10" width="15" height="70" rx="2"></rect>
+                <rect class="chart-bar" x="60" y="30" width="15" height="50" rx="2"></rect>
+                <rect class="chart-bar" x="85" y="5" width="15" height="75" rx="2"></rect>
+            </svg>
+
+            <!-- Gráfico de linha -->
+            <svg class="data-viz viz-2" width="150" height="100" viewBox="0 0 150 100">
+                <path class="chart-line" d="M10,80 Q30,20 50,70 T90,40 T130,60"></path>
+                <circle class="data-point" cx="10" cy="80" r="3"></circle>
+                <circle class="data-point" cx="50" cy="70" r="3"></circle>
+                <circle class="data-point" cx="90" cy="40" r="3"></circle>
+                <circle class="data-point" cx="130" cy="60" r="3"></circle>
+            </svg>
+
+            <!-- Gráfico de pizza -->
+            <svg class="data-viz viz-3" width="100" height="100" viewBox="0 0 100 100">
+                <path class="pie-segment" d="M50,50 L50,10 A40,40 0 0,1 87,73 z" fill="rgba(255,255,255,0.8)"
+                    style="animation-delay: 0.2s"></path>
+                <path class="pie-segment" d="M50,50 L87,73 A40,40 0 0,1 13,73 z" fill="rgba(255,255,255,0.7)"
+                    style="animation-delay: 0.4s"></path>
+                <path class="pie-segment" d="M50,50 L13,73 A40,40 0 0,1 50,10 z" fill="rgba(255,255,255,0.9)"
+                    style="animation-delay: 0.6s"></path>
+            </svg>
+
+            <!-- Scatter plot -->
+            <svg class="data-viz viz-4" width="120" height="80" viewBox="0 0 120 80">
+                <circle class="data-point" cx="20" cy="30" r="4" style="animation-delay: 0.2s"></circle>
+                <circle class="data-point" cx="40" cy="60" r="3" style="animation-delay: 0.4s"></circle>
+                <circle class="data-point" cx="70" cy="20" r="5" style="animation-delay: 0.6s"></circle>
+                <circle class="data-point" cx="95" cy="45" r="4" style="animation-delay: 0.8s"></circle>
+                <circle class="data-point" cx="60" cy="70" r="3" style="animation-delay: 1s"></circle>
+            </svg>
+
+            <!-- Dashboard central -->
+            <svg class="data-viz viz-5" width="180" height="120" viewBox="0 0 180 120">
+                <rect x="10" y="10" width="160" height="100" rx="5" fill="rgba(255,255,255,0.2)"></rect>
+
+                <!-- Gráfico de barras dentro do dashboard -->
+                <rect class="chart-bar" x="20" y="30" width="8" height="70" rx="1"
+                    style="animation-delay: 0.3s; transform-origin: bottom"></rect>
+                <rect class="chart-bar" x="35" y="45" width="8" height="55" rx="1"
+                    style="animation-delay: 0.6s; transform-origin: bottom"></rect>
+                <rect class="chart-bar" x="50" y="60" width="8" height="40" rx="1"
+                    style="animation-delay: 0.9s; transform-origin: bottom"></rect>
+
+                <!-- Linha de tendência no dashboard -->
+                <path class="chart-line" d="M75,90 L95,60 L115,70 L135,40" style="animation-delay: 1.2s"></path>
+                <circle class="data-point" cx="75" cy="90" r="2" style="animation-delay: 1.5s"></circle>
+                <circle class="data-point" cx="95" cy="60" r="2" style="animation-delay: 1.8s"></circle>
+                <circle class="data-point" cx="115" cy="70" r="2" style="animation-delay: 2.1s"></circle>
+                <circle class="data-point" cx="135" cy="40" r="2" style="animation-delay: 2.4s"></circle>
+
+                <!-- Detalhes adicionais ao dashboard -->
+                <rect x="20" y="20" width="50" height="5" rx="1" fill="rgba(255,255,255,0.5)"></rect>
+                <rect x="75" y="20" width="30" height="5" rx="1" fill="rgba(255,255,255,0.5)"></rect>
+                <rect x="75" y="30" width="50" height="2" rx="1" fill="rgba(255,255,255,0.3)"></rect>
+            </svg>
+        </div>
+
+        <div class="header-content">
+            <h1>Meu Portfólio de Análise de Dados</h1>
+            <p>Transformando dados brutos em insights valiosos através da ciência de dados</p>
+            <button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i> Modo Escuro</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <h2>Minha Jornada com Dados</h2>
+            <p>Olá! Bem-vindo ao meu portfólio de Análise de Dados. Como estudante entusiasta de ciência de dados, estou
+                explorando o fascinante mundo da análise e visualização de informações.</p>
+            <p>Esta página está em desenvolvimento enquanto trabalho nos meus primeiros projetos. Aqui você poderá
+                acompanhar minha evolução e ver como transformo dados em conhecimento através de técnicas analíticas e
+                ferramentas modernas.</p>
+
+            <div class="tech-stack">
+                <div class="tech-badge"><i class="fas fa-brain"></i> Machine Learning</div>
+                <div class="tech-badge"><i class="fas fa-database"></i> SQL</div>
+                <div class="tech-badge"><i class="fab fa-python"></i> Python</div>
+                <div class="tech-badge"><i class="fas fa-chart-bar"></i> Visualização de Dados</div>
+                <div class="tech-badge"><i class="fas fa-table"></i> Excel/Google Sheets</div>
+                <div class="tech-badge"><i class="fas fa-chart-line"></i> Tableau</div>
+                <div class="tech-badge"><i class="fas fa-chart-pie"></i> Power BI</div>
+            </div>
+        </section>
+
+        <div class="coming-soon" data-aos="fade-up">
+            <div class="section-header">
+                <h2 class="section-title">Em Desenvolvimento</h2>
+            </div>
+
+            <h3><i class="fas fa-code-branch"></i> Projetos em Construção</h3>
+            <p>Estou atualmente trabalhando em meus primeiros projetos de análise de dados, aplicando conceitos e
+                técnicas que venho aprendendo. Em breve, esta seção será preenchida com análises detalhadas,
+                visualizações interativas e insights de diversos conjuntos de dados.</p>
+
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 35%"></div>
+            </div>
+
+            <p>Volte em breve para conferir as novidades! Enquanto isso, que tal se divertir com um mini-jogo de dados
+                abaixo?</p>
+        </div>
+
+        <div class="game-container" data-aos="fade-up">
+            <h3><i class="fas fa-gamepad"></i> Data Breaker</h3>
+            <p>Enquanto os projetos estão em desenvolvimento, divirta-se com este mini-jogo inspirado em análise de
+                dados!</p>
+
+            <div class="game-score">Pontuação: <span id="score">0</span></div>
+
+            <canvas id="game-canvas" width="400" height="300"></canvas>
+
+            <div class="game-instructions">
+                <p>Use as setas ← e → para mover a barra. Destrua todos os blocos para vencer!</p>
+                <button id="start-game" class="btn btn-primary"><i class="fas fa-play"></i> Iniciar Jogo</button>
+                <button id="pause-game" class="btn btn-primary" style="display:none"><i class="fas fa-pause"></i>
+                    Pausar</button>
+            </div>
+        </div>
+
+        <div class="newsletter" data-aos="fade-up">
+            <h3><i class="fas fa-envelope-open-text"></i> Seja Notificado</h3>
+            <p>Deixe seu e-mail para ser avisado quando novos projetos forem adicionados ao portfólio!</p>
+
+            <div class="newsletter-form">
+                <input type="email" placeholder="Seu melhor e-mail" class="newsletter-input">
+                <button class="btn btn-primary"><i class="fas fa-paper-plane"></i> Inscrever-se</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre</h3>
+                <p>Estudante de TI e Dados com foco em soluções estratégicas que impulsionam o sucesso empresarial
+                    através da transformação digital.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html#home"><i class="fas fa-chevron-right"></i> Início</a></li>
+                    <li><a href="index.html#about"><i class="fas fa-chevron-right"></i> Sobre</a></li>
+                    <li><a href="index.html#skills"><i class="fas fa-chevron-right"></i> Habilidades</a></li>
+                    <li><a href="index.html#projects"><i class="fas fa-chevron-right"></i> Projetos</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                    <li><a href="portfolio-code.html"><i class="fas fa-chevron-right"></i> Portfólio Code</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Conecte-se</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.linkedin.com/in/gustavo-moreno-8a925b26a/"><i class="fab fa-linkedin"></i>
+                            LinkedIn</a></li>
+                    <li><a href="https://github.com/DataGusIT"><i class="fab fa-github"></i> GitHub</a></li>
+                    <!-- <li><a href="#"><i class="fab fa-medium"></i> Medium</a></li> -->
+                    <li><a href="https://www.instagram.com/imguxtavo_/"><i class="fab fa-instagram"></i>
+                            instagram</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/gustavo-moreno-8a925b26a/" class="social-icon"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/DataGusIT" class="social-icon"><i class="fab fa-github"></i></a>
+            <!-- <a href="#" class="social-icon"><i class="fab fa-medium"></i></a> -->
+            <a href="https://www.instagram.com/imguxtavo_/" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2025 Gustavo Moreno Souza. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Alternância de tema (modo claro/escuro)
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            // Atualiza o ícone e texto do botão
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i> Modo Escuro';
+            }
+
+            // Salva a preferência do usuário
+            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+
+        // Aplica o tema salvo ao carregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
+            }
+        });
+
+
+        // Botão "Voltar ao topo"
+        const backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animação de elementos na página
+        const animateElements = document.querySelectorAll('[data-aos]');
+
+        const checkIfInView = () => {
+            animateElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('aos-animate');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', checkIfInView);
+        window.addEventListener('load', checkIfInView);
+
+        // Mini-jogo Data Breaker
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d');
+        const startButton = document.getElementById('start-game');
+        const pauseButton = document.getElementById('pause-game');
+        const scoreElement = document.getElementById('score');
+
+        // Configurações do jogo
+        const game = {
+            running: false,
+            paused: false,
+            score: 0,
+            lives: 3,
+            level: 1,
+            brickRowCount: 4,
+            brickColumnCount: 6,
+            brickWidth: 50,
+            brickHeight: 20,
+            brickPadding: 10,
+            brickOffsetTop: 50,
+            brickOffsetLeft: 30,
+            ballRadius: 8,
+            paddleHeight: 10,
+            paddleWidth: 80,
+            dx: 3,
+            dy: -3,
+            colors: ['#38bdf8', '#0ea5e9', '#0284c7', '#0369a1']
+        };
+
+        let ball = {
+            x: canvas.width / 2,
+            y: canvas.height - 30,
+            dx: game.dx,
+            dy: game.dy
+        };
+
+        let paddle = {
+            x: (canvas.width - game.paddleWidth) / 2,
+            y: canvas.height - game.paddleHeight - 10,
+            width: game.paddleWidth,
+            height: game.paddleHeight,
+            dx: 8
+        };
+
+        // Criar blocos
+        let bricks = [];
+
+        function createBricks() {
+            bricks = [];
+            for (let c = 0; c < game.brickColumnCount; c++) {
+                bricks[c] = [];
+                for (let r = 0; r < game.brickRowCount; r++) {
+                    bricks[c][r] = {
+                        x: 0,
+                        y: 0,
+                        status: 1,
+                        color: game.colors[r % game.colors.length],
+                        points: (game.brickRowCount - r) * 10
+                    };
+                }
+            }
+        }
+
+        // Eventos de teclado
+        let rightPressed = false;
+        let leftPressed = false;
+
+        document.addEventListener('keydown', keyDownHandler);
+        document.addEventListener('keyup', keyUpHandler);
+
+        function keyDownHandler(e) {
+            if (e.key === 'Right' || e.key === 'ArrowRight') {
+                rightPressed = true;
+            } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
+                leftPressed = true;
+            }
+        }
+
+        function keyUpHandler(e) {
+            if (e.key === 'Right' || e.key === 'ArrowRight') {
+                rightPressed = false;
+            } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
+                leftPressed = false;
+            }
+        }
+
+        // Desenhar elementos
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, game.ballRadius, 0, Math.PI * 2);
+            ctx.fillStyle = game.colors[0];
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawPaddle() {
+            ctx.beginPath();
+            ctx.rect(paddle.x, paddle.y, paddle.width, paddle.height);
+            ctx.fillStyle = game.colors[2];
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawBricks() {
+            for (let c = 0; c < game.brickColumnCount; c++) {
+                for (let r = 0; r < game.brickRowCount; r++) {
+                    if (bricks[c][r].status === 1) {
+                        const brickX = c * (game.brickWidth + game.brickPadding) + game.brickOffsetLeft;
+                        const brickY = r * (game.brickHeight + game.brickPadding) + game.brickOffsetTop;
+
+                        bricks[c][r].x = brickX;
+                        bricks[c][r].y = brickY;
+
+                        ctx.beginPath();
+                        ctx.rect(brickX, brickY, game.brickWidth, game.brickHeight);
+                        ctx.fillStyle = bricks[c][r].color;
+                        ctx.fill();
+                        ctx.closePath();
+                    }
+                }
+            }
+        }
+
+        // Detectar colisões
+        function collisionDetection() {
+            for (let c = 0; c < game.brickColumnCount; c++) {
+                for (let r = 0; r < game.brickRowCount; r++) {
+                    const b = bricks[c][r];
+
+                    if (b.status === 1) {
+                        if (
+                            ball.x > b.x &&
+                            ball.x < b.x + game.brickWidth &&
+                            ball.y > b.y &&
+                            ball.y < b.y + game.brickHeight
+                        ) {
+                            ball.dy = -ball.dy;
+                            b.status = 0;
+                            game.score += b.points;
+                            scoreElement.textContent = game.score;
+
+                            // Verificar vitória
+                            checkWin();
+                        }
+                    }
+                }
+            }
+        }
+
+        function checkWin() {
+            let bricksRemaining = 0;
+
+            for (let c = 0; c < game.brickColumnCount; c++) {
+                for (let r = 0; r < game.brickRowCount; r++) {
+                    if (bricks[c][r].status === 1) {
+                        bricksRemaining++;
+                    }
+                }
+            }
+
+            if (bricksRemaining === 0) {
+                game.level++;
+                game.running = false;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.font = '20px Arial';
+                ctx.fillStyle = 'var(--accent)';
+                ctx.textAlign = 'center';
+                ctx.fillText(`Parabéns! Você completou o nível ${game.level - 1}!`, canvas.width / 2, canvas.height / 2);
+                ctx.fillText(`Pontuação: ${game.score}`, canvas.width / 2, canvas.height / 2 + 30);
+
+                startButton.style.display = 'inline-block';
+                pauseButton.style.display = 'none';
+
+                // Aumentar dificuldade para o próximo nível
+                game.brickRowCount = Math.min(game.brickRowCount + 1, 6);
+                ball.dx = game.dx * (1 + game.level * 0.1);
+                ball.dy = game.dy * (1 + game.level * 0.1);
+            }
+        }
+
+        // Loop principal do jogo
+        function draw() {
+            if (!game.running || game.paused) {
+                return;
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            drawBricks();
+            drawBall();
+            drawPaddle();
+            collisionDetection();
+
+            // Colisão com paredes
+            if (ball.x + ball.dx > canvas.width - game.ballRadius || ball.x + ball.dx < game.ballRadius) {
+                ball.dx = -ball.dx;
+            }
+
+            // Colisão com teto
+            if (ball.y + ball.dy < game.ballRadius) {
+                ball.dy = -ball.dy;
+            }
+            // Colisão com paddle ou game over
+            else if (ball.y + ball.dy > canvas.height - game.ballRadius - paddle.height) {
+                if (ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
+                    // Alterar ângulo baseado em onde a bola atingiu o paddle
+                    const hitPoint = (ball.x - (paddle.x + paddle.width / 2)) / (paddle.width / 2);
+                    ball.dx = hitPoint * 5; // Altera o ângulo baseado na posição do hit
+                    ball.dy = -ball.dy;
+                } else if (ball.y + ball.dy > canvas.height - game.ballRadius) {
+                    // Game over
+                    game.running = false;
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.font = '20px Arial';
+                    ctx.fillStyle = 'var(--accent)';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Game Over!', canvas.width / 2, canvas.height / 2);
+                    ctx.fillText(`Pontuação final: ${game.score}`, canvas.width / 2, canvas.height / 2 + 30);
+
+                    startButton.style.display = 'inline-block';
+                    pauseButton.style.display = 'none';
+
+                    // Resetar para o primeiro nível
+                    game.level = 1;
+                    game.score = 0;
+                    scoreElement.textContent = 0;
+                    return;
+                }
+            }
+
+            // Mover paddle
+            if (rightPressed && paddle.x < canvas.width - paddle.width) {
+                paddle.x += paddle.dx;
+            } else if (leftPressed && paddle.x > 0) {
+                paddle.x -= paddle.dx;
+            }
+
+            // Mover bola
+            ball.x += ball.dx;
+            ball.y += ball.dy;
+
+            requestAnimationFrame(draw);
+        }
+
+        // Iniciar jogo
+        startButton.addEventListener('click', () => {
+            game.running = true;
+            ball = {
+                x: canvas.width / 2,
+                y: canvas.height - 30,
+                dx: game.dx * (1 + (game.level - 1) * 0.1),
+                dy: game.dy * (1 + (game.level - 1) * 0.1)
+            };
+            paddle = {
+                x: (canvas.width - game.paddleWidth) / 2,
+                y: canvas.height - game.paddleHeight - 10,
+                width: game.paddleWidth,
+                height: game.paddleHeight,
+                dx: 8
+            };
+            createBricks();
+            startButton.style.display = 'none';
+            pauseButton.style.display = 'inline-block';
+            draw();
+        });
+
+        // Pausar/Continuar jogo
+        pauseButton.addEventListener('click', () => {
+            game.paused = !game.paused;
+            if (game.paused) {
+                pauseButton.innerHTML = '<i class="fas fa-play"></i> Continuar';
+            } else {
+                pauseButton.innerHTML = '<i class="fas fa-pause"></i> Pausar';
+                draw();
+            }
+        });
+
+        // Inicializar o jogo
+        createBricks();
+        ctx.font = '16px Arial';
+        ctx.fillStyle = 'var(--accent)';
+        ctx.textAlign = 'center';
+        ctx.fillText('Clique em "Iniciar Jogo" para começar!', canvas.width / 2, canvas.height / 2);
+    </script>
+</body>
+
+</html>

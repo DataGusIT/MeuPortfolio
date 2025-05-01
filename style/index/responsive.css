@@ -1,16 +1,3 @@
-/* Correções Globais de Responsividade */
-@media (max-width: 1200px) {
-
-    /* Ajustes gerais de padding e margin em telas médias */
-    section {
-        padding: 4rem 2rem;
-    }
-
-    .container {
-        padding: 0 1.5rem;
-    }
-}
-
 @media (max-width: 992px) {
 
     /* Ajustes para tablets e telas menores */
