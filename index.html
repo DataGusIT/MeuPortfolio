@@ -35,7 +35,7 @@
                     <li><a href="#about"><i class="fas fa-user"></i> Sobre</a></li>
                     <li><a href="#skills"><i class="fas fa-chart-line"></i> Habilidades</a></li>
                     <li><a href="#projects"><i class="fas fa-laptop-code"></i> Projetos</a></li>
-                    <li><a href="#education"><i class="fas fa-graduation-cap"></i> Formação</a></li>
+                    <li><a href="#formacao"><i class="fas fa-graduation-cap"></i> Formação e Certificados</a></li>
                     <li><a href="#contact"><i class="fas fa-envelope"></i> Contato</a></li>
                 </ul>
                 <button class="theme-toggle" id="theme-toggle"></button>
@@ -53,8 +53,8 @@
                 <div class="skill-tag"><i class="fas fa-code"></i> Programação</div>
                 <div class="skill-tag"><i class="fas fa-database"></i> Dados</div>
                 <div class="skill-tag"><i class="fas fa-laptop-code"></i> Desenvolvimento Web</div>
-                <div class="skill-tag"><i class="fas fa-server"></i> Redes</div>
-                <div class="skill-tag"><i class="fas fa-shield-alt"></i> Cibersegurança</div>
+                <div class="skill-tag"><i class="fas fa-chart-line"></i> Data Analytics</div>
+                <div class="skill-tag"><i class="fas fa-lightbulb"></i> Business Intelligence</div>
             </div>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary"><i class="fas fa-comment"></i> Bora Trocar Ideia</a>
@@ -270,7 +270,7 @@
                     <div class="project-content">
                         <h3>Coleção de Dashboards Power BI</h3>
                         <p>Desenvolvi uma série de dashboards interativos usando Power BI para análise de dados em
-                            diferentes contextos como vendas, finanças, RH e marketing. Adquiri estas habilidades
+                            diferentes contextos como vendas, finanças, RH e produção. Adquiri estas habilidades
                             através de cursos online.</p>
                         <div class="project-tags">
                             <span class="project-tag"><i class="fas fa-chart-bar"></i> Power BI</span>
@@ -288,9 +288,9 @@
                 <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <img src="/img/dados-analise.jpg" alt="Análise de Dados do Spotify" class="project-img">
                     <div class="project-content">
-                        <h3>Análise de Dados do Spotify</h3>
-                        <p>Projeto de análise dos meus dados de streaming usando Python e bibliotecas de visualização.
-                            Descobri padrões interessantes sobre meus hábitos musicais!</p>
+                        <h3>Projetos de Análise de Dados</h3>
+                        <p>Atualmente estou desenvolvendo projetos de análise de dados utilizando Python e bibliotecas
+                            como Pandas, Matplotlib, Seaborn e NumPY.</p>
                         <div class="project-tags">
                             <span class="project-tag"><i class="fab fa-python"></i> Python</span>
                             <span class="project-tag"><i class="fas fa-chart-bar"></i> Pandas</span>
@@ -498,8 +498,8 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Sobre</h3>
-                <p>Estudante de TI e Dados com foco em soluções estratégicas que impulsionam o sucesso empresarial
-                    através da transformação digital.</p>
+                <p>Estudante de TI com interesse em análise de dados e desenvolvimento. Buscando aprender na prática e
+                    construir projetos que me ajudem a ganhar experiência e crescer na área de tecnologia.</p>
             </div>
             <div class="footer-section">
                 <h3>Links Rápidos</h3>
@@ -654,6 +654,295 @@
             if (window.scrollY === 0) {
                 // Quando estiver no topo da página, sempre mostrar o header
                 header.classList.remove('header-hidden');
+            }
+        });
+
+        /* JavaScript para ativar as animações no scroll */
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // Script para animar elementos e ativar efeitos tech
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animação ao rolar a página
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Adicionar efeito de digitação ao título principal
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                heroTitle.classList.add('typing-text');
+            }
+
+
+
+            // Adicionar efeito de destaque aos títulos de seção
+            const sectionTitles = document.querySelectorAll('.section-title');
+            sectionTitles.forEach(title => {
+                title.classList.add('header-highlight');
+            });
+
+
+            // Adicionar efeito de carregamento às barras de habilidades
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach(skillBar => {
+                skillBar.classList.add('skill-loading');
+            });
+
+            // Adicionar efeito de matrix-bg a elementos
+            const aboutSection = document.querySelector('#about');
+            if (aboutSection) {
+                aboutSection.classList.add('matrix-bg');
+            }
+
+            // Adicionar efeito de zoom às imagens de projeto
+            const projectImages = document.querySelectorAll('.project-img');
+            projectImages.forEach(img => {
+                img.classList.add('zoom-scan');
+            });
+
+            // Adicionar efeito de tech-focus aos ícones
+            const allIcons = document.querySelectorAll('.fas, .fab');
+            allIcons.forEach(icon => {
+                icon.classList.add('tech-focus');
+            });
+
+            // Adicionar efeito de glitch ao logo e títulos importantes
+            const logo = document.querySelector('.logo');
+            if (logo) {
+                logo.classList.add('glitch-text');
+            }
+
+            // Adicionar efeito de data-flow aos cards de formação
+            const educationCards = document.querySelectorAll('.education-card');
+            educationCards.forEach(card => {
+                card.classList.add('data-flow');
+            });
+
+            // Partículas interativas de fundo (efeito avançado)
+            createParticleBackground();
+        });
+
+        // Função para criar o efeito de partículas no fundo
+        function createParticleBackground() {
+            // Criar o canvas apenas se o elemento #particles-js não existir
+            if (!document.getElementById('particles-js')) {
+                const particlesContainer = document.createElement('div');
+                particlesContainer.id = 'particles-js';
+                particlesContainer.style.position = 'fixed';
+                particlesContainer.style.top = '0';
+                particlesContainer.style.left = '0';
+                particlesContainer.style.width = '100%';
+                particlesContainer.style.height = '100%';
+                particlesContainer.style.zIndex = '-2';
+                particlesContainer.style.pointerEvents = 'none';
+                document.body.prepend(particlesContainer);
+
+                // Adicionar script particles.js (verificando se já não foi carregado)
+                if (!window.particlesJS) {
+                    const script = document.createElement('script');
+                    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js';
+                    script.onload = initParticles;
+                    document.head.appendChild(script);
+                } else {
+                    initParticles();
+                }
+            }
+        }
+
+        // Configuração para as partículas
+        function initParticles() {
+            if (window.particlesJS) {
+                window.particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 40,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#00a8ff"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 5
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.3,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": false,
+                                "speed": 40,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#00a8ff",
+                            "opacity": 0.2,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": false,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 0.5
+                                }
+                            },
+                            "bubble": {
+                                "distance": 400,
+                                "size": 40,
+                                "duration": 2,
+                                "opacity": 8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 200,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "remove": {
+                                "particles_nb": 2
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+        }
+
+        // Efeito de brilho em textos importantes
+        function applyTextShine() {
+            const shineElements = document.querySelectorAll('.highlight');
+
+            shineElements.forEach(element => {
+                // Guardar o texto original
+                const originalText = element.textContent;
+                // Limpar o conteúdo
+                element.innerHTML = '';
+
+                // Criar uma span com o efeito de brilho
+                const shineSpan = document.createElement('span');
+                shineSpan.classList.add('shine-text');
+                shineSpan.textContent = originalText;
+
+                // Adicionar de volta ao elemento
+                element.appendChild(shineSpan);
+            });
+        }
+
+        // Efeito de digitação para texto de hero
+        function typeWriterEffect(element, text, speed = 50, delay = 1000) {
+            if (!element) return;
+
+            // Limpar o texto existente
+            element.textContent = '';
+
+            // Esperar o delay inicial
+            setTimeout(() => {
+                let i = 0;
+                const typing = setInterval(() => {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(typing);
+                        // Adicionar cursor piscando no final
+                        element.classList.add('typing-cursor');
+                    }
+                }, speed);
+            }, delay);
+        }
+
+        // Iniciar o efeito de digitação após a página carregar
+        window.addEventListener('load', function () {
+            // Aplicar efeito de brilho após um pequeno delay
+            setTimeout(applyTextShine, 500);
+
+            // Aplicar efeito de revelação gradual a todos elementos com a classe
+            document.querySelectorAll('.reveal-content').forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.2}s`;
+            });
+
+            // Adicionar efeito de digitação ao subtítulo do hero
+            const heroSubtitle = document.querySelector('.hero p');
+            if (heroSubtitle) {
+                const originalText = heroSubtitle.textContent;
+                typeWriterEffect(heroSubtitle, originalText, 30, 1200);
             }
         });
     </script>

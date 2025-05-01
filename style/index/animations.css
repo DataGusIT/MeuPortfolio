@@ -1,3 +1,4 @@
+/* Animações existentes */
 @keyframes shine {
     0% {
         transform: translateX(-100%);
@@ -24,4 +25,440 @@
 
 .float-animation {
     animation: float 5s ease-in-out infinite;
+}
+
+/* Novas animações tech */
+
+/* Glitch effect para textos */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+        text-shadow: -0.5px -0.5px 0 rgba(0, 255, 255, 0.75),
+            0.5px 0.5px 0 rgba(255, 0, 255, 0.75);
+    }
+
+    25% {
+        transform: translate(-1px, 0);
+        text-shadow: 1px 0px 0 rgba(0, 255, 255, 0.75),
+            -1px 0px 0 rgba(255, 0, 255, 0.75);
+    }
+
+    50% {
+        transform: translate(0, 1px);
+        text-shadow: 2px 0px 0 rgba(0, 255, 255, 0.75),
+            -2px 0px 0 rgba(255, 0, 255, 0.75);
+    }
+
+    75% {
+        transform: translate(2px, -1px);
+        text-shadow: -1px 0px 0 rgba(0, 255, 255, 0.75),
+            1px 0px 0 rgba(255, 0, 255, 0.75);
+    }
+
+    100% {
+        transform: translate(0);
+        text-shadow: -0.5px -0.5px 0 rgba(0, 255, 255, 0.75),
+            0.5px 0.5px 0 rgba(255, 0, 255, 0.75);
+    }
+}
+
+.glitch-text {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.glitch-text:hover {
+    animation: glitch 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+/* Pulse effect para botões e skills */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(32, 152, 209, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(32, 152, 209, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(32, 152, 209, 0);
+    }
+}
+
+.pulse-effect {
+    animation: pulse 2s infinite;
+}
+
+/* Efeito de partículas digitais */
+@keyframes digital-rain {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+.digital-rain {
+    position: relative;
+    overflow: hidden;
+}
+
+.digital-rain::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(32, 152, 209, 0.2) 100%);
+    background-size: 100% 1000%;
+    z-index: -1;
+    animation: digital-rain 15s linear infinite;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.digital-rain:hover::before {
+    opacity: 1;
+}
+
+/* Efeito de dados se movendo (data flow) */
+@keyframes data-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.data-flow {
+    position: relative;
+    overflow: hidden;
+}
+
+.data-flow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+            rgba(33, 33, 33, 0) 0%,
+            rgba(32, 152, 209, 0.1) 50%,
+            rgba(33, 33, 33, 0) 100%);
+    background-size: 200% 100%;
+    animation: data-flow 3s ease infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Efeito de foco em ícones */
+@keyframes tech-focus {
+    0% {
+        filter: drop-shadow(0 0 0 rgba(32, 152, 209, 0.8));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 8px rgba(32, 152, 209, 0.8));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 0 rgba(32, 152, 209, 0.8));
+    }
+}
+
+.tech-focus {
+    transition: all 0.3s ease;
+}
+
+.tech-focus:hover {
+    animation: tech-focus 2s ease infinite;
+    transform: scale(1.1);
+}
+
+/* Efeito de digitação para textos */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: var(--accent-color)
+    }
+}
+
+.typing-text {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation:
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+    border-right: .15em solid var(--accent-color);
+}
+
+/* Efeito de scanner para cards */
+@keyframes scanner {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.scanner-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.scanner-effect::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg,
+            rgba(32, 152, 209, 0) 0%,
+            rgba(32, 152, 209, 0.8) 50%,
+            rgba(32, 152, 209, 0) 100%);
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.scanner-effect:hover::after {
+    animation: scanner 1.5s ease-in-out infinite;
+    opacity: 1;
+}
+
+/* Efeito de borda cibernética */
+@keyframes cyber-border {
+
+    0%,
+    100% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+}
+
+.cyber-border {
+    position: relative;
+    border: none !important;
+    z-index: 0;
+}
+
+.cyber-border::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg,
+            #0064a4,
+            #00a9ff,
+            #0064a4,
+            #00a9ff);
+    background-size: 400% 400%;
+    z-index: -1;
+    border-radius: inherit;
+    animation: cyber-border 3s ease infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cyber-border:hover::before {
+    opacity: 1;
+}
+
+/* Efeito de aura para seções */
+@keyframes tech-aura {
+    0% {
+        box-shadow: 0 0 15px rgba(32, 152, 209, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(32, 152, 209, 0.4);
+    }
+
+    100% {
+        box-shadow: 0 0 15px rgba(32, 152, 209, 0.2);
+    }
+}
+
+.tech-aura {
+    transition: all 0.5s ease;
+}
+
+.tech-aura:hover {
+    animation: tech-aura 2s ease-in-out infinite;
+}
+
+/* Efeito de zoom para imagens */
+@keyframes zoom-scan {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+        filter: brightness(1.1) contrast(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+.zoom-scan {
+    transition: all 0.5s ease;
+}
+
+.zoom-scan:hover {
+    animation: zoom-scan 3s ease infinite;
+}
+
+/* Efeito de carregamento de skills */
+@keyframes skill-load {
+    from {
+        width: 0%;
+    }
+}
+
+.skill-loading .progress-bar {
+    animation: skill-load 1.5s ease-out forwards;
+}
+
+/* Efeito de revelação de conteúdo */
+@keyframes reveal-content {
+    from {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+.reveal-content {
+    animation: reveal-content 1s ease forwards;
+}
+
+/* Efeito de códígo matrix para background */
+@keyframes matrix-code {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+.matrix-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.matrix-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='150' viewBox='0 0 300 150'%3E%3Cg fill='%2300a8ff' fill-opacity='0.1'%3E%3Ctext x='10' y='20' font-family='monospace' font-size='10'%3E01100111%3C/text%3E%3Ctext x='50' y='40' font-family='monospace' font-size='10'%3E10101010%3C/text%3E%3Ctext x='30' y='60' font-family='monospace' font-size='10'%3E01001100%3C/text%3E%3Ctext x='70' y='80' font-family='monospace' font-size='10'%3E11010010%3C/text%3E%3Ctext x='20' y='100' font-family='monospace' font-size='10'%3E10011001%3C/text%3E%3Ctext x='90' y='120' font-family='monospace' font-size='10'%3E01101001%3C/text%3E%3Ctext x='150' y='30' font-family='monospace' font-size='10'%3E10110111%3C/text%3E%3Ctext x='190' y='50' font-family='monospace' font-size='10'%3E01010101%3C/text%3E%3Ctext x='170' y='70' font-family='monospace' font-size='10'%3E11001010%3C/text%3E%3Ctext x='210' y='90' font-family='monospace' font-size='10'%3E00110101%3C/text%3E%3Ctext x='240' y='110' font-family='monospace' font-size='10'%3E10101100%3C/text%3E%3C/g%3E%3C/svg%3E");
+    background-size: 100% 1000%;
+    animation: matrix-code 30s linear infinite;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+.matrix-bg:hover::before {
+    opacity: 1;
+}
+
+/* Efeito de destaque em headers */
+@keyframes header-highlight {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.header-highlight {
+    display: inline-block;
+    position: relative;
+}
+
+.header-highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg,
+            rgba(0, 169, 255, 1) 0%,
+            rgba(0, 100, 164, 1) 50%,
+            rgba(0, 169, 255, 1) 100%);
+    background-size: 200% 200%;
+    animation: header-highlight 3s ease infinite;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.5s ease;
+}
+
+.header-highlight:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Classes de helper para aplicar animações */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
