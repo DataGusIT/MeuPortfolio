@@ -47,7 +47,8 @@ main {
 section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 2.5rem 1rem;
+    overflow-x: hidden;
     scroll-margin-top: 100px;
 }
 

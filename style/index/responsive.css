@@ -83,8 +83,8 @@
 
     /* Ajustes para celulares e telas muito pequenas */
     section {
-        padding: 2.5rem 1rem;
-        overflow-x: hidden;
+        padding: 2.5rem 0rem;
+        /* Reduz o padding lateral para deixar mais "gordinho" */
     }
 
     /* Ajustes no hero para telas pequenas */
