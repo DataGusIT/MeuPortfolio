@@ -102,6 +102,56 @@
         font-size: 1.1rem;
     }
 
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .header-content {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+    }
+
+    nav.active {
+        height: auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        text-align: center;
+    }
+
+    .footer-section h3::after {
+        left: 25%;
+        width: 50%;
+    }
+
     .profile-pic {
         width: 180px;
         height: 180px;
