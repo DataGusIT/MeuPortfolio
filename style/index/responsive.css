@@ -418,6 +418,19 @@ img {
 }
 
 @media (max-width: 768px) {
+    .data-visualization {
+        width: 250px;
+        height: 150px;
+    }
+
+    .loading-title {
+        font-size: 24px;
+    }
+
+    .progress-container {
+        width: 250px;
+    }
+
     .hero h1 {
         font-size: 2.2rem;
     }

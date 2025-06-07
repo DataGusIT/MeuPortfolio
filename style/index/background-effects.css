@@ -1,0 +1,294 @@
+/* Background principal com gradiente dinâmico e partículas */
+.dynamic-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background: linear-gradient(125deg,
+            var(--primary) 0%,
+            var(--secondary) 25%,
+            var(--primary) 50%,
+            var(--secondary) 75%,
+            var(--primary) 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+    overflow: hidden;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Partículas flutuantes */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -9;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    animation: float-particle var(--duration) linear infinite;
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-10vh) translateX(var(--translateX));
+        opacity: 0;
+    }
+}
+
+/* Grid 3D animado */
+.grid-3d {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -8;
+    perspective: 1000px;
+    opacity: 0.15;
+}
+
+.grid-3d-inner {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image:
+        linear-gradient(var(--accent) 1px, transparent 1px),
+        linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform-origin: center;
+    transform: rotateX(60deg);
+    animation: grid-movement 20s linear infinite;
+}
+
+@keyframes grid-movement {
+    0% {
+        transform: rotateX(60deg) translateY(0%);
+    }
+
+    100% {
+        transform: rotateX(60deg) translateY(50px);
+    }
+}
+
+/* Bolhas de neón flutuantes */
+.neon-bubbles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -7;
+    overflow: hidden;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+.neon-bubble {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(8px);
+    pointer-events: none;
+    box-shadow: 0 0 20px var(--bubble-color);
+    animation: bubble-float var(--duration) ease-in-out infinite;
+    opacity: 0.4;
+}
+
+@keyframes bubble-float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(var(--x1), var(--y1)) scale(0.8);
+    }
+
+    50% {
+        transform: translate(var(--x2), var(--y2)) scale(1.2);
+    }
+
+    75% {
+        transform: translate(var(--x3), var(--y3)) scale(0.9);
+    }
+}
+
+/* Efeito de profundidade com camadas */
+.depth-layers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -6;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.depth-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: 100px 100px;
+    opacity: 0.05;
+}
+
+.layer-1 {
+    background-image: radial-gradient(circle, var(--accent) 1px, transparent 1px);
+    transform: translateZ(-100px);
+}
+
+.layer-2 {
+    background-image: radial-gradient(circle, var(--accent) 2px, transparent 2px);
+    background-size: 120px 120px;
+    transform: translateZ(-200px);
+}
+
+.layer-3 {
+    background-image: radial-gradient(circle, var(--accent) 3px, transparent 3px);
+    background-size: 140px 140px;
+    transform: translateZ(-300px);
+}
+
+/* Efeito de ondas na parte inferior */
+.wave-effect {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    z-index: -5;
+    opacity: 0.3;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to top, var(--gradient-start), transparent);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+.wave-1 {
+    animation: wave-movement 15s linear infinite;
+    height: 60%;
+    opacity: 0.5;
+}
+
+.wave-2 {
+    animation: wave-movement 10s linear infinite reverse;
+    height: 40%;
+    opacity: 0.3;
+}
+
+.wave-3 {
+    animation: wave-movement 20s linear infinite;
+    height: 20%;
+    opacity: 0.2;
+}
+
+@keyframes wave-movement {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Efeito de brilho para destacar conteúdo */
+.content-glow {
+    position: relative;
+}
+
+.content-glow::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(circle at center, var(--accent) 0%, transparent 70%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+}
+
+.content-glow:hover::before {
+    opacity: 0.15;
+}
+
+/* Efeito de scanline para tema tech */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.05;
+    background: linear-gradient(to bottom,
+            transparent 50%,
+            rgba(0, 0, 0, 0.5) 50%);
+    background-size: 100% 4px;
+}
+
+/* Efeito de vinheta nas bordas */
+.vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -4;
+    pointer-events: none;
+    background: radial-gradient(circle at center,
+            transparent 30%,
+            var(--shadow) 100%);
+    opacity: 0.7;
+}
+
+/* Script para criar partículas e bolhas de forma dinâmica */
+/* Para ser adicionado no seu arquivo HTML ou em um arquivo JS separado */

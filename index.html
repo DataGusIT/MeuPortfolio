@@ -22,9 +22,60 @@
     <link rel="stylesheet" href="/style/index/timeline.css">
     <link rel="stylesheet" href="/style/index/utilities.css">
     <link rel="stylesheet" href="/style/index/formacao.css">
+    <link rel="stylesheet" href="/style/index/loading-screen.css">
 </head>
 
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="floating-icons">
+            <div class="floating-icon"><i class="fas fa-database"></i></div>
+            <div class="floating-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="floating-icon"><i class="fas fa-code"></i></div>
+            <div class="floating-icon"><i class="fas fa-microchip"></i></div>
+        </div>
+
+        <div class="code-lines">
+            const data = {<br>
+            &nbsp;&nbsp;loading: true,<br>
+            &nbsp;&nbsp;progress: 0<br>
+            };
+        </div>
+
+        <div class="code-lines code-lines-right">
+            SELECT * FROM skills<br>
+            WHERE expertise > 0.8<br>
+            ORDER BY experience DESC;
+        </div>
+
+        <div class="loading-container">
+            <div class="data-visualization">
+                <div class="data-bars">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="data-stream" id="dataStream"></div>
+            </div>
+
+            <div class="loading-text">
+                <div class="loading-title">Gustavo Moreno</div>
+                <div class="loading-subtitle">Carregando Dados...</div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="loading-percentage" id="loadingPercentage">0%</div>
+        </div>
+    </div>
     <header>
         <div class="header-content">
             <a href="#" class="logo-container">
@@ -548,6 +599,57 @@
             once: true,
             mirror: false
         });
+
+        // Loading Screen Logic
+        let progress = 0;
+        const loadingPercentage = document.getElementById('loadingPercentage');
+        const dataStream = document.getElementById('dataStream');
+        const loadingScreen = document.getElementById('loadingScreen');
+        const mainContent = document.getElementById('mainContent');
+
+        // Create data particles
+        function createDataParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'data-particle';
+            particle.style.left = Math.random() * 20 + 'px';
+            particle.style.top = Math.random() * 160 + 20 + 'px';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            dataStream.appendChild(particle);
+
+            // Remove particle after animation
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 3000);
+        }
+
+        // Generate particles continuously
+        const particleInterval = setInterval(createDataParticle, 200);
+
+        // Progress simulation
+        const progressInterval = setInterval(() => {
+            progress += Math.random() * 15 + 5;
+            if (progress > 100) progress = 100;
+
+            loadingPercentage.textContent = Math.floor(progress) + '%';
+
+            if (progress >= 100) {
+                clearInterval(progressInterval);
+                clearInterval(particleInterval);
+
+                // Hide loading screen after a short delay
+                setTimeout(() => {
+                    loadingScreen.classList.add('fade-out');
+
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        mainContent.classList.add('show');
+                        document.body.style.overflow = 'auto';
+                    }, 800);
+                }, 500);
+            }
+        }, 100);
 
         // Theme toggle
         const themeToggle = document.getElementById('theme-toggle');
