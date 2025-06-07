@@ -174,7 +174,7 @@
     }
 }
 
-.progress-container {
+.progress-container-loading {
     width: 300px;
     height: 6px;
     background: var(--secondary);
@@ -184,7 +184,7 @@
     position: relative;
 }
 
-.progress-bar {
+.progress-bar-loading {
     height: 100%;
     background: linear-gradient(90deg, var(--gradient-start), var(--accent), var(--gradient-end));
     border-radius: 3px;
@@ -193,7 +193,7 @@
     position: relative;
 }
 
-.progress-bar::after {
+.progress-bar-loading::after {
     content: '';
     position: absolute;
     top: 0;
