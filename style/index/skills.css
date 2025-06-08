@@ -112,7 +112,6 @@
 }
 
 /* Animated progress bars */
-/* Animated progress bars */
 .skill-bar.active .progress-bar[data-percent="1"] {
     width: 1%;
 }
