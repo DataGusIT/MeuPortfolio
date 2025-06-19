@@ -145,19 +145,247 @@ nav ul li a:hover i {
     color: var(--accent);
 }
 
-.theme-toggle {
-    position: relative;
-    width: 60px;
-    height: 30px;
-    border-radius: 15px;
-    background: var(--primary);
-    border: 2px solid var(--accent);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
+/* Overlay para escurecer o fundo quando o menu estiver aberto */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estilos para o menu mobile */
+@media (max-width: 768px) {
+    .mobile-nav-toggle {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 101;
+    }
+
+    /* Animação do hambúrguer para X */
+    .mobile-nav-toggle .hamburger {
+        position: relative;
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: white;
+        border-radius: 3px;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .mobile-nav-toggle .hamburger::before,
+    .mobile-nav-toggle .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 3px;
+        background: white;
+        border-radius: 3px;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .mobile-nav-toggle .hamburger::before {
+        top: -8px;
+    }
+
+    .mobile-nav-toggle .hamburger::after {
+        top: 8px;
+    }
+
+    /* Estado ativo do hambúrguer (transformação em X) */
+    .mobile-nav-toggle.active .hamburger {
+        background: transparent;
+    }
+
+    .mobile-nav-toggle.active .hamburger::before {
+        top: 0;
+        transform: rotate(45deg);
+        background: var(--accent);
+    }
+
+    .mobile-nav-toggle.active .hamburger::after {
+        top: 0;
+        transform: rotate(-45deg);
+        background: var(--accent);
+    }
+
+    /* Menu mobile principal */
+    #main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        backdrop-filter: blur(20px);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 80px 0 0 0;
+        z-index: 100;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+    }
+
+    #main-nav.active {
+        right: 0;
+    }
+
+    #main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    #main-nav ul li {
+        margin: 0;
+        width: 100%;
+        opacity: 0;
+        transform: translateX(50px);
+        animation: slideInRight 0.4s ease forwards;
+    }
+
+    #main-nav.active ul li:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    #main-nav.active ul li:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    #main-nav.active ul li:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    #main-nav.active ul li:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    #main-nav.active ul li:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    #main-nav.active ul li:nth-child(6) {
+        animation-delay: 0.6s;
+    }
+
+    #main-nav ul li a {
+        display: flex;
+        align-items: center;
+        padding: 1rem 2rem;
+        margin: 0.5rem 1rem;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #main-nav ul li a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: left 0.5s;
+    }
+
+    #main-nav ul li a:hover::before {
+        left: 100%;
+    }
+
+    #main-nav ul li a:hover {
+        background: rgba(0, 229, 255, 0.1);
+        border-color: var(--accent);
+        transform: translateX(10px);
+        box-shadow: 0 5px 20px rgba(0, 229, 255, 0.3);
+    }
+
+    #main-nav ul li a i {
+        margin-right: 12px;
+        font-size: 1.2rem;
+        color: var(--accent);
+        transition: all 0.3s ease;
+    }
+
+    #main-nav ul li a:hover i {
+        transform: scale(1.2) rotate(5deg);
+        color: white;
+    }
+
+    /* Toggle de tema no menu mobile */
+    .theme-toggle {
+        margin: 2rem auto 0;
+        position: relative;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.4s ease forwards;
+        animation-delay: 0.7s;
+    }
+
+    /* Efeito de partículas no menu */
+    #main-nav::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+            radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(0, 229, 255, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+    }
+}
+
+/* Animações */
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efeito de pulso no botão do menu */
+.mobile-nav-toggle:hover {
+    transform: scale(1.1);
+}
+
+.mobile-nav-toggle.active {
+    transform: scale(1.1);
+}
+
+/* Remover ícone FontAwesome do botão mobile */
+.mobile-nav-toggle i {
+    display: none;
 }
 
 .theme-toggle::before {
@@ -209,13 +437,6 @@ nav ul li a:hover i {
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
-}
-
-#main-nav {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
 }
 
 @keyframes shimmer {
