@@ -673,76 +673,19 @@
             }
         });
 
-        // Substitua o JavaScript do menu mobile existente por este:
-
-        // Criar overlay se não existir
-        if (!document.querySelector('.mobile-menu-overlay')) {
-            const overlay = document.createElement('div');
-            overlay.className = 'mobile-menu-overlay';
-            document.body.appendChild(overlay);
-        }
-
-        // Criar estrutura do hambúrguer se não existir
+        // Mobile menu toggle
         const mobileNavToggle = document.getElementById('mobile-nav-toggle');
-        if (mobileNavToggle && !mobileNavToggle.querySelector('.hamburger')) {
-            mobileNavToggle.innerHTML = '<span class="hamburger"></span>';
-        }
-
         const mainNav = document.getElementById('main-nav');
-        const overlay = document.querySelector('.mobile-menu-overlay');
 
-        // Toggle do menu
-        mobileNavToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            toggleMobileMenu();
-        });
-
-        // Fechar menu ao clicar no overlay
-        overlay.addEventListener('click', () => {
-            closeMobileMenu();
-        });
-
-        // Fechar menu ao clicar em um link
-        mainNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                closeMobileMenu();
-            });
-        });
-
-        // Fechar menu com ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mainNav.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        });
-
-        function toggleMobileMenu() {
-            const isActive = mainNav.classList.contains('active');
-            if (isActive) {
-                closeMobileMenu();
+        mobileNavToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            const icon = mobileNavToggle.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
             } else {
-                openMobileMenu();
-            }
-        }
-
-        function openMobileMenu() {
-            mainNav.classList.add('active');
-            mobileNavToggle.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMobileMenu() {
-            mainNav.classList.remove('active');
-            mobileNavToggle.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Fechar menu ao redimensionar para desktop
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                closeMobileMenu();
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
         });
 
