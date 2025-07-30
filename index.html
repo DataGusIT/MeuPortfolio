@@ -7,26 +7,25 @@
     <meta name="theme-color" content="#1e293b">
     <title>Portfólio | Gustavo Moreno Souza</title>
     <link rel="icon" href="/img/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Bibliotecas de Estilos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="/style/global.css">
-    <link rel="stylesheet" href="/style/index/animations.css">
-    <link rel="stylesheet" href="/style/index/buttons.css">
-    <link rel="stylesheet" href="/style/index/contact.css">
-    <link rel="stylesheet" href="/style/index/footer.css">
-    <link rel="stylesheet" href="/style/index/header.css">
-    <link rel="stylesheet" href="/style/index/hero.css">
-    <link rel="stylesheet" href="/style/index/projects.css">
-    <link rel="stylesheet" href="/style/index/responsive.css">
-    <link rel="stylesheet" href="/style/index/sections.css">
-    <link rel="stylesheet" href="/style/index/skills.css">
-    <link rel="stylesheet" href="/style/index/timeline.css">
-    <link rel="stylesheet" href="/style/index/utilities.css">
-    <link rel="stylesheet" href="/style/index/formacao.css">
-    <link rel="stylesheet" href="/style/index/loading-screen.css">
-</head>
+
+    <!-- Sua Folha de Estilo Principal -->
+    <link rel="stylesheet" href="style.css">
 
 <body>
+    <div id="particles-js"></div>
+
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="floating-icons">
@@ -38,8 +37,8 @@
 
         <div class="code-lines">
             const data = {<br>
-            &nbsp;&nbsp;loading: true,<br>
-            &nbsp;&nbsp;progress: 0<br>
+              loading: true,<br>
+              progress: 0<br>
             };
         </div>
 
@@ -80,22 +79,29 @@
     <header>
         <div class="header-content">
             <a href="#" class="logo-container">
-                <div class="logo-icon">
-                    <i class="fas fa-microchip"></i>
-                </div>
-                <span class="logo-text">Gustavo Moreno</span>
-            </a> <button class="mobile-nav-toggle" id="mobile-nav-toggle"><i class="fas fa-bars"></i></button>
+                <span class="logo-text">
+                    Gustavo Moreno
+                </span>
+            </a>
             <nav id="main-nav">
                 <ul>
-                    <li><a href="#home"><i class="fas fa-home"></i> Início</a></li>
-                    <li><a href="#about"><i class="fas fa-user"></i> Sobre</a></li>
-                    <li><a href="#skills"><i class="fas fa-chart-line"></i> Habilidades</a></li>
-                    <li><a href="#projects"><i class="fas fa-laptop-code"></i> Projetos</a></li>
-                    <li><a href="#formacao"><i class="fas fa-graduation-cap"></i> Formação e Certificados</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contato</a></li>
+                    <li><a href="#home"> Início</a></li>
+                    <li><a href="#about"> Sobre</a></li>
+                    <li><a href="#skills"> Habilidades</a></li>
+                    <li><a href="#projects"> Projetos</a></li>
+                    <li><a href="#formacao"> Formação e Certificados</a></li>
+                    <li><a href="#contact"> Contato</a></li>
                 </ul>
-                <button class="theme-toggle" id="theme-toggle"></button>
             </nav>
+            <div class="header-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Abrir menu de navegação"
+                    aria-controls="main-nav" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -124,28 +130,30 @@
             <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Sobre Mim</h2>
             </div>
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-up">
-                    <p>Olá! Sou <span class="highlight">Sou estudante do 3º ano de Tecnologia da Informação,</span> com
-                        foco em <span class="highlight">business
-                            intelligence</span> e
-                        <span class="highlight">análise de dados</span>. Sou motivado por utilizar a tecnologia para
-                        solucionar problemas e otimizar decisões por meio de dados
-                    </p>
-
+            <div class="about-content-grid">
+                <div class="about-text" data-aos="fade-right">
+                    <p>Olá! Sou <span class="highlight">estudante do 3º ano de Tecnologia da Informação,</span> com
+                        foco em <span class="highlight">business intelligence</span> e <span class="highlight">análise
+                            de
+                            dados</span>. Sou motivado por utilizar a tecnologia para solucionar problemas e otimizar
+                        decisões por meio de dados.</p>
                     <p>Atualmente, aprofundo meus conhecimentos em BI, análise de dados e programação por meio de
-                        projetos
-                        acadêmicos, cursos extracurriculares e iniciativas pessoais. Tenho facilidade em aprender novas
+                        projetos acadêmicos, cursos extracurriculares e iniciativas pessoais. Tenho facilidade em
+                        aprender novas
                         ferramentas e tecnologias, valorizo o trabalho em equipe e busco contribuir com soluções
                         práticas.</p>
-
-                    <p>Participei de projetos acadêmicos e pilotos voltados para a área de programação, além de
-                        desenvolver projetos pessoais para aplicar conceitos aprendidos.</p>
-
                     <p>Estou em busca de uma <span class="highlight">oportunidade de estágio</span> para aplicar minhas
                         competências, aprender com profissionais experientes e contribuir para projetos inovadores.
                     </p>
                 </div>
+
+                <!-- === ESPAÇO PARA ANIMAÇÃO LOTTIE === -->
+                <div class="about-lottie" data-aos="fade-left">
+                    <lottie-player src="assets/lotties/data_analysis.json" background="transparent" speed="1" loop
+                        autoplay>
+                    </lottie-player>
+                </div>
+                <!-- =================================== -->
             </div>
         </section>
 
@@ -155,8 +163,18 @@
             </div>
             <div class="tech-skills">
                 <div class="skill-category" data-aos="fade-up">
-                    <h3><i class="fas fa-code"></i> Programação & Dev</h3>
+                    <div class="skill-category-header">
+                        <h3><i class="fas fa-code"></i> Programação & Dev</h3>
+                        <!-- === ESPAÇO PARA ANIMAÇÃO LOTTIE === -->
+                        <div class="skill-lottie">
+                            <lottie-player src="assets/lotties/Developer.json" background="transparent" speed="1" loop
+                                autoplay>
+                            </lottie-player>
+                        </div>
+                        <!-- =================================== -->
+                    </div>
                     <div class="skill-bars">
+                        <!-- Suas barras de skill de Programação aqui... -->
                         <div class="skill-bar">
                             <div class="skill-level">
                                 <span>
@@ -205,8 +223,18 @@
                 </div>
 
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                    <h3><i class="fas fa-chart-line"></i> Análise de Dados</h3>
+                    <div class="skill-category-header">
+                        <h3><i class="fas fa-chart-line"></i> Análise de Dados</h3>
+                        <!-- === ESPAÇO PARA ANIMAÇÃO LOTTIE === -->
+                        <div class="skill-lottie">
+                            <lottie-player src="assets/lotties/Data_Scanning.json" background="transparent" speed="1"
+                                loop autoplay>
+                            </lottie-player>
+                        </div>
+                        <!-- =================================== -->
+                    </div>
                     <div class="skill-bars">
+                        <!-- Suas barras de skill de Análise de Dados aqui... -->
                         <div class="skill-bar">
                             <div class="skill-level">
                                 <span>
@@ -255,8 +283,18 @@
                 </div>
 
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3><i class="fas fa-chart-pie"></i> Business Intelligence</h3>
+                    <div class="skill-category-header">
+                        <h3><i class="fas fa-chart-pie"></i> Business Intelligence</h3>
+                        <!-- === ESPAÇO PARA ANIMAÇÃO LOTTIE === -->
+                        <div class="skill-lottie">
+                            <lottie-player src="assets/lotties/Animated_Dashboards.json" background="transparent"
+                                speed="1" loop autoplay>
+                            </lottie-player>
+                        </div>
+                        <!-- =================================== -->
+                    </div>
                     <div class="skill-bars">
+                        <!-- Suas barras de skill de BI aqui... -->
                         <div class="skill-bar">
                             <div class="skill-level">
                                 <span>
@@ -484,61 +522,72 @@
         </section>
 
         <section id="contact">
-            <div class="section-header" data-aos="fade-up">
+            <div class="section-header">
                 <h2 class="section-title">Entre em Contato</h2>
             </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-card" data-aos="fade-up">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+
+            <!-- === GRID SUPERIOR: INFO + PRIMEIRA LOTTIE === -->
+            <div class="contact-grid">
+                <div class="contact-form-wrapper">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-card-content">
+                                <h3>Email</h3>
+                                <p>g.moreno.souza05@exemplo.com</p>
+                            </div>
                         </div>
-                        <h3>Email</h3>
-                        <p>g.moreno.souza05@exemplo.com</p>
-                    </div>
-                    <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-card-content">
+                                <h3>Telefone</h3>
+                                <p>+55 (11) 95433-1121</p>
+                            </div>
                         </div>
-                        <h3>Telefone</h3>
-                        <p>+55 (11) 95433-1121</p>
-                    </div>
-                    <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-card-content">
+                                <h3>Localização</h3>
+                                <p>Itaquaquecetuba, SP - Brasil</p>
+                            </div>
                         </div>
-                        <h3>Localização</h3>
-                        <p>Itaquaquecetuba, SP - Brasil</p>
                     </div>
                 </div>
 
-                <div class="contact-form" data-aos="fade-up">
-                    <form id="contactForm" action="https://formspree.io/f/xanerary" method="POST">
-                        <div class="form-group">
-                            <label for="name">Nome</label>
-                            <input type="text" name="name" id="name" class="form-control"
-                                placeholder="Seu nome completo" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" class="form-control"
-                                placeholder="Seu melhor email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Assunto</label>
-                            <input type="text" name="subject" id="subject" class="form-control"
-                                placeholder="Assunto da mensagem">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensagem</label>
-                            <textarea name="message" id="message" class="form-control"
-                                placeholder="Digite sua mensagem aqui..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
-                        </button>
-                    </form>
+                <!-- === PRIMEIRA LOTTIE (Welcome) === -->
+                <div class="contact-lottie">
+                    <lottie-player src="assets/lotties/Welcome_contact.json" background="transparent" speed="1" loop
+                        autoplay>
+                    </lottie-player>
                 </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm" action="https://formspree.io/f/xanerary" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Seu nome completo"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Seu melhor email"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" name="subject" id="subject" class="form-control"
+                            placeholder="Assunto da mensagem">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea name="message" id="message" class="form-control"
+                            placeholder="Digite sua mensagem aqui..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                    </button>
+                </form>
             </div>
         </section>
     </main>
@@ -585,358 +634,269 @@
         </div>
 
         <div class="copyright">
-            &copy; 2025 Gustavo Moreno Souza. Todos os direitos reservados.
+            © 2025 Gustavo Moreno Souza. Todos os direitos reservados.
         </div>
     </footer>
 
     <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
-        });
+        // Executa todo o nosso código quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', () => {
 
-        // Loading Screen Logic
-        let progress = 0;
-        const loadingPercentage = document.getElementById('loadingPercentage');
-        const dataStream = document.getElementById('dataStream');
-        const loadingScreen = document.getElementById('loadingScreen');
-        const mainContent = document.getElementById('mainContent');
+            // --- INICIALIZAÇÃO DE BIBLIOTECAS ---
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
+            });
 
-        // Create data particles
-        function createDataParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'data-particle';
-            particle.style.left = Math.random() * 20 + 'px';
-            particle.style.top = Math.random() * 160 + 20 + 'px';
-            particle.style.animationDelay = Math.random() * 3 + 's';
-            dataStream.appendChild(particle);
+            // --- TELA DE LOADING OTIMIZADA ---
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                let progress = 0;
+                const loadingPercentage = document.getElementById('loadingPercentage');
+                const mainContent = document.querySelector('main');
+                const progressBar = document.querySelector('.progress-bar-loading');
 
-            // Remove particle after animation
-            setTimeout(() => {
-                if (particle.parentNode) {
-                    particle.parentNode.removeChild(particle);
+                const progressInterval = setInterval(() => {
+                    // Incremento mais agressivo para velocidade maior
+                    progress += Math.random() * 25 + 15; // Entre 15-40% por vez (antes era 0-10%)
+                    if (progress > 100) progress = 100;
+
+                    if (loadingPercentage) {
+                        loadingPercentage.textContent = Math.floor(progress) + '%';
+                    }
+
+                    // Anima a barra de progresso se ela existir
+                    if (progressBar) progressBar.style.width = progress + '%';
+
+                    if (progress >= 100) {
+                        clearInterval(progressInterval);
+                        // Reduzido o timeout de 500ms para 200ms
+                        setTimeout(() => {
+                            loadingScreen.classList.add('fade-out');
+                            // Reduzido o timeout de 800ms para 400ms
+                            setTimeout(() => {
+                                loadingScreen.style.display = 'none';
+                                if (mainContent) mainContent.style.opacity = '1';
+                                document.body.style.overflow = 'auto';
+                                initParticles(); // Inicia as partículas somente após o loading
+                            }, 400);
+                        }, 200);
+                    }
+                }, 100); // Reduzido o intervalo de 200ms para 100ms
+            } else {
+                initParticles(); // Se não houver loading, inicia as partículas imediatamente
+            }
+
+
+            // --- CONTROLES DO HEADER E NAVEGAÇÃO ---
+            const header = document.querySelector('header');
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+            const mainNav = document.getElementById('main-nav');
+            const headerControls = document.querySelector('.header-controls');
+            let lastScrollY = window.scrollY;
+
+            // 1. LÓGICA DO TEMA (DARK/LIGHT MODE)
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('light-mode');
+                // Atualiza o ícone do botão de tema se necessário (opcional, já que usa :after)
+            });
+
+            // 2. LÓGICA DO MENU MOBILE
+            const moveThemeToggle = () => {
+                if (window.innerWidth <= 768) {
+                    if (themeToggle.parentElement !== mainNav) {
+                        mainNav.appendChild(themeToggle);
+                    }
+                } else {
+                    if (themeToggle.parentElement !== headerControls) {
+                        headerControls.insertBefore(themeToggle, mobileNavToggle);
+                        // Garante que o menu mobile esteja fechado se a tela for redimensionada para desktop
+                        mainNav.classList.remove('active');
+                        mobileNavToggle.setAttribute('aria-expanded', 'false');
+                        const icon = mobileNavToggle.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
                 }
-            }, 3000);
-        }
+            };
 
-        // Generate particles continuously
-        const particleInterval = setInterval(createDataParticle, 200);
+            mobileNavToggle.addEventListener('click', () => {
+                const isOpened = mainNav.classList.toggle('active');
+                mobileNavToggle.setAttribute('aria-expanded', isOpened);
 
-        // Progress simulation
-        const progressInterval = setInterval(() => {
-            progress += Math.random() * 15 + 5;
-            if (progress > 100) progress = 100;
+                const icon = mobileNavToggle.querySelector('i');
+                if (isOpened) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
 
-            loadingPercentage.textContent = Math.floor(progress) + '%';
+            // Fechar o menu ao clicar em um link
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileNavToggle.setAttribute('aria-expanded', 'false');
+                        mobileNavToggle.querySelector('i').classList.remove('fa-times');
+                        mobileNavToggle.querySelector('i').classList.add('fa-bars');
+                    }
+                });
+            });
 
-            if (progress >= 100) {
-                clearInterval(progressInterval);
-                clearInterval(particleInterval);
 
-                // Hide loading screen after a short delay
+            // Executa a função de mover o botão ao carregar e ao redimensionar
+            moveThemeToggle();
+            window.addEventListener('resize', moveThemeToggle);
+
+            // 3. HEADER QUE SOME AO ROLAR
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > lastScrollY && window.scrollY > header.offsetHeight) {
+                    header.classList.add('header-hidden'); // Rola para baixo
+                } else {
+                    header.classList.remove('header-hidden'); // Rola para cima
+                }
+                lastScrollY = window.scrollY;
+            });
+
+
+            // --- BOTÃO 'VOLTAR AO TOPO' ---
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+
+            // --- ANIMAÇÃO DAS BARRAS DE SKILLS ---
+            const skillBars = document.querySelectorAll('.skill-bar');
+            const skillObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        skillObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            skillBars.forEach(skillBar => {
+                skillObserver.observe(skillBar);
+            });
+
+        }); // Fim do 'DOMContentLoaded'
+
+
+        // --- VERSÃO AINDA MAIS RÁPIDA (OPCIONAL) ---
+        // Se quiser uma loading screen ULTRA rápida, descomente a função abaixo
+        // e comente a seção "TELA DE LOADING OTIMIZADA" acima
+
+        /*
+        function ultraFastLoading() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                const loadingPercentage = document.getElementById('loadingPercentage');
+                const mainContent = document.querySelector('main');
+                const progressBar = document.querySelector('.progress-bar-loading');
+                
+                // Loading instantâneo - vai direto para 100%
+                if (loadingPercentage) loadingPercentage.textContent = '100%';
+                if (progressBar) progressBar.style.width = '100%';
+                
                 setTimeout(() => {
                     loadingScreen.classList.add('fade-out');
-
                     setTimeout(() => {
                         loadingScreen.style.display = 'none';
-                        mainContent.classList.add('show');
+                        if (mainContent) mainContent.style.opacity = '1';
                         document.body.style.overflow = 'auto';
-                    }, 800);
-                }, 500);
-            }
-        }, 100);
-
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-        const body = document.body;
-
-        // Modificando o texto e ícone inicial para refletir que o tema padrão agora é escuro
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            if (body.classList.contains('light-mode')) {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            } else {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            }
-        });
-
-        // Mobile menu toggle
-        const mobileNavToggle = document.getElementById('mobile-nav-toggle');
-        const mainNav = document.getElementById('main-nav');
-
-        mobileNavToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            const icon = mobileNavToggle.querySelector('i');
-            if (mainNav.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Back to top button
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTop.classList.add('active');
-            } else {
-                backToTop.classList.remove('active');
-            }
-        });
-
-        backToTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Skill bar animation
-        const skillBars = document.querySelectorAll('.skill-bar');
-        const observerOptions = {
-            threshold: 0.5
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        skillBars.forEach(skillBar => {
-            observer.observe(skillBar);
-        });
-
-        // Adicione este código ao final do seu script existente
-
-        // Header scroll behavior
-        const header = document.querySelector('header');
-        let lastScrollY = window.scrollY;
-
-        // Função para controlar a visibilidade do header ao rolar
-        window.addEventListener('scroll', () => {
-            // Obtém a posição atual do scroll
-            const currentScrollY = window.scrollY;
-
-            // Determina a direção do scroll
-            if (currentScrollY > lastScrollY) {
-                // Rolagem para baixo - esconder o header
-                header.classList.add('header-hidden');
-            } else {
-                // Rolagem para cima - mostrar o header
-                header.classList.remove('header-hidden');
-            }
-
-            // Atualiza a posição anterior do scroll
-            lastScrollY = currentScrollY;
-        });
-
-        // Melhoramento: não esconder o header quando estiver no topo da página
-        window.addEventListener('scroll', () => {
-            if (window.scrollY === 0) {
-                // Quando estiver no topo da página, sempre mostrar o header
-                header.classList.remove('header-hidden');
-            }
-        });
-
-        /* JavaScript para ativar as animações no scroll */
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            animatedElements.forEach(element => {
-                observer.observe(element);
-            });
-        });
-
-        // Script para animar elementos e ativar efeitos tech
-        document.addEventListener('DOMContentLoaded', function () {
-            // Animação ao rolar a página
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            animatedElements.forEach(element => {
-                observer.observe(element);
-            });
-
-            // Adicionar efeito de digitação ao título principal
-            //const heroTitle = document.querySelector('.hero h1');
-            //if (heroTitle) {
-            //   heroTitle.classList.add('typing-text');
-            //}
-
-            // Adicionar efeito de destaque aos títulos de seção
-            const sectionTitles = document.querySelectorAll('.section-title');
-            sectionTitles.forEach(title => {
-                title.classList.add('header-highlight');
-            });
-
-
-            // Adicionar efeito de carregamento às barras de habilidades
-            const skillBars = document.querySelectorAll('.skill-bar');
-            skillBars.forEach(skillBar => {
-                skillBar.classList.add('skill-loading');
-            });
-
-            // Adicionar efeito de matrix-bg a elementos
-            const aboutSection = document.querySelector('#about');
-            if (aboutSection) {
-                aboutSection.classList.add('matrix-bg');
-            }
-
-            // Adicionar efeito de zoom às imagens de projeto
-            const projectImages = document.querySelectorAll('.project-img');
-            projectImages.forEach(img => {
-                img.classList.add('zoom-scan');
-            });
-
-            // Adicionar efeito de tech-focus aos ícones
-            const allIcons = document.querySelectorAll('.fas, .fab');
-            allIcons.forEach(icon => {
-                icon.classList.add('tech-focus');
-            });
-
-            // Adicionar efeito de glitch ao logo e títulos importantes
-            const logo = document.querySelector('.logo');
-            if (logo) {
-                logo.classList.add('glitch-text');
-            }
-
-            // Adicionar efeito de data-flow aos cards de formação
-            const educationCards = document.querySelectorAll('.education-card');
-            educationCards.forEach(card => {
-                card.classList.add('data-flow');
-            });
-
-            // Partículas interativas de fundo (efeito avançado)
-            createParticleBackground();
-        });
-
-        // Função para criar o efeito de partículas no fundo
-        function createParticleBackground() {
-            // Criar o canvas apenas se o elemento #particles-js não existir
-            if (!document.getElementById('particles-js')) {
-                const particlesContainer = document.createElement('div');
-                particlesContainer.id = 'particles-js';
-                particlesContainer.style.position = 'fixed';
-                particlesContainer.style.top = '0';
-                particlesContainer.style.left = '0';
-                particlesContainer.style.width = '100%';
-                particlesContainer.style.height = '100%';
-                particlesContainer.style.zIndex = '-2';
-                particlesContainer.style.pointerEvents = 'none';
-                document.body.prepend(particlesContainer);
-
-                // Adicionar script particles.js (verificando se já não foi carregado)
-                if (!window.particlesJS) {
-                    const script = document.createElement('script');
-                    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js';
-                    script.onload = initParticles;
-                    document.head.appendChild(script);
-                } else {
-                    initParticles();
-                }
+                        initParticles();
+                    }, 300);
+                }, 500); // Apenas meio segundo total
             }
         }
+        */
 
-        // Configuração para as partículas
+
+        // --- FUNÇÃO DAS PARTÍCULAS (pode ficar fora do DOMContentLoaded) ---
         function initParticles() {
-            if (window.particlesJS) {
-                window.particlesJS('particles-js', {
+            const particlesContainer = document.getElementById('particles-js');
+            if (window.particlesJS && particlesContainer) {
+                particlesJS('particles-js', {
                     "particles": {
                         "number": {
-                            "value": 40,
+                            // Aumentamos o número de partículas para maior densidade
+                            "value": 80,
                             "density": {
                                 "enable": true,
                                 "value_area": 800
                             }
                         },
                         "color": {
-                            "value": "#00a8ff"
+                            // Mantemos a cor principal do seu tema
+                            "value": "#818cf8"
                         },
                         "shape": {
-                            "type": "circle",
-                            "stroke": {
-                                "width": 0,
-                                "color": "#000000"
-                            },
-                            "polygon": {
-                                "nb_sides": 5
-                            }
+                            "type": "circle"
                         },
                         "opacity": {
-                            "value": 0.3,
+                            // Partículas terão opacidade inicial maior, mas ainda aleatória
+                            "value": 0.6,
                             "random": true,
                             "anim": {
+                                // Animação de "piscar" na opacidade para um efeito mais vivo
                                 "enable": true,
-                                "speed": 1,
+                                "speed": 0.8,
                                 "opacity_min": 0.1,
                                 "sync": false
                             }
                         },
                         "size": {
-                            "value": 3,
+                            // Aumentamos o tamanho base e adicionamos uma leve animação
+                            "value": 4,
                             "random": true,
                             "anim": {
-                                "enable": false,
-                                "speed": 40,
-                                "size_min": 0.1,
+                                "enable": true,
+                                "speed": 4,
+                                "size_min": 0.3,
                                 "sync": false
                             }
                         },
                         "line_linked": {
                             "enable": true,
                             "distance": 150,
-                            "color": "#00a8ff",
+                            "color": "#818cf8",
+                            // Linhas um pouco mais sutis para destacar as partículas
                             "opacity": 0.2,
                             "width": 1
                         },
                         "move": {
                             "enable": true,
-                            "speed": 2,
+                            // Velocidade reduzida para um movimento mais elegante e "flutuante"
+                            "speed": 1.5,
                             "direction": "none",
-                            "random": false,
+                            "random": true,
                             "straight": false,
                             "out_mode": "out",
-                            "bounce": false,
-                            "attract": {
-                                "enable": false,
-                                "rotateX": 600,
-                                "rotateY": 1200
-                            }
+                            "bounce": false
                         }
                     },
                     "interactivity": {
@@ -944,37 +904,23 @@
                         "events": {
                             "onhover": {
                                 "enable": true,
-                                "mode": "grab"
+                                // Efeito alterado: agora as partículas se afastam do mouse
+                                "mode": "repulse"
                             },
                             "onclick": {
                                 "enable": true,
+                                // Ao clicar, novas partículas são adicionadas
                                 "mode": "push"
                             },
                             "resize": true
                         },
                         "modes": {
-                            "grab": {
-                                "distance": 140,
-                                "line_linked": {
-                                    "opacity": 0.5
-                                }
-                            },
-                            "bubble": {
-                                "distance": 400,
-                                "size": 40,
-                                "duration": 2,
-                                "opacity": 8,
-                                "speed": 3
-                            },
                             "repulse": {
-                                "distance": 200,
-                                "duration": 0.4
+                                // Distância do efeito de "repelir"
+                                "distance": 150
                             },
                             "push": {
                                 "particles_nb": 4
-                            },
-                            "remove": {
-                                "particles_nb": 2
                             }
                         }
                     },
@@ -982,67 +928,6 @@
                 });
             }
         }
-
-        // Efeito de brilho em textos importantes
-        function applyTextShine() {
-            const shineElements = document.querySelectorAll('.highlight');
-
-            shineElements.forEach(element => {
-                // Guardar o texto original
-                const originalText = element.textContent;
-                // Limpar o conteúdo
-                element.innerHTML = '';
-
-                // Criar uma span com o efeito de brilho
-                const shineSpan = document.createElement('span');
-                shineSpan.classList.add('shine-text');
-                shineSpan.textContent = originalText;
-
-                // Adicionar de volta ao elemento
-                element.appendChild(shineSpan);
-            });
-        }
-
-        // Efeito de digitação para texto de hero
-        function typeWriterEffect(element, text, speed = 50, delay = 1000) {
-            if (!element) return;
-
-            // Limpar o texto existente
-            element.textContent = '';
-
-            // Esperar o delay inicial
-            setTimeout(() => {
-                let i = 0;
-                const typing = setInterval(() => {
-                    if (i < text.length) {
-                        element.textContent += text.charAt(i);
-                        i++;
-                    } else {
-                        clearInterval(typing);
-                        // Adicionar cursor piscando no final
-                        element.classList.add('typing-cursor');
-                    }
-                }, speed);
-            }, delay);
-        }
-
-        // Iniciar o efeito de digitação após a página carregar
-        window.addEventListener('load', function () {
-            // Aplicar efeito de brilho após um pequeno delay
-            setTimeout(applyTextShine, 500);
-
-            // Aplicar efeito de revelação gradual a todos elementos com a classe
-            document.querySelectorAll('.reveal-content').forEach((el, index) => {
-                el.style.animationDelay = `${index * 0.2}s`;
-            });
-
-            // Adicionar efeito de digitação ao subtítulo do hero
-            const heroSubtitle = document.querySelector('.hero p');
-            if (heroSubtitle) {
-                const originalText = heroSubtitle.textContent;
-                typeWriterEffect(heroSubtitle, originalText, 30, 1200);
-            }
-        });
     </script>
 </body>
 
