@@ -663,6 +663,24 @@
             transform: translateY(0);
         }
 
+        .collaborator-info {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .collaborator-link {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .collaborator-link:hover {
+            text-decoration: underline;
+        }
+
         @media (max-width: 992px) {
             .showcase-item {
                 grid-template-columns: 1fr;
@@ -824,122 +842,24 @@
         </div>
 
         <div class="project-grid">
-            <!-- Projeto 1 -->
+            <!-- Projeto 1: GestorX (antigo Estação Doces) -->
             <div class="project-card" data-aos="fade-up">
                 <div class="project-img-container">
-                    <img src="/img/code-contatofacil.png" alt="Sistema Contato Fácil" class="project-img">
+                    <img src="/img/dashboard.png" alt="Sistema GestorX" class="project-img">
                 </div>
                 <div class="project-content">
-                    <h3>Contato Fácil</h3>
-                    <p>Sistema completo de gerenciamento de contatos com CRUD, autenticação de usuários, painel
-                        administrativo para visualização de usuários registrados e listagem personalizada de contatos.
-                    </p>
-                    <div class="project-tags">
-                        <span class="project-tag"><i class="fab fa-microsoft"></i> C#</span>
-                        <span class="project-tag"><i class="fas fa-code"></i> ASP.NET Core MVC</span>
-                        <span class="project-tag"><i class="fas fa-database"></i> SQL Server</span>
-                    </div>
-                    <div class="btn-container">
-                        <a href="#detail-projeto1" class="btn btn-primary"><i class="fas fa-info-circle"></i>
-                            Detalhes</a>
-                        <a href="https://github.com/DataGusIT/ContatoFacil" class="btn btn-secondary"><i
-                                class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projeto 2 -->
-            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="project-img-container">
-                    <img src="/img/code-gestaohospitalar.png" alt="Sistema de Gestão Hospitalar" class="project-img">
-                </div>
-                <div class="project-content">
-                    <h3>Sistema de Gestão Hospitalar</h3>
-                    <p>Plataforma completa para gestão hospitalar com autenticação de usuários, agendamento de
-                        consultas, exames e procedimentos, painel administrativo e histórico de agendamentos
-                        personalizado.</p>
-                    <div class="project-tags">
-                        <span class="project-tag"><i class="fab fa-php"></i> PHP</span>
-                        <span class="project-tag"><i class="fas fa-database"></i> MySQL</span>
-                        <span class="project-tag"><i class="fas fa-server"></i> Apache</span>
-                        <span class="project-tag"><i class="fas fa-cog"></i> phpMyAdmin</span>
-                    </div>
-                    <div class="btn-container">
-                        <a href="#detail-projeto2" class="btn btn-primary"><i class="fas fa-info-circle"></i>
-                            Detalhes</a>
-                        <a href="https://github.com/DataGusIT/GestaoHospitalar" class="btn btn-secondary"><i
-                                class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projeto 3 -->
-            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="project-img-container">
-                    <img src="/img/code-autismo.png" alt="Portal do Autismo" class="project-img">
-                </div>
-                <div class="project-content">
-                    <h3>Portal de Apoio ao Autismo</h3>
-                    <p>Trabalho de conclusão de curso focado em informação e apoio sobre TEA. Inclui sistema de
-                        autenticação, FAQ interativo, área de contatos e ferramentas práticas para auxílio no cuidado de
-                        crianças com autismo.</p>
-                    <div class="project-tags">
-                        <span class="project-tag"><i class="fab fa-microsoft"></i> C#</span>
-                        <span class="project-tag"><i class="fas fa-code"></i> ASP.NET Core MVC</span>
-                        <span class="project-tag"><i class="fas fa-database"></i> SQL Server</span>
-                    </div>
-                    <div class="btn-container">
-                        <a href="#detail-projeto3" class="btn btn-primary"><i class="fas fa-info-circle"></i>
-                            Detalhes</a>
-                        <a href="https://github.com/DataGusIT/Autismo" class="btn btn-secondary"><i
-                                class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projeto 4 -->
-            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="project-img-container">
-                    <img src="/img/code-spotify.png" alt="Clone do Spotify" class="project-img">
-                </div>
-                <div class="project-content">
-                    <h3>Clone da Interface do Spotify</h3>
-                    <p>Recriação da interface principal do Spotify com design responsivo e funcionalidades interativas.
-                        Integra uma API JSON para simular consultas de banco de dados e exibir informações sobre
-                        artistas e playlists.</p>
-                    <div class="project-tags">
-                        <span class="project-tag"><i class="fab fa-react"></i> React</span>
-                        <span class="project-tag"><i class="fab fa-html5"></i> HTML5</span>
-                        <span class="project-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-                        <span class="project-tag"><i class="fab fa-js"></i> JavaScript</span>
-                    </div>
-                    <div class="btn-container">
-                        <a href="#detail-projeto4" class="btn btn-primary"><i class="fas fa-info-circle"></i>
-                            Detalhes</a>
-                        <a href="https://github.com/DataGusIT/SpotifyClone" class="btn btn-secondary"><i
-                                class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projeto 5 -->
-            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="project-img-container">
-                    <img src="/img/code-estoque.png" alt="Sistema Estação Doces" class="project-img">
-                </div>
-                <div class="project-content">
-                    <h3>Estação Doces - Aplicativo Desktop</h3>
-                    <p>Aplicativo desktop desenvolvido como projeto piloto acadêmico para uma bomboniere. Inclui sistema
-                        completo com CRUD para cadastro de clientes, controle de estoque, gestão de fornecedores e
-                        gerenciamento de promoções.</p>
+                    <h3>GestorX - Aplicativo Desktop</h3>
+                    <p>Solução de gestão empresarial (ERP) desenvolvida como projeto piloto acadêmico para um cliente
+                        real. O sistema oferece controle total sobre operações de vendas, estoque e finanças, com foco
+                        em usabilidade e relatórios inteligentes.</p>
                     <div class="project-tags">
                         <span class="project-tag"><i class="fab fa-python"></i> Python</span>
                         <span class="project-tag"><i class="fas fa-desktop"></i> PyQt5</span>
                         <span class="project-tag"><i class="fas fa-database"></i> SQLite</span>
-                        <span class="project-tag"><i class="fas fa-laptop"></i> Desktop</span>
+                        <span class="project-tag"><i class="fas fa-chart-bar"></i> Relatórios</span>
                     </div>
                     <div class="btn-container">
-                        <a href="#detail-projeto5" class="btn btn-primary"><i class="fas fa-info-circle"></i>
+                        <a href="#detail-projeto1" class="btn btn-primary"><i class="fas fa-info-circle"></i>
                             Detalhes</a>
                         <a href="https://github.com/DataGusIT/EstacaoDoces" class="btn btn-secondary"><i
                                 class="fab fa-github"></i> GitHub</a>
@@ -947,56 +867,291 @@
                 </div>
             </div>
 
-            <!-- Projeto 6 -->
-            <div class="project-card" id="projeto6" data-aos="fade-up" data-aos-delay="500">
+            <!-- Projeto 2: Site do GestorX -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="project-img-container">
-                    <img src="/img/github.jpg" alt="Projetos no GitHub" class="project-img">
+                    <img src="/img/gestorx.png" alt="Site do GestorX" class="project-img">
                 </div>
                 <div class="project-content">
-                    <h3>Outros Projetos</h3>
-                    <p>Confira outros projetos que venho desenvolvendo no GitHub, envolvendo diferentes tecnologias e
-                        áreas como
-                        análise de dados, desenvolvimento web, automação e mais.</p>
+                    <h3>Site Institucional GestorX</h3>
+                    <p>A ponte digital entre o sistema desktop GestorX e seus potenciais usuários. Este site atua como
+                        uma vitrine, apresentando as funcionalidades do software e servindo como ponto central para
+                        download e teste da aplicação.</p>
                     <div class="project-tags">
-                        <span class="project-tag"><i class="fab fa-github"></i> GitHub</span>
-                        <span class="project-tag"><i class="fas fa-code"></i> Projetos Diversos</span>
+                        <span class="project-tag"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="project-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="project-tag"><i class="fab fa-js"></i> JavaScript</span>
                     </div>
                     <div class="btn-container">
-                        <a href="https://github.com/DataGusIT" class="btn btn-secondary"><i class="fab fa-github"></i>
-                            Ver no GitHub</a>
+                        <a href="#detail-projeto2" class="btn btn-primary"><i class="fas fa-info-circle"></i>
+                            Detalhes</a>
+                        <a href="https://github.com/DataGusIT/SiteGestorX" class="btn btn-secondary"><i
+                                class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 3: Site Estação dos Doces -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-img-container">
+                    <img src="/img/EstacaoDosDoces.png" alt="Site Estação dos Doces" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>Site para Bomboniere "Estação dos Doces"</h3>
+                    <p>Criando a presença digital para um cliente real. Este site institucional foi desenvolvido para a
+                        bomboniere que inspirou o projeto GestorX, oferecendo um catálogo online e informações
+                        essenciais para atrair e engajar clientes.</p>
+                    <div class="project-tags">
+                        <span class="project-tag"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="project-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="project-tag"><i class="fab fa-js"></i> JavaScript</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#detail-projeto3" class="btn btn-primary"><i class="fas fa-info-circle"></i>
+                            Detalhes</a>
+                        <a href="https://github.com/DataGusIT/SiteEstacaoDoces" class="btn btn-secondary"><i
+                                class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 4: Contato Fácil -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-img-container">
+                    <img src="/img/code-contatofacil.png" alt="Sistema Contato Fácil" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>Contato Fácil</h3>
+                    <p>Aplicação Full-Stack desenvolvida na disciplina de Programação para Internet. É uma agenda de
+                        contatos segura e personalizada, onde cada usuário gerencia sua própria lista de forma privada,
+                        utilizando ASP.NET Core MVC e SQL Server.</p>
+                    <div class="project-tags">
+                        <span class="project-tag"><i class="fab fa-microsoft"></i> C#</span>
+                        <span class="project-tag"><i class="fas fa-code"></i> ASP.NET Core MVC</span>
+                        <span class="project-tag"><i class="fas fa-database"></i> SQL Server</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#detail-projeto4" class="btn btn-primary"><i class="fas fa-info-circle"></i>
+                            Detalhes</a>
+                        <a href="https://github.com/DataGusIT/ContatoFacil" class="btn btn-secondary"><i
+                                class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 5: Sistema de Gestão Hospitalar -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-img-container">
+                    <img src="/img/code-gestaohospitalar.png" alt="Sistema de Gestão Hospitalar" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>Sistema de Gestão Hospitalar</h3>
+                    <p>Projeto da disciplina de Engenharia de Software que simula uma plataforma de gestão hospitalar.
+                        Desenvolvido em PHP e MySQL, o sistema gerencia o fluxo de pacientes, agendamentos e permissões
+                        de acesso por grupo.</p>
+                    <div class="project-tags">
+                        <span class="project-tag"><i class="fab fa-php"></i> PHP</span>
+                        <span class="project-tag"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="project-tag"><i class="fas fa-server"></i> Apache</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#detail-projeto5" class="btn btn-primary"><i class="fas fa-info-circle"></i>
+                            Detalhes</a>
+                        <a href="https://github.com/DataGusIT/GestaoHospitalar" class="btn btn-secondary"><i
+                                class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 6: FATEC Vestibular -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="project-img-container">
+                    <img src="/img/fatec.png" alt="Site FATEC Vestibular" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>Site FATEC Vestibular</h3>
+                    <p>Iniciativa acadêmica para solucionar um desafio real: aumentar a visibilidade e centralizar as
+                        informações do vestibular da FATEC. Este portal foi criado para simplificar a jornada do
+                        candidato, servindo como um hub de informações.</p>
+                    <div class="project-tags">
+                        <span class="project-tag"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="project-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="project-tag"><i class="fab fa-js"></i> JavaScript</span>
+                    </div>
+                    <div class="btn-container">
+                        <a href="#detail-projeto6" class="btn btn-primary"><i class="fas fa-info-circle"></i>
+                            Detalhes</a>
+                        <a href="https://github.com/DataGusIT/FatecVestibular" class="btn btn-secondary"><i
+                                class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Detalhes dos Projetos -->
+        <!-- ###################################################### -->
+        <!--           SEÇÃO DE DETALHES DOS PROJETOS               -->
+        <!-- ###################################################### -->
+
+        <!-- Detalhes do Projeto 1: GestorX -->
         <section id="detail-projeto1" class="project-detail-section" data-aos="fade-up">
             <div class="project-detail-header">
-                <h2 class="project-detail-title">Contato Fácil</h2>
-                <p class="project-detail-description">Sistema completo de gerenciamento de contatos com CRUD,
-                    autenticação de usuários e painéis administrativos personalizados.</p>
+                <h2 class="project-detail-title">GestorX - Aplicativo Desktop</h2>
+                <p class="project-detail-description">Aplicativo desktop desenvolvido como projeto piloto para
+                    gerenciamento completo de uma bomboniere.</p>
             </div>
-
             <div class="project-showcase">
                 <div class="showcase-item">
-                    <div class="showcase-media">
-                        <video class="showcase-gif" autoplay muted loop playsinline>
-                            <source src="/assets/videos/contato-facil.mp4" type="video/mp4">
-                            Seu navegador não suporta vídeo.
-                        </video>
-                    </div>
-
+                    <video class="showcase-gif" autoplay muted loop playsinline>
+                        <source src="/assets/videos/gestorx.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo.
+                    </video>
                     <div class="showcase-content">
                         <h3 class="showcase-title">Funcionalidades Principais</h3>
                         <p class="showcase-description">
-                            Este sistema permite o cadastro e gerenciamento completo de contatos com operações CRUD
-                            (Criar, Ler, Atualizar, Deletar). Os usuários podem organizar seus contatos, adicionar
-                            informações detalhadas e realizar buscas avançadas.
+                            O GestorX é um sistema de gestão completo, nascido de um projeto piloto acadêmico para
+                            atender às necessidades específicas de um cliente. A plataforma foi projetada para otimizar
+                            a rotina de um negócio, oferecendo módulos de gestão completos, como o cadastro de clientes,
+                            fornecedores e promoções, além de um controle de estoque avançado com múltiplos filtros e
+                            suporte para produtos fracionados.
                         </p>
                         <p class="showcase-description">
-                            O sistema inclui autenticação de usuários, diferentes níveis de acesso, painel
-                            administrativo para visualização de usuários registrados e listagem personalizada de
-                            contatos para cada usuário.
+                            Para o ponto de venda, o sistema inclui uma tela de caixa (PDV) otimizada para agilidade,
+                            com suporte integrado para leitor de código de barras. O grande diferencial está na sua
+                            capacidade de transformar dados em inteligência: um dashboard interativo exibe a evolução de
+                            vendas, rankings de melhores clientes e produtos, e as formas de pagamento mais utilizadas.
+                            Adicionalmente, o módulo de controle financeiro permite registrar todas as movimentações,
+                            gerando relatórios detalhados para uma tomada de decisão mais segura. Tudo isso é operado
+                            sob um sistema de autenticação robusto, com diferentes níveis de permissão (Administrador e
+                            Operador) e funcionalidades de automação, como o envio de notificações por e-mail para
+                            alertar sobre estoque baixo.
+                        </p>
+                        <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
+                        <div class="showcase-tech-list">
+                            <span class="showcase-tech"><i class="fab fa-python"></i> Python</span>
+                            <span class="showcase-tech"><i class="fas fa-desktop"></i> PyQt5</span>
+                            <span class="showcase-tech"><i class="fas fa-database"></i> SQLite</span>
+                            <span class="showcase-tech"><i class="fas fa-file-alt"></i> ReportLab</span>
+                            <span class="showcase-tech"><i class="fas fa-envelope"></i> SMTP</span>
+                        </div>
+                        <div class="showcase-buttons">
+                            <a href="https://github.com/DataGusIT/EstacaoDoces" class="btn btn-secondary"><i
+                                    class="fab fa-github"></i> Ver Código no GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detalhes do Projeto 2: Site do GestorX -->
+        <section id="detail-projeto2" class="project-detail-section" data-aos="fade-up">
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">Site Institucional GestorX</h2>
+                <p class="project-detail-description">Landing page para apresentação e marketing do sistema desktop
+                    GestorX.</p>
+            </div>
+            <div class="project-showcase">
+                <div class="showcase-item">
+                    <img src="/img/gestorx.png" alt="Site do GestorX" class="showcase-gif">
+                    <div class="showcase-content">
+                        <h3 class="showcase-title">Funcionalidades Principais</h3>
+                        <p class="showcase-description">
+                            Para que o sistema GestorX alcançasse seu público, desenvolvi um site institucional focado
+                            em marketing e distribuição. O objetivo era criar uma experiência clara e direta para o
+                            usuário interessado no software.
+                        </p>
+                        <p class="showcase-description">
+                            O site apresenta a interface do sistema, detalha suas principais funcionalidades e, mais
+                            importante, oferece um link direto para o download da versão de teste. É uma landing page
+                            construída com tecnologias web padrão (HTML, CSS e JavaScript) para garantir leveza,
+                            responsividade e praticidade.
+                        </p>
+                        <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
+                        <div class="showcase-tech-list">
+                            <span class="showcase-tech"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="showcase-tech"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="showcase-tech"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="showcase-tech"><i class="fas fa-mobile-alt"></i> Design Responsivo</span>
+                        </div>
+                        <div class="showcase-buttons">
+                            <a href="https://github.com/DataGusIT/SiteGestorX" class="btn btn-secondary"><i
+                                    class="fab fa-github"></i> Ver Código no GitHub</a>
+                            <a href="https://gestorx.vercel.app/" class="btn btn-primary" target="_blank"><i
+                                    class="fas fa-external-link-alt"></i> Ver Site</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detalhes do Projeto 3: Site Estação dos Doces -->
+        <section id="detail-projeto3" class="project-detail-section" data-aos="fade-up">
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">Site para Bomboniere "Estação dos Doces"</h2>
+                <p class="project-detail-description">Website charmoso e funcional para apresentar os produtos e a marca
+                    de uma bomboniere local.</p>
+            </div>
+            <div class="project-showcase">
+                <div class="showcase-item">
+                    <img src="/img/EstacaoDosDoces.png" alt="Site Estação dos Doces" class="showcase-gif">
+                    <div class="showcase-content">
+                        <h3 class="showcase-title">Funcionalidades Principais</h3>
+                        <p class="showcase-description">
+                            Este projeto é a materialização do apoio tecnológico ao nosso cliente do projeto piloto.
+                            Desenvolvemos um site institucional sob medida para a bomboniere "Estação dos Doces", com o
+                            objetivo de fortalecer sua marca e facilitar a comunicação com os clientes.
+                        </p>
+                        <p class="showcase-description">
+                            O site funciona como uma vitrine digital, apresentando um catálogo de produtos, informações
+                            da loja, e links diretos para contato e redes sociais, tudo com um design amigável e
+                            responsivo construído com HTML, CSS e JavaScript.
+                        </p>
+                        <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
+                        <div class="showcase-tech-list">
+                            <span class="showcase-tech"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="showcase-tech"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="showcase-tech"><i class="fab fa-js"></i> JavaScript</span>
+                        </div>
+                        <div class="showcase-buttons">
+                            <a href="https://github.com/DataGusIT/SiteEstacaoDoces" class="btn btn-secondary"><i
+                                    class="fab fa-github"></i> Ver Código no GitHub</a>
+                            <a href="https://estacaodoces.vercel.app/" class="btn btn-primary" target="_blank"><i
+                                    class="fas fa-external-link-alt"></i> Ver Site</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detalhes do Projeto 4: Contato Fácil -->
+        <section id="detail-projeto4" class="project-detail-section" data-aos="fade-up">
+            <div class="project-detail-header">
+                <h2 class="project-detail-title">Contato Fácil</h2>
+                <p class="project-detail-description">Sistema completo de gerenciamento de contatos com CRUD,
+                    autenticação de usuários e painéis administrativos.</p>
+            </div>
+            <div class="project-showcase">
+                <div class="showcase-item">
+                    <video class="showcase-gif" autoplay muted loop playsinline>
+                        <source src="/assets/videos/contato-facil.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo.
+                    </video>
+                    <div class="showcase-content">
+                        <h3 class="showcase-title">Funcionalidades Principais</h3>
+                        <p class="showcase-description">
+                            Desenvolvido no contexto da matéria de Programação para a Internet, o "Contato Fácil" é uma
+                            aplicação web que funciona como uma agenda de contatos inteligente. O principal desafio era
+                            garantir a segurança e a privacidade dos dados de cada usuário.
+                        </p>
+                        <p class="showcase-description">
+                            O sistema permite que um usuário se cadastre e, a partir de seu login, crie, visualize,
+                            edite e exclua seus próprios contatos (CRUD). A agenda de um usuário é completamente isolada
+                            da de outro, garantindo que as informações sejam sempre privadas.
+                        </p>
+                        <!-- Colaboradores -->
+                        <p class="collaborator-info">
+                            Desenvolvido em colaboração com:
+                            <a href="https://github.com/FabioRigote" target="_blank" rel="noopener noreferrer"
+                                class="collaborator-link">Fábio</a>.
                         </p>
                         <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
                         <div class="showcase-tech-list">
@@ -1015,13 +1170,13 @@
             </div>
         </section>
 
-        <section id="detail-projeto2" class="project-detail-section" data-aos="fade-up">
+        <!-- Detalhes do Projeto 5: Sistema de Gestão Hospitalar -->
+        <section id="detail-projeto5" class="project-detail-section" data-aos="fade-up">
             <div class="project-detail-header">
                 <h2 class="project-detail-title">Sistema de Gestão Hospitalar</h2>
-                <p class="project-detail-description">Plataforma completa para gestão hospitalar com recursos de
-                    agendamento, gerenciamento de usuários e controle de procedimentos médicos.</p>
+                <p class="project-detail-description">Plataforma para gestão hospitalar com agendamento, gerenciamento
+                    de usuários e controle de procedimentos.</p>
             </div>
-
             <div class="project-showcase">
                 <div class="showcase-item">
                     <video class="showcase-gif" autoplay muted loop playsinline>
@@ -1031,22 +1186,30 @@
                     <div class="showcase-content">
                         <h3 class="showcase-title">Funcionalidades Principais</h3>
                         <p class="showcase-description">
-                            Esta plataforma permite que pacientes realizem login, cadastro e agendamento de consultas,
-                            exames e procedimentos médicos. O sistema gerencia automaticamente a disponibilidade de
-                            profissionais e recursos.
+                            Este sistema foi concebido na matéria de Engenharia de Software para aplicar conceitos de
+                            modelagem e desenvolvimento em um cenário complexo. A plataforma gerencia operações básicas
+                            de uma clínica ou hospital.
                         </p>
                         <p class="showcase-description">
-                            O sistema inclui um painel administrativo para gestão de usuários, histórico detalhado de
-                            agendamentos para cada paciente e ferramentas de gerenciamento de consultas. A interface é
-                            intuitiva e otimizada para uso em ambiente hospitalar.
+                            As funcionalidades incluem autenticação de usuários, cadastro de pacientes e um sistema de
+                            agendamento de consultas, exames e procedimentos. O controle de acesso é baseado em papéis,
+                            com permissões distintas para Pacientes e Secretários, garantindo que cada grupo acesse
+                            apenas as funcionalidades relevantes.
+                        </p>
+                        <!-- Colaboradores -->
+                        <p class="collaborator-info">
+                            Desenvolvido em colaboração com:
+                            <a href="https://github.com/CarlaPr" target="_blank" rel="noopener noreferrer"
+                                class="collaborator-link">Carla</a> e
+                            <a href="https://github.com/giovannasjoaquim" target="_blank" rel="noopener noreferrer"
+                                class="collaborator-link">Giovanna</a>.
                         </p>
                         <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
                         <div class="showcase-tech-list">
                             <span class="showcase-tech"><i class="fab fa-php"></i> PHP</span>
                             <span class="showcase-tech"><i class="fas fa-database"></i> MySQL</span>
-                            <span class="showcase-tech"><i class="fas fa-server"></i> Apache</span>
+                            <span class="showcase-tech"><i class="fas fa-server"></i> Apache (XAMPP)</span>
                             <span class="showcase-tech"><i class="fas fa-cog"></i> phpMyAdmin</span>
-                            <span class="showcase-tech"><i class="fas fa-key"></i> Auth</span>
                         </div>
                         <div class="showcase-buttons">
                             <a href="https://github.com/DataGusIT/GestaoHospitalar" class="btn btn-secondary"><i
@@ -1057,168 +1220,47 @@
             </div>
         </section>
 
-        <section id="detail-projeto3" class="project-detail-section" data-aos="fade-up">
+        <!-- Detalhes do Projeto 6: FATEC Vestibular -->
+        <section id="detail-projeto6" class="project-detail-section" data-aos="fade-up">
             <div class="project-detail-header">
-                <h2 class="project-detail-title">Portal de Apoio ao Autismo</h2>
-                <p class="project-detail-description">Trabalho de conclusão de curso focado em informação e apoio a
-                    pessoas com TEA (Transtorno do Espectro Autista) e seus familiares.</p>
+                <h2 class="project-detail-title">Site FATEC Vestibular</h2>
+                <p class="project-detail-description">Portal informativo para auxiliar estudantes interessados no
+                    vestibular da FATEC.</p>
             </div>
-
             <div class="project-showcase">
                 <div class="showcase-item">
-                    <video class="showcase-gif" autoplay muted loop playsinline>
-                        <source src="/assets/videos/Centro-Espectro.mp4" type="video/mp4">
-                        Seu navegador não suporta vídeo.
-                    </video>
+                    <img src="/img/fatec.png" alt="Site FATEC Vestibular" class="showcase-gif">
                     <div class="showcase-content">
                         <h3 class="showcase-title">Funcionalidades Principais</h3>
                         <p class="showcase-description">
-                            Este portal oferece informações abrangentes sobre o TEA, incluindo uma área de FAQ com
-                            dúvidas frequentes respondidas por especialistas, recursos educacionais e ferramentas
-                            práticas para pais e cuidadores de crianças com autismo.
+                            Percebendo a necessidade de um canal de comunicação mais focado, este projeto acadêmico teve
+                            como objetivo criar um site institucional exclusivamente dedicado ao vestibular da FATEC
+                            Itaqua. A
+                            ideia era criar um ponto de referência para todos os candidatos.
                         </p>
                         <p class="showcase-description">
-                            O sistema inclui autenticação de usuários, área de contato para suporte especializado e uma
-                            seção de ferramentas interativas desenvolvidas especificamente para auxiliar no
-                            desenvolvimento e comunicação com crianças com TEA.
+                            O portal centraliza informações essenciais como editais, calendário oficial, lista de cursos
+                            por unidade, além de oferecer materiais de apoio como provas antigas e gabaritos. O site foi
+                            construído com HTML, CSS e JavaScript para ser leve, rápido e acessível em qualquer
+                            dispositivo.
+                        </p>
+                        <!-- Colaboradores -->
+                        <p class="collaborator-info">
+                            Desenvolvido em colaboração com:
+                            <a href="https://github.com/jeancarloslima" target="_blank" rel="noopener noreferrer"
+                                class="collaborator-link">Jean</a>.
                         </p>
                         <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
                         <div class="showcase-tech-list">
-                            <span class="showcase-tech"><i class="fab fa-microsoft"></i> C#</span>
-                            <span class="showcase-tech"><i class="fas fa-code"></i> ASP.NET Core MVC</span>
-                            <span class="showcase-tech"><i class="fas fa-database"></i> SQL Server</span>
-                            <span class="showcase-tech"><i class="fas fa-layer-group"></i> Entity Framework</span>
-                            <span class="showcase-tech"><i class="fas fa-mobile-alt"></i> Design Responsivo</span>
-                        </div>
-                        <div class="showcase-buttons">
-                            <a href="https://github.com/DataGusIT/Autismo" class="btn btn-secondary"><i
-                                    class="fab fa-github"></i> Ver Código no GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="detail-projeto4" class="project-detail-section" data-aos="fade-up">
-            <div class="project-detail-header">
-                <h2 class="project-detail-title">Clone da Interface do Spotify</h2>
-                <p class="project-detail-description">Recriação fiel da interface principal do Spotify com foco na
-                    experiência do usuário e design responsivo.</p>
-            </div>
-
-            <div class="project-showcase">
-                <div class="showcase-item">
-                    <div class="showcase-media">
-                        <img src="/img/code-spotify.png" alt="Clone do Spotify em funcionamento" class="showcase-gif">
-                    </div>
-                    <div class="showcase-content">
-                        <h3 class="showcase-title">Funcionalidades Principais</h3>
-                        <p class="showcase-description">
-                            Este projeto recria a interface principal do Spotify com alta fidelidade visual e funcional.
-                            Inclui elementos interativos como navegação entre seções, carrosséis de conteúdo e
-                            visualização de playlists e artistas.
-                        </p>
-                        <p class="showcase-description">
-                            O sistema consome uma API JSON personalizada para simular consultas de banco de dados,
-                            permitindo exibir informações dinâmicas sobre artistas, álbuns e playlists como se estivesse
-                            integrado a um serviço real.
-                        </p>
-                        <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
-                        <div class="showcase-tech-list">
-                            <span class="showcase-tech"><i class="fab fa-react"></i> React</span>
                             <span class="showcase-tech"><i class="fab fa-html5"></i> HTML5</span>
                             <span class="showcase-tech"><i class="fab fa-css3-alt"></i> CSS3</span>
                             <span class="showcase-tech"><i class="fab fa-js"></i> JavaScript</span>
-                            <span class="showcase-tech"><i class="fas fa-database"></i> API JSON</span>
                         </div>
                         <div class="showcase-buttons">
-                            <a href="https://github.com/DataGusIT/SpotifyClone" class="btn btn-secondary"><i
+                            <a href="https://github.com/DataGusIT/FatecVestibular" class="btn btn-secondary"><i
                                     class="fab fa-github"></i> Ver Código no GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="detail-projeto5" class="project-detail-section" data-aos="fade-up">
-            <div class="project-detail-header">
-                <h2 class="project-detail-title">Estação Doces - Aplicativo Desktop</h2>
-                <p class="project-detail-description">Aplicativo desktop desenvolvido como projeto piloto acadêmico para
-                    gerenciamento completo de uma bomboniere.</p>
-            </div>
-
-            <div class="project-showcase">
-                <div class="showcase-item">
-                    <video class="showcase-gif" autoplay muted loop playsinline>
-                        <source src="/assets/videos/code-estoque.mp4" type="video/mp4">
-                        Seu navegador não suporta vídeo.
-                    </video>
-                    <div class="showcase-content">
-                        <h3 class="showcase-title">Funcionalidades Principais</h3>
-                        <p class="showcase-description">
-                            Este aplicativo desktop permite o gerenciamento completo de uma bomboniere com operações
-                            CRUD para cadastro de clientes, controle detalhado de estoque, gestão de fornecedores e
-                            sistema de promoções.
-                        </p>
-                        <p class="showcase-description">
-                            O sistema foi desenvolvido como um projeto piloto acadêmico e inclui recursos como controle
-                            de vendas, relatórios gerenciais, histórico de transações e interface otimizada para uso em
-                            ambiente comercial de pequeno porte.
-                        </p>
-                        <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
-                        <div class="showcase-tech-list">
-                            <span class="showcase-tech"><i class="fab fa-python"></i> Python</span>
-                            <span class="showcase-tech"><i class="fas fa-desktop"></i> PyQt5</span>
-                            <span class="showcase-tech"><i class="fas fa-database"></i> SQLite</span>
-                            <span class="showcase-tech"><i class="fas fa-laptop"></i> Desktop</span>
-                            <span class="showcase-tech"><i class="fas fa-chart-bar"></i> Relatórios</span>
-                        </div>
-                        <div class="showcase-buttons">
-                            <a href="https://github.com/DataGusIT/EstacaoDoces" class="btn btn-secondary"><i
-                                    class="fab fa-github"></i> Ver Código no GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="detail-projeto6" class="project-detail-section" data-aos="fade-up">
-            <div class="project-detail-header">
-                <h2 class="project-detail-title">Dashboard Administrativo</h2>
-                <p class="project-detail-description">Um painel de controle completo para administração de negócios, com
-                    visualizações de dados, relatórios e gerenciamento de usuários e recursos.</p>
-            </div>
-
-            <div class="project-showcase">
-                <div class="showcase-item">
-                    <div class="showcase-media">
-                        <img src="/api/placeholder/600/400" alt="Dashboard Administrativo em funcionamento"
-                            class="showcase-gif">
-                    </div>
-                    <div class="showcase-content">
-                        <h3 class="showcase-title">Funcionalidades Principais</h3>
-                        <p class="showcase-description">
-                            Este dashboard administrativo fornece uma visão completa das operações de negócio com
-                            gráficos interativos, indicadores de performance (KPIs) e relatórios personalizáveis.
-                            Administradores podem visualizar vendas, receitas, tráfego e conversões.
-                        </p>
-                        <p class="showcase-description">
-                            O sistema inclui gerenciamento completo de usuários com controle de permissões, ferramentas
-                            de moderação de conteúdo, gerenciamento de produtos/serviços e exportação de dados em
-                            diversos formatos (PDF, Excel, CSV).
-                        </p>
-                        <h4 class="showcase-tech-title">Tecnologias Utilizadas:</h4>
-                        <div class="showcase-tech-list">
-                            <span class="showcase-tech"><i class="fab fa-react"></i> React</span>
-                            <span class="showcase-tech"><i class="fas fa-chart-line"></i> Chart.js</span>
-                            <span class="showcase-tech"><i class="fas fa-table"></i> Material-UI</span>
-                            <span class="showcase-tech"><i class="fab fa-node-js"></i> Node.js</span>
-                            <span class="showcase-tech"><i class="fas fa-database"></i> MongoDB</span>
-                            <span class="showcase-tech"><i class="fas fa-file-export"></i> ExcelJS</span>
-                        </div>
-                        <div class="showcase-buttons">
-                            <a href="https://github.com/username/admin-dashboard" class="btn btn-secondary"><i
-                                    class="fab fa-github"></i> Ver Código no GitHub</a>
+                            <a href="https://vestibular-fatec-itaquaquecetuba.vercel.app/" class="btn btn-primary"
+                                target="_blank"><i class="fas fa-external-link-alt"></i> Ver Site</a>
                         </div>
                     </div>
                 </div>
@@ -1278,7 +1320,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // === Lógica para exibir ou esconder projetos ===
-            const mostrarProjeto6 = false; // Mude para true se quiser exibir
+            const mostrarProjeto6 = true; // Mude para true se quiser exibir
 
             const projeto6 = document.getElementById('projeto6');
 
@@ -1288,7 +1330,7 @@
         });
         document.addEventListener('DOMContentLoaded', function () {
             // === Lógica para exibir ou esconder detalhes do projeto 6 ===
-            const mostrarDetalheProjeto6 = false; // Mude para true se quiser exibir
+            const mostrarDetalheProjeto6 = true; // Mude para true se quiser exibir
 
             const detalheProjeto6 = document.getElementById('detail-projeto6');
 
