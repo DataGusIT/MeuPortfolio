@@ -80,6 +80,26 @@ section {
     transform: translateY(0);
 }
 
+
+/* Esconde por padrão todos os cartões a partir do quarto */
+.education-grid .education-card:nth-child(n+4) {
+    display: none;
+}
+
+/* Classe para mostrar os cartões ocultos */
+.education-grid.show-all .education-card {
+    display: flex;
+}
+
+/* Container para o botão */
+.view-more-container {
+    /* Adicionamos display: flex para tornar o container um flex container */
+    display: flex;
+    /* justify-content: center alinha o item filho (o botão) no centro horizontal */
+    justify-content: center;
+    margin-top: 2rem;
+}
+
 /* --- ESTILOS DE TRANSPARÊNCIA E CORES --- */
 
 /* CORREÇÃO: Header com fundo sólido igual ao body */
