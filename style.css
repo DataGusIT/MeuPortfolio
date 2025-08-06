@@ -673,6 +673,49 @@ nav ul li a:hover::after {
     z-index: 1001;
 }
 
+/* --- [NOVO] ESTILOS DO BOTÃO DE IDIOMA --- */
+.language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    /* Ajustado para altura similar ao theme-toggle */
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    height: 34px;
+    /* Altura fixa para alinhar com o seletor de tema */
+}
+
+.language-toggle:hover {
+    background-color: var(--accent);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+.language-toggle i {
+    font-size: 1rem;
+    transition: transform 0.4s ease;
+}
+
+.language-toggle:hover i {
+    transform: rotate(20deg);
+}
+
+#lang-indicator {
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+/* --- [FIM] ESTILOS DO BOTÃO DE IDIOMA --- */
+
 
 @keyframes shimmer {
     0% {
@@ -2430,6 +2473,33 @@ textarea.form-control {
         padding: 0;
         margin: 0;
         list-style: none;
+    }
+
+    #main-nav .language-toggle {
+        order: 98;
+        /* Fica entre os links e o seletor de tema (order: 99) */
+        margin-top: 1.5rem;
+        width: 90%;
+        max-width: 64px;
+        /* Largura consistente com os links */
+        padding: 0.8rem;
+        /* Mais área de toque */
+        font-size: 1rem;
+        justify-content: center;
+        /* Centraliza o conteúdo (ícone + texto) */
+    }
+
+    #main-nav .language-toggle:hover {
+        transform: none;
+        /* Remove o efeito de levantar no hover dentro do menu */
+        box-shadow: none;
+        background-color: var(--primary);
+        /* Efeito de hover consistente com os links */
+        color: var(--accent);
+    }
+
+    .light-mode #main-nav .language-toggle:hover {
+        background-color: #e5e7eb;
     }
 
     #main-nav ul li {

@@ -85,17 +85,21 @@
             </a>
             <nav id="main-nav">
                 <ul>
-                    <li><a href="#home"> Início</a></li>
-                    <li><a href="#about"> Sobre</a></li>
-                    <li><a href="#skills"> Habilidades</a></li>
-                    <li><a href="#projects"> Projetos</a></li>
-                    <li><a href="#formacao"> Formação e Certificados</a></li>
-                    <li><a href="#contact"> Contato</a></li>
+                    <li><a href="#home" data-translate="nav-home">Início</a></li>
+                    <li><a href="#about" data-translate="nav-about">Sobre</a></li>
+                    <li><a href="#skills" data-translate="nav-skills">Habilidades</a></li>
+                    <li><a href="#projects" data-translate="nav-projects">Projetos</a></li>
+                    <li><a href="#formacao" data-translate="nav-education">Formação e Certificados</a></li>
+                    <li><a href="#contact" data-translate="nav-contact">Contato</a></li>
                 </ul>
             </nav>
             <div class="header-controls">
                 <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
                     <i class="fas fa-sun"></i>
+                </button>
+                <button class="language-toggle" id="language-toggle" aria-label="Change Language">
+                    <i class="fas fa-globe"></i>
+                    <span id="lang-indicator">EN</span>
                 </button>
                 <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Abrir menu de navegação"
                     aria-controls="main-nav" aria-expanded="false">
@@ -107,64 +111,63 @@
 
     <main>
         <section id="home" class="hero">
-            <img src="/img/fotoPerfil.png" alt="Foto de Perfil" class="profile-pic float-animation">
-            <h1>Estudante de TI & Entusiasta por Tecnologia</h1>
-            <p>Apaixonado por tecnologia, dados e programação. Construindo meu caminho no mundo tech enquanto aprendo e
-                desenvolvo projetos criativos!</p>
+            <img src="/img/foto.jpg" alt="Foto de Perfil" class="profile-pic float-animation">
+            <h1 data-translate="hero-title">Estudante de TI & Entusiasta por Tecnologia</h1>
+            <p data-translate="hero-subtitle">Apaixonado por tecnologia, dados e programação. Construindo meu caminho no
+                mundo tech enquanto aprendo e desenvolvo projetos criativos!</p>
             <div class="skills">
-                <div class="skill-tag"><i class="fas fa-code"></i> Programação</div>
-                <div class="skill-tag"><i class="fas fa-database"></i> Dados</div>
-                <div class="skill-tag"><i class="fas fa-laptop-code"></i> Desenvolvimento Web</div>
-                <div class="skill-tag"><i class="fas fa-chart-line"></i> Data Analytics</div>
-                <div class="skill-tag"><i class="fas fa-lightbulb"></i> Business Intelligence</div>
+                <div class="skill-tag"><i class="fas fa-code"></i><span data-translate="skill-tag-1"> Programação</span>
+                </div>
+                <div class="skill-tag"><i class="fas fa-database"></i><span data-translate="skill-tag-2"> Dados</span>
+                </div>
+                <div class="skill-tag"><i class="fas fa-laptop-code"></i><span data-translate="skill-tag-3">
+                        Desenvolvimento Web</span></div>
+                <div class="skill-tag"><i class="fas fa-chart-line"></i><span data-translate="skill-tag-4"> Data
+                        Analytics</span></div>
+                <div class="skill-tag"><i class="fas fa-lightbulb"></i><span data-translate="skill-tag-5"> Business
+                        Intelligence</span></div>
             </div>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary"><i class="fas fa-comment"></i> Bora Trocar Ideia</a>
-                <a href="assets/CV - Gustavo Moreno Souza.pdf" download class="btn btn-secondary">
-                    <i class="fas fa-eye"></i> Baixar CV
-                </a>
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-comment"></i><span
+                        data-translate="hero-btn-contact"> Bora Trocar Ideia</span></a>
+                <a href="assets/CV - Gustavo Moreno Souza.pdf" download class="btn btn-secondary"><i
+                        class="fas fa-eye"></i><span data-translate="hero-btn-cv"> Baixar CV</span></a>
             </div>
         </section>
 
         <section id="about">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Sobre Mim</h2>
+                <h2 class="section-title" data-translate="about-title">Sobre Mim</h2>
             </div>
             <div class="about-content-grid">
                 <div class="about-text" data-aos="fade-right">
-                    <p>Olá! Sou <span class="highlight">estudante do 3º ano de Tecnologia da Informação,</span> com
-                        foco em <span class="highlight">business intelligence</span> e <span class="highlight">análise
-                            de
-                            dados</span>. Sou motivado por utilizar a tecnologia para solucionar problemas e otimizar
-                        decisões por meio de dados.</p>
-                    <p>Atualmente, aprofundo meus conhecimentos em BI, análise de dados e programação por meio de
-                        projetos acadêmicos, cursos extracurriculares e iniciativas pessoais. Tenho facilidade em
-                        aprender novas
-                        ferramentas e tecnologias, valorizo o trabalho em equipe e busco contribuir com soluções
-                        práticas.</p>
-                    <p>Estou em busca de uma <span class="highlight">oportunidade de estágio</span> para aplicar minhas
-                        competências, aprender com profissionais experientes e contribuir para projetos inovadores.
-                    </p>
+                    <p data-translate="about-p1">Olá! Sou <span class="highlight">estudante do 3º ano de Tecnologia da
+                            Informação,</span> com foco em <span class="highlight">business intelligence</span> e <span
+                            class="highlight">análise de dados</span>. Sou motivado por utilizar a tecnologia para
+                        solucionar problemas e otimizar decisões por meio de dados.</p>
+                    <p data-translate="about-p2">Atualmente, aprofundo meus conhecimentos em BI, análise de dados e
+                        programação por meio de projetos acadêmicos, cursos extracurriculares e iniciativas pessoais.
+                        Tenho facilidade em aprender novas ferramentas e tecnologias, valorizo o trabalho em equipe e
+                        busco contribuir com soluções práticas.</p>
+                    <p data-translate="about-p3">Estou em busca de uma <span class="highlight">oportunidade de
+                            estágio</span> para aplicar minhas competências, aprender com profissionais experientes e
+                        contribuir para projetos inovadores.</p>
                 </div>
-
-                <!-- === ESPAÇO PARA ANIMAÇÃO LOTTIE === -->
                 <div class="about-lottie" data-aos="fade-left">
                     <lottie-player src="assets/lotties/data_analysis.json" background="transparent" speed="1" loop
-                        autoplay>
-                    </lottie-player>
+                        autoplay></lottie-player>
                 </div>
-                <!-- =================================== -->
             </div>
         </section>
 
         <section id="skills">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Minhas Skills</h2>
+                <h2 class="section-title" data-translate="skills-title">Minhas Skills</h2>
             </div>
             <div class="tech-skills">
                 <div class="skill-category" data-aos="fade-up">
                     <div class="skill-category-header">
-                        <h3><i class="fas fa-code"></i> Programação & Dev</h3>
+                        <h3 data-translate="skills-cat1-title"><i class="fas fa-code"></i> Programação & Dev</h3>
                         <!-- === ESPAÇO PARA ANIMAÇÃO LOTTIE === -->
                         <div class="skill-lottie">
                             <lottie-player src="assets/lotties/Developer.json" background="transparent" speed="1" loop
@@ -224,7 +227,7 @@
 
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
                     <div class="skill-category-header">
-                        <h3><i class="fas fa-chart-line"></i> Análise de Dados</h3>
+                        <h3 data-translate="skills-cat2-title"><i class="fas fa-chart-line"></i> Análise de Dados</h3>
                         <!-- === ESPAÇO PARA ANIMAÇÃO LOTTIE === -->
                         <div class="skill-lottie">
                             <lottie-player src="assets/lotties/Data_Scanning.json" background="transparent" speed="1"
@@ -284,7 +287,8 @@
 
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
                     <div class="skill-category-header">
-                        <h3><i class="fas fa-chart-pie"></i> Business Intelligence</h3>
+                        <h3 data-translate="skills-cat3-title"><i class="fas fa-chart-pie"></i> Business Intelligence
+                        </h3>
                         <!-- === ESPAÇO PARA ANIMAÇÃO LOTTIE === -->
                         <div class="skill-lottie">
                             <lottie-player src="assets/lotties/Animated_Dashboards.json" background="transparent"
@@ -346,24 +350,24 @@
 
         <section id="projects">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Meus Projetos</h2>
+                <h2 class="section-title" data-translate="projects-title">Meus Projetos</h2>
             </div>
             <div class="projects-grid">
                 <div class="project-card" data-aos="fade-up">
                     <img src="/img/PowerBI.jpg" alt="Dashboards de Business Intelligence" class="project-img">
                     <div class="project-content">
-                        <h3>Coleção de Dashboards Power BI</h3>
-                        <p>Desenvolvi uma série de dashboards interativos usando Power BI para análise de dados em
-                            diferentes contextos como vendas, finanças, RH e produção. Adquiri estas habilidades
-                            através de cursos online.</p>
+                        <h3 data-translate="project1-title">Coleção de Dashboards Power BI</h3>
+                        <p data-translate="project1-desc">Desenvolvi uma série de dashboards interativos usando
+                            Power BI para análise de dados em diferentes contextos como vendas, finanças, RH e
+                            produção. Adquiri estas habilidades através de cursos online.</p>
                         <div class="project-tags">
                             <span class="project-tag"><i class="fas fa-chart-bar"></i> Power BI</span>
                             <span class="project-tag"><i class="fas fa-database"></i> DAX</span>
                             <span class="project-tag"><i class="fas fa-table"></i> SQL</span>
                         </div>
                         <div class="project-buttons">
-                            <a href="portfolio-bi.html" class="btn btn-primary"><i class="fas fa-code"></i> Ver
-                                Projetos</a>
+                            <a href="portfolio-bi.html" class="btn btn-primary"><i class="fas fa-code"></i><span
+                                    data-translate="btn-view-projects"> Ver Projetos</span></a>
                             <a href="https://github.com/DataGusIT" class="btn btn-secondary"><i
                                     class="fab fa-github"></i> GitHub</a>
                         </div>
@@ -373,17 +377,17 @@
                 <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <img src="/img/dados-analise.jpg" alt="Análise de Dados do Spotify" class="project-img">
                     <div class="project-content">
-                        <h3>Projetos de Análise de Dados</h3>
-                        <p>Atualmente estou desenvolvendo projetos de análise de dados utilizando Python e bibliotecas
-                            como Pandas, Matplotlib, Seaborn e NumPY.</p>
+                        <h3 data-translate="project2-title">Projetos de Análise de Dados</h3>
+                        <p data-translate="project2-desc">Atualmente estou desenvolvendo projetos de análise de dados
+                            utilizando Python e bibliotecas como Pandas, Matplotlib, Seaborn e NumPY.</p>
                         <div class="project-tags">
                             <span class="project-tag"><i class="fab fa-python"></i> Python</span>
                             <span class="project-tag"><i class="fas fa-chart-bar"></i> Pandas</span>
                             <span class="project-tag"><i class="fas fa-chart-line"></i> Matplotlib</span>
                         </div>
                         <div class="project-buttons">
-                            <a href="portfolio-dados.html" class="btn btn-primary"><i class="fas fa-code"></i> Ver
-                                Projetos</a>
+                            <a href="portfolio-dados.html" class="btn btn-primary"><i class="fas fa-code"></i><span
+                                    data-translate="btn-view-projects"> Ver Projetos</span></a>
                             <a href="https://github.com/DataGusIT" class="btn btn-secondary"><i
                                     class="fab fa-github"></i> GitHub</a>
                         </div>
@@ -393,18 +397,18 @@
                 <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <img src="/img/programacao.jpg" alt="Projetos de Programação" class="project-img">
                     <div class="project-content">
-                        <h3>Portfólio de Desenvolvimento</h3>
-                        <p>Conjunto de projetos desenvolvidos durante minha formação acadêmica e estudos independentes,
-                            incluindo aplicações web full-stack, interfaces interativas, CLIs e soluções para problemas
-                            complexos.</p>
+                        <h3 data-translate="project3-title">Portfólio de Desenvolvimento</h3>
+                        <p data-translate="project3-desc">Conjunto de projetos desenvolvidos durante minha formação
+                            acadêmica e estudos independentes, incluindo aplicações web full-stack, interfaces
+                            interativas, CLIs e soluções para problemas complexos.</p>
                         <div class="project-tags">
                             <span class="project-tag"><i class="fab fa-js"></i> JavaScript</span>
                             <span class="project-tag"><i class="fab fa-react"></i> React</span>
                             <span class="project-tag"><i class="fab fa-node-js"></i> Node.js</span>
                         </div>
                         <div class="project-buttons">
-                            <a href="portfolio-code.html" class="btn btn-primary"><i class="fas fa-code"></i> Ver
-                                Projetos</a>
+                            <a href="portfolio-code.html" class="btn btn-primary"><i class="fas fa-code"></i><span
+                                    data-translate="btn-view-projects"> Ver Projetos</span></a>
                             <a href="https://github.com/DataGusIT" class="btn btn-secondary"><i
                                     class="fab fa-github"></i> GitHub</a>
                         </div>
@@ -415,12 +419,12 @@
 
         <section id="formacao" class="formacao-section">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Formação</h2>
+                <h2 class="section-title" data-translate="education-title">Formação</h2>
             </div>
             <div class="education-card-formacao">
                 <div class="accent-line"></div>
                 <div class="card-background"></div>
-                <div class="badge">Em andamento</div>
+                <div class="badge" data-translate="education-status-ongoing">Em andamento</div>
                 <div class="card-content">
                     <div class="card-header">
                         <div class="logo-container-formacao">
@@ -428,9 +432,11 @@
                             <img src="/img/fatec-identidade.jpg" alt="Fatec Logo" class="logo-formacao">
                         </div>
                         <div class="header-info">
-                            <h2 class="school-name">Faculdade de Tecnologia de Itaquaquecetuba - FATEC</h2>
-                            <h3 class="degree">Tecnólogo em Gestão da Tecnologia da Informação</h3>
-                            <div class="dates">
+                            <h2 class="school-name" data-translate="education-school-name">Faculdade de Tecnologia de
+                                Itaquaquecetuba - FATEC</h2>
+                            <div class="degree" data-translate="education-degree">Tecnólogo em Gestão da Tecnologia da
+                                Informação</div>
+                            <div class="dates" data-translate="education-dates">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -442,7 +448,7 @@
                             </div>
                             <div class="status">
                                 <span class="status-icon"></span>
-                                Cursando
+                                <span data-translate="education-status-studying">Cursando</span>
                             </div>
                         </div>
                     </div>
@@ -452,7 +458,7 @@
 
         <section id="education">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Certificados</h2>
+                <h2 class="section-title" data-translate="certs-title">Certificados</h2>
             </div>
             <div class="education-grid" id="educationGrid">
                 <!-- NOVO CERTIFICADO: Excel Preditiva -->
@@ -460,8 +466,9 @@
                     <!-- Coloque o caminho para a imagem do certificado da Preditiva -->
                     <img src="/img/certificado-predita.png" alt="Certificado Excel Preditiva" class="education-img">
                     <div class="education-content">
-                        <h3>Excel para Análise de Dados</h3>
-                        <p>Curso completo de Excel focado em análise de dados, dashboards e ferramentas avançadas para
+                        <h3 data-translate="cert1-title">Excel para Análise de Dados</h3>
+                        <p data-translate="cert1-desc">Curso completo de Excel focado em análise de dados, dashboards e
+                            ferramentas avançadas para
                             business intelligence, oferecido pela Preditiva.</p>
                         <div class="education-tags">
                             <span class="education-tag"><i class="fas fa-file-excel"></i> Excel</span>
@@ -471,9 +478,11 @@
                         <div class="education-buttons">
                             <!-- Coloque o caminho para o PDF do certificado -->
                             <a href="assets/Excel para AnÁlise de Dados - Gustavo Moreno.pdf" download
-                                class="btn btn-primary"><i class="fas fa-eye"></i> Ver Certificado</a>
+                                class="btn btn-primary"><i class="fas fa-eye"></i> <span
+                                    data-translate="btn-view-cert">Ver Certificado</span></a>
                             <a href="https://www.preditiva.ai/" class="btn btn-secondary"><i
-                                    class="fas fa-external-link-alt"></i> Site da Instituição</a>
+                                    class="fas fa-external-link-alt"></i> <span data-translate="btn-view-site">Site da
+                                    Instituição</span></a>
                         </div>
                     </div>
                 </div>
@@ -482,8 +491,9 @@
                 <div class="education-card" data-aos="fade-up" data-aos-delay="100">
                     <img src="/img/certificado-express.png" alt="Certificado Power BI" class="education-img">
                     <div class="education-content">
-                        <h3>Curso de Power BI</h3>
-                        <p>Curso intensivo pela Simplifica Treinamentos voltado para criação de dashboards,
+                        <h3 data-translate="cert2-title">Curso de Power BI</h3>
+                        <p data-translate="cert2-desc">Curso intensivo pela Simplifica Treinamentos voltado para criação
+                            de dashboards,
                             transformação de dados e uso da linguagem DAX...</p>
                         <div class="education-tags">
                             <span class="education-tag"><i class="fas fa-chart-line"></i> Power BI</span>
@@ -492,9 +502,11 @@
                         </div>
                         <div class="education-buttons">
                             <a href="assets/PowerBi _Express - Gustavo.pdf" download class="btn btn-primary"><i
-                                    class="fas fa-eye"></i> Ver Certificado</a>
+                                    class="fas fa-eye"></i> <span data-translate="btn-view-cert">Ver
+                                    Certificado</span></a>
                             <a href="https://simplificatreinamentos.com.br/" class="btn btn-secondary"><i
-                                    class="fas fa-external-link-alt"></i> Site da Instituição</a>
+                                    class="fas fa-external-link-alt"></i> <span data-translate="btn-view-site">Site da
+                                    Instituição</span></a>
                         </div>
                     </div>
                 </div>
@@ -503,8 +515,9 @@
                 <div class="education-card" data-aos="fade-up" data-aos-delay="200">
                     <img src="/img/certificado-hashtag.png" alt="Certificado Jornada Python" class="education-img">
                     <div class="education-content">
-                        <h3>Jornada Python Completa</h3>
-                        <p>Curso oferecido pela Hashtag Treinamentos abordando automação de tarefas, análise de dados,
+                        <h3 data-translate="cert3-title">Jornada Python Completa</h3>
+                        <p data-translate="cert3-desc">Curso oferecido pela Hashtag Treinamentos abordando automação de
+                            tarefas, análise de dados,
                             machine learning e desenvolvimento web...</p>
                         <div class="education-tags">
                             <span class="education-tag"><i class="fab fa-python"></i> Python</span>
@@ -513,9 +526,11 @@
                         </div>
                         <div class="education-buttons">
                             <a href="assets/JornadaPython - Gustavo.pdf" download class="btn btn-primary"><i
-                                    class="fas fa-eye"></i> Ver Certificado</a>
+                                    class="fas fa-eye"></i> <span data-translate="btn-view-cert">Ver
+                                    Certificado</span></a>
                             <a href="https://www.hashtagtreinamentos.com/" class="btn btn-secondary"><i
-                                    class="fas fa-external-link-alt"></i> Site da Instituição</a>
+                                    class="fas fa-external-link-alt"></i> <span data-translate="btn-view-site">Site da
+                                    Instituição</span></a>
                         </div>
                     </div>
                 </div>
@@ -523,8 +538,9 @@
                 <div class="education-card" data-aos="fade-up">
                     <img src="/img/certificado-alura.png" alt="Certificado Alura" class="education-img">
                     <div class="education-content">
-                        <h3>Imersão Front-End com React</h3>
-                        <p>Participação em imersão promovida pela Alura, com foco em desenvolvimento front-end
+                        <h3 data-translate="cert4-title">Imersão Front-End com React</h3>
+                        <p data-translate="cert4-desc">Participação em imersão promovida pela Alura, com foco em
+                            desenvolvimento front-end
                             utilizando React, HTML, CSS e JavaScript...</p>
                         <div class="education-tags">
                             <span class="education-tag"><i class="fab fa-react"></i> React</span>
@@ -533,9 +549,11 @@
                         </div>
                         <div class="education-buttons">
                             <a href="assets/FrontEnd - Gustavo.pdf" download class="btn btn-primary"><i
-                                    class="fas fa-eye"></i> Ver Certificado</a>
+                                    class="fas fa-eye"></i> <span data-translate="btn-view-cert">Ver
+                                    Certificado</span></a>
                             <a href="https://www.alura.com.br/" class="btn btn-secondary"><i
-                                    class="fas fa-external-link-alt"></i> Site da Instituição</a>
+                                    class="fas fa-external-link-alt"></i> <span data-translate="btn-view-site">Site da
+                                    Instituição</span></a>
                         </div>
                     </div>
                 </div>
@@ -543,14 +561,15 @@
             <!-- BOTÃO DE CONTROLE -->
             <div class="view-more-container" data-aos="fade-up">
                 <button id="viewMoreCerts" class="btn btn-secondary">
-                    <i class="fas fa-plus-circle"></i> Ver Mais Certificados
+                    <i class="fas fa-plus-circle"></i> <span data-translate="btn-view-more-certs">Ver Mais
+                        Certificados</span>
                 </button>
             </div>
         </section>
 
         <section id="contact">
             <div class="section-header">
-                <h2 class="section-title">Entre em Contato</h2>
+                <h2 class="section-title" data-translate="contact-title">Entre em Contato</h2>
             </div>
 
             <!-- === GRID SUPERIOR: INFO + PRIMEIRA LOTTIE === -->
@@ -560,21 +579,21 @@
                         <div class="contact-card">
                             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                             <div class="contact-card-content">
-                                <h3>Email</h3>
+                                <h3 data-translate="contact-email">Email</h3>
                                 <p>g.moreno.souza05@exemplo.com</p>
                             </div>
                         </div>
                         <div class="contact-card">
                             <div class="contact-icon"><i class="fas fa-phone"></i></div>
                             <div class="contact-card-content">
-                                <h3>Telefone</h3>
+                                <h3 data-translate="contact-phone">Telefone</h3>
                                 <p>+55 (11) 95433-1121</p>
                             </div>
                         </div>
                         <div class="contact-card">
                             <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                             <div class="contact-card-content">
-                                <h3>Localização</h3>
+                                <h3 data-translate="contact-location">Localização</h3>
                                 <p>Itaquaquecetuba, SP - Brasil</p>
                             </div>
                         </div>
@@ -592,28 +611,28 @@
             <div class="contact-form">
                 <form id="contactForm" action="https://formspree.io/f/xanerary" method="POST">
                     <div class="form-group">
-                        <label for="name">Nome</label>
+                        <label for="name" data-translate="form-name">Nome</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Seu nome completo"
-                            required>
+                            required data-translate="form-name-ph">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email" data-translate="form-email">Email</label>
                         <input type="email" name="email" id="email" class="form-control" placeholder="Seu melhor email"
-                            required>
+                            required data-translate="form-email-ph">
                     </div>
                     <div class="form-group">
-                        <label for="subject">Assunto</label>
+                        <label for="subject" data-translate="form-subject">Assunto</label>
                         <input type="text" name="subject" id="subject" class="form-control"
-                            placeholder="Assunto da mensagem">
+                            placeholder="Assunto da mensagem" data-translate="form-subject-ph">
                     </div>
                     <div class="form-group">
-                        <label for="message">Mensagem</label>
+                        <label for="message" data-translate="form-message">Mensagem</label>
                         <textarea name="message" id="message" class="form-control"
-                            placeholder="Digite sua mensagem aqui..." required></textarea>
+                            placeholder="Digite sua mensagem aqui..." required
+                            data-translate="form-message-ph"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Enviar Mensagem
-                    </button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> <span
+                            data-translate="form-btn-send">Enviar Mensagem</span></button>
                 </form>
             </div>
         </section>
@@ -622,25 +641,34 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Sobre</h3>
-                <p>Estudante de TI com interesse em análise de dados e desenvolvimento. Buscando aprender na prática e
-                    construir projetos que me ajudem a ganhar experiência e crescer na área de tecnologia.</p>
+                <h3 data-translate="footer-about">Sobre</h3>
+                <p data-translate="footer-about-p">Estudante de TI com interesse em análise de dados e desenvolvimento.
+                    Buscando aprender na prática e construir projetos que me ajudem a ganhar experiência e crescer na
+                    área de tecnologia.</p>
             </div>
             <div class="footer-section">
-                <h3>Links Rápidos</h3>
+                <h3 data-translate="footer-links">Links Rápidos</h3>
                 <ul class="footer-links">
-                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
-                    <li><a href="#about"><i class="fas fa-chevron-right"></i> Sobre</a></li>
-                    <li><a href="#skills"><i class="fas fa-chevron-right"></i> Habilidades</a></li>
-                    <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projetos</a></li>
-                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
-                    <li><a href="portfolio-bi.html"><i class="fas fa-chevron-right"></i> Portfólio BI</a></li>
-                    <li><a href="portfolio-dados.html"><i class="fas fa-chevron-right"></i> Portfólio Dados</a></li>
-                    <li><a href="portfolio-code.html"><i class="fas fa-chevron-right"></i> Portfólio Code</a></li>
+                    <li><a href="#home" data-translate="footer-link-home"><i class="fas fa-chevron-right"></i>
+                            Início</a></li>
+                    <li><a href="#about" data-translate="footer-link-about"><i class="fas fa-chevron-right"></i>
+                            Sobre</a></li>
+                    <li><a href="#skills" data-translate="footer-link-skills"><i class="fas fa-chevron-right"></i>
+                            Habilidades</a></li>
+                    <li><a href="#projects" data-translate="footer-link-projects"><i class="fas fa-chevron-right"></i>
+                            Projetos</a></li>
+                    <li><a href="#contact" data-translate="footer-link-contact"><i class="fas fa-chevron-right"></i>
+                            Contato</a></li>
+                    <li><a href="portfolio-bi.html" data-translate="footer-link-bi"><i class="fas fa-chevron-right"></i>
+                            Portfólio BI</a></li>
+                    <li><a href="portfolio-dados.html" data-translate="footer-link-data"><i
+                                class="fas fa-chevron-right"></i> Portfólio Dados</a></li>
+                    <li><a href="portfolio-code.html" data-translate="footer-link-code"><i
+                                class="fas fa-chevron-right"></i> Portfólio Code</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Conecte-se</h3>
+                <h3 data-translate="footer-connect">Conecte-se</h3>
                 <ul class="footer-links">
                     <li><a href="https://www.linkedin.com/in/gustavo-moreno-8a925b26a/"><i class="fab fa-linkedin"></i>
                             LinkedIn</a></li>
@@ -660,7 +688,7 @@
             <a href="https://www.instagram.com/imguxtavo_/" class="social-icon"><i class="fab fa-instagram"></i></a>
         </div>
 
-        <div class="copyright">
+        <div class="copyright" data-translate="footer-copyright">
             © 2025 Gustavo Moreno Souza. Todos os direitos reservados.
         </div>
     </footer>
@@ -674,6 +702,139 @@
     <script>
         // Executa todo o nosso código quando o DOM estiver pronto
         document.addEventListener('DOMContentLoaded', () => {
+
+            // --- DICIONÁRIO COMPLETO DE TRADUÇÕES ---
+            const translations = {
+                'page-title': { 'pt-BR': 'Portfólio | Gustavo Moreno Souza', 'en-US': 'Portfolio | Gustavo Moreno Souza' },
+                'nav-home': { 'pt-BR': 'Início', 'en-US': 'Home' },
+                'nav-about': { 'pt-BR': 'Sobre', 'en-US': 'About' },
+                'nav-skills': { 'pt-BR': 'Habilidades', 'en-US': 'Skills' },
+                'nav-projects': { 'pt-BR': 'Projetos', 'en-US': 'Projects' },
+                'nav-education': { 'pt-BR': 'Formação e Certificados', 'en-US': 'Education & Certificates' },
+                'nav-contact': { 'pt-BR': 'Contato', 'en-US': 'Contact' },
+                'hero-title': { 'pt-BR': 'Estudante de TI & Entusiasta por Tecnologia', 'en-US': 'IT Student & Technology Enthusiast' },
+                'hero-subtitle': { 'pt-BR': 'Apaixonado por tecnologia, dados e programação. Construindo meu caminho no mundo tech enquanto aprendo e desenvolvo projetos criativos!', 'en-US': 'Passionate about technology, data, and programming. Building my path in the tech world while learning and developing creative projects!' },
+                'skill-tag-1': { 'pt-BR': ' Programação', 'en-US': ' Programming' },
+                'skill-tag-2': { 'pt-BR': ' Dados', 'en-US': ' Data' },
+                'skill-tag-3': { 'pt-BR': ' Desenvolvimento Web', 'en-US': ' Web Development' },
+                'skill-tag-4': { 'pt-BR': ' Data Analytics', 'en-US': ' Data Analytics' },
+                'skill-tag-5': { 'pt-BR': ' Business Intelligence', 'en-US': ' Business Intelligence' },
+                'hero-btn-contact': { 'pt-BR': ' Bora Trocar Ideia', 'en-US': " Let's Talk" },
+                'hero-btn-cv': { 'pt-BR': ' Baixar CV', 'en-US': ' Download CV' },
+                'about-title': { 'pt-BR': 'Sobre Mim', 'en-US': 'About Me' },
+                'about-p1': { 'pt-BR': 'Olá! Sou <span class="highlight">estudante do 3º ano de Tecnologia da Informação,</span> com foco em <span class="highlight">business intelligence</span> e <span class="highlight">análise de dados</span>. Sou motivado por utilizar a tecnologia para solucionar problemas e otimizar decisões por meio de dados.', 'en-US': 'Hello! I am a <span class="highlight">3rd-year Information Technology student,</span> focusing on <span class="highlight">business intelligence</span> and <span class="highlight">data analysis</span>. I am driven by using technology to solve problems and optimize decisions through data.' },
+                'about-p2': { 'pt-BR': 'Atualmente, aprofundo meus conhecimentos em BI, análise de dados e programação por meio de projetos acadêmicos, cursos extracurriculares e iniciativas pessoais. Tenho facilidade em aprender novas ferramentas e tecnologias, valorizo o trabalho em equipe e busco contribuir com soluções práticas.', 'en-US': 'Currently, I am deepening my knowledge in BI, data analysis, and programming through academic projects, extracurricular courses, and personal initiatives. I learn new tools and technologies easily, value teamwork, and aim to contribute with practical solutions.' },
+                'about-p3': { 'pt-BR': 'Estou em busca de uma <span class="highlight">oportunidade de estágio</span> para aplicar minhas competências, aprender com profissionais experientes e contribuir para projetos inovadores.', 'en-US': 'I am seeking an <span class="highlight">internship opportunity</span> to apply my skills, learn from experienced professionals, and contribute to innovative projects.' },
+                'skills-title': { 'pt-BR': 'Minhas Skills', 'en-US': 'My Skills' },
+                'skills-cat1-title': { 'pt-BR': '<i class="fas fa-code"></i> Programação & Dev', 'en-US': '<i class="fas fa-code"></i> Programming & Dev' },
+                'skills-cat2-title': { 'pt-BR': '<i class="fas fa-chart-line"></i> Análise de Dados', 'en-US': '<i class="fas fa-chart-line"></i> Data Analysis' },
+                'skills-cat3-title': { 'pt-BR': '<i class="fas fa-chart-pie"></i> Business Intelligence', 'en-US': '<i class="fas fa-chart-pie"></i> Business Intelligence' },
+                'projects-title': { 'pt-BR': 'Meus Projetos', 'en-US': 'My Projects' },
+                'project1-title': { 'pt-BR': 'Coleção de Dashboards Power BI', 'en-US': 'Power BI Dashboards Collection' },
+                'project1-desc': { 'pt-BR': 'Desenvolvi uma série de dashboards interativos usando Power BI para análise de dados em diferentes contextos como vendas, finanças, RH e produção. Adquiri estas habilidades através de cursos online.', 'en-US': 'I developed a series of interactive dashboards using Power BI for data analysis in different contexts like sales, finance, HR, and production. I acquired these skills through online courses.' },
+                'project2-title': { 'pt-BR': 'Projetos de Análise de Dados', 'en-US': 'Data Analysis Projects' },
+                'project2-desc': { 'pt-BR': 'Atualmente estou desenvolvendo projetos de análise de dados utilizando Python e bibliotecas como Pandas, Matplotlib, Seaborn e NumPY.', 'en-US': 'I am currently developing data analysis projects using Python and libraries like Pandas, Matplotlib, Seaborn, and NumPy.' },
+                'project3-title': { 'pt-BR': 'Portfólio de Desenvolvimento', 'en-US': 'Development Portfolio' },
+                'project3-desc': { 'pt-BR': 'Conjunto de projetos desenvolvidos durante minha formação acadêmica e estudos independentes, incluindo aplicações web full-stack, interfaces interativas, CLIs e soluções para problemas complexos.', 'en-US': 'A set of projects developed during my academic training and independent studies, including full-stack web applications, interactive interfaces, CLIs, and solutions to complex problems.' },
+                'btn-view-projects': { 'pt-BR': ' Ver Projetos', 'en-US': ' View Projects' },
+                'education-title': { 'pt-BR': 'Formação', 'en-US': 'Education' },
+                'education-status-ongoing': { 'pt-BR': 'Em andamento', 'en-US': 'In Progress' },
+                'education-school-name': { 'pt-BR': 'Faculdade de Tecnologia de Itaquaquecetuba - FATEC', 'en-US': 'Itaquaquecetuba College of Technology - FATEC' },
+                'education-degree': { 'pt-BR': 'Tecnólogo em Gestão da Tecnologia da Informação', 'en-US': 'Technologist in Information Technology Management' },
+                'education-dates': { 'pt-BR': '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Fevereiro 2023 - Dezembro 2025', 'en-US': '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> February 2023 - December 2025' },
+                'education-status-studying': { 'pt-BR': 'Cursando', 'en-US': 'Studying' },
+                'certs-title': { 'pt-BR': 'Certificados', 'en-US': 'Certificates' },
+                'cert1-title': { 'pt-BR': 'Excel para Análise de Dados', 'en-US': 'Excel for Data Analysis' },
+                'cert1-desc': { 'pt-BR': 'Curso completo de Excel focado em análise de dados, dashboards e ferramentas avançadas para business intelligence, oferecido pela Preditiva.', 'en-US': 'Complete Excel course focused on data analysis, dashboards, and advanced tools for business intelligence, offered by Preditiva.' },
+                'cert2-title': { 'pt-BR': 'Curso de Power BI', 'en-US': 'Power BI Course' },
+                'cert2-desc': { 'pt-BR': 'Curso intensivo pela Simplifica Treinamentos voltado para criação de dashboards, transformação de dados e uso da linguagem DAX...', 'en-US': 'Intensive course by Simplifica Treinamentos focused on creating dashboards, data transformation, and using the DAX language...' },
+                'cert3-title': { 'pt-BR': 'Jornada Python Completa', 'en-US': 'Complete Python Journey' },
+                'cert3-desc': { 'pt-BR': 'Curso oferecido pela Hashtag Treinamentos abordando automação de tarefas, análise de dados, machine learning e desenvolvimento web...', 'en-US': 'Course offered by Hashtag Treinamentos covering task automation, data analysis, machine learning, and web development...' },
+                'cert4-title': { 'pt-BR': 'Imersão Front-End com React', 'en-US': 'Front-End Immersion with React' },
+                'cert4-desc': { 'pt-BR': 'Participação em imersão promovida pela Alura, com foco em desenvolvimento front-end utilizando React, HTML, CSS e JavaScript...', 'en-US': 'Participation in an immersion promoted by Alura, focusing on front-end development using React, HTML, CSS, and JavaScript...' },
+                'btn-view-cert': { 'pt-BR': 'Ver Certificado', 'en-US': 'View Certificate' },
+                'btn-view-site': { 'pt-BR': 'Site da Instituição', 'en-US': 'Institution Site' },
+                'btn-view-more-certs': { 'pt-BR': 'Ver Mais Certificados', 'en-US': 'View More Certificates' },
+                'btn-view-less-certs': { 'pt-BR': 'Ver Menos', 'en-US': 'View Less' },
+                'contact-title': { 'pt-BR': 'Entre em Contato', 'en-US': 'Get in Touch' },
+                'contact-email': { 'pt-BR': 'Email', 'en-US': 'Email' },
+                'contact-phone': { 'pt-BR': 'Telefone', 'en-US': 'Phone' },
+                'contact-location': { 'pt-BR': 'Localização', 'en-US': 'Location' },
+                'form-name': { 'pt-BR': 'Nome', 'en-US': 'Name' },
+                'form-name-ph': { 'pt-BR': 'Seu nome completo', 'en-US': 'Your full name' },
+                'form-email': { 'pt-BR': 'Email', 'en-US': 'Email' },
+                'form-email-ph': { 'pt-BR': 'Seu melhor email', 'en-US': 'Your best email' },
+                'form-subject': { 'pt-BR': 'Assunto', 'en-US': 'Subject' },
+                'form-subject-ph': { 'pt-BR': 'Assunto da mensagem', 'en-US': 'Message subject' },
+                'form-message': { 'pt-BR': 'Mensagem', 'en-US': 'Message' },
+                'form-message-ph': { 'pt-BR': 'Digite sua mensagem aqui...', 'en-US': 'Type your message here...' },
+                'form-btn-send': { 'pt-BR': 'Enviar Mensagem', 'en-US': 'Send Message' },
+                'footer-about': { 'pt-BR': 'Sobre', 'en-US': 'About' },
+                'footer-about-p': { 'pt-BR': 'Estudante de TI com interesse em análise de dados e desenvolvimento. Buscando aprender na prática e construir projetos que me ajudem a ganhar experiência e crescer na área de tecnologia.', 'en-US': 'IT student with an interest in data analysis and development. Looking to learn by doing and build projects that help me gain experience and grow in the tech field.' },
+                'footer-links': { 'pt-BR': 'Links Rápidos', 'en-US': 'Quick Links' },
+                'footer-link-home': { 'pt-BR': '<i class="fas fa-chevron-right"></i> Início', 'en-US': '<i class="fas fa-chevron-right"></i> Home' },
+                'footer-link-about': { 'pt-BR': '<i class="fas fa-chevron-right"></i> Sobre', 'en-US': '<i class="fas fa-chevron-right"></i> About' },
+                'footer-link-skills': { 'pt-BR': '<i class="fas fa-chevron-right"></i> Habilidades', 'en-US': '<i class="fas fa-chevron-right"></i> Skills' },
+                'footer-link-projects': { 'pt-BR': '<i class="fas fa-chevron-right"></i> Projetos', 'en-US': '<i class="fas fa-chevron-right"></i> Projects' },
+                'footer-link-contact': { 'pt-BR': '<i class="fas fa-chevron-right"></i> Contato', 'en-US': '<i class="fas fa-chevron-right"></i> Contact' },
+                'footer-link-bi': { 'pt-BR': '<i class="fas fa-chevron-right"></i> Portfólio BI', 'en-US': '<i class="fas fa-chevron-right"></i> BI Portfolio' },
+                'footer-link-data': { 'pt-BR': '<i class="fas fa-chevron-right"></i> Portfólio Dados', 'en-US': '<i class="fas fa-chevron-right"></i> Data Portfolio' },
+                'footer-link-code': { 'pt-BR': '<i class="fas fa-chevron-right"></i> Portfólio Code', 'en-US': '<i class="fas fa-chevron-right"></i> Code Portfolio' },
+                'footer-connect': { 'pt-BR': 'Conecte-se', 'en-US': 'Connect' },
+                'footer-copyright': { 'pt-BR': '© 2025 Gustavo Moreno Souza. Todos os direitos reservados.', 'en-US': '© 2025 Gustavo Moreno Souza. All rights reserved.' }
+            };
+
+            // --- LÓGICA DE TRADUÇÃO (CORRIGIDA) ---
+            const languageToggle = document.getElementById('language-toggle');
+            const langIndicator = document.getElementById('lang-indicator');
+            const viewMoreCertsBtnText = document.querySelector('#viewMoreCerts span');
+
+            // Define o idioma inicial a partir do localStorage ou usa 'pt-BR' como padrão
+            let currentLanguage = localStorage.getItem('language') || 'pt-BR';
+
+            const setLanguage = (lang) => {
+                currentLanguage = lang;
+                localStorage.setItem('language', lang);
+                document.documentElement.lang = lang.substring(0, 2);
+
+                // CORRIGIDO: O botão mostra o idioma para o qual VAI MUDAR
+                langIndicator.textContent = lang === 'pt-BR' ? 'EN' : 'PT';
+
+                document.querySelectorAll('[data-translate]').forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (translations[key] && translations[key][lang]) {
+                        // Verifica se o elemento é um placeholder para tratar de forma diferente
+                        if (element.placeholder && translations[key][lang]) {
+                            element.placeholder = translations[key][lang];
+                        } else {
+                            element.innerHTML = translations[key][lang];
+                        }
+                    }
+                });
+
+                // Atualiza o texto do botão "Ver Mais/Menos" separadamente
+                const isExpanded = document.getElementById('educationGrid').classList.contains('show-all');
+                if (viewMoreCertsBtnText) {
+                    if (isExpanded) {
+                        viewMoreCertsBtnText.innerHTML = translations['btn-view-less-certs'][lang];
+                    } else {
+                        viewMoreCertsBtnText.innerHTML = translations['btn-view-more-certs'][lang];
+                    }
+                }
+            };
+
+            languageToggle.addEventListener('click', () => {
+                const newLang = currentLanguage === 'pt-BR' ? 'en-US' : 'pt-BR';
+                setLanguage(newLang);
+            });
+
+            // --- INICIALIZAÇÃO E OUTRAS FUNÇÕES ---
+
+            // Inicializa as animações
+            AOS.init({ duration: 800, easing: 'ease-in-out', once: true, mirror: false });
+
+            // Roda a função de tradução ao carregar a página
+            setLanguage(currentLanguage);
 
             // --- INICIALIZAÇÃO DE BIBLIOTECAS ---
             AOS.init({
@@ -738,23 +899,38 @@
                 // Atualiza o ícone do botão de tema se necessário (opcional, já que usa :after)
             });
 
-            // 2. LÓGICA DO MENU MOBILE
-            const moveThemeToggle = () => {
+            // 2. LÓGICA DO MENU MOBILE E CONTROLES DO CABEÇALHO
+            const updateHeaderControlsLayout = () => {
+                // Pega os seletores de tema e idioma
+                const themeToggle = document.getElementById('theme-toggle');
+                const languageToggle = document.getElementById('language-toggle');
+
                 if (window.innerWidth <= 768) {
+                    // TELA MOBILE: Mover botões para dentro do menu de navegação
+                    if (languageToggle.parentElement !== mainNav) {
+                        mainNav.appendChild(languageToggle);
+                    }
                     if (themeToggle.parentElement !== mainNav) {
                         mainNav.appendChild(themeToggle);
                     }
                 } else {
+                    // TELA DESKTOP: Mover botões de volta para o cabeçalho
+                    if (languageToggle.parentElement !== headerControls) {
+                        // Insere o seletor de idioma antes do seletor de tema
+                        headerControls.insertBefore(languageToggle, themeToggle);
+                    }
                     if (themeToggle.parentElement !== headerControls) {
+                        // Insere o seletor de tema antes do botão hambúrguer
                         headerControls.insertBefore(themeToggle, mobileNavToggle);
-                        // Garante que o menu mobile esteja fechado se a tela for redimensionada para desktop
-                        mainNav.classList.remove('active');
-                        mobileNavToggle.setAttribute('aria-expanded', 'false');
-                        const icon = mobileNavToggle.querySelector('i');
-                        if (icon) {
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
+                    }
+
+                    // Garante que o menu mobile esteja fechado se a tela for redimensionada para desktop
+                    mainNav.classList.remove('active');
+                    mobileNavToggle.setAttribute('aria-expanded', 'false');
+                    const icon = mobileNavToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
                     }
                 }
             };
@@ -787,8 +963,8 @@
 
 
             // Executa a função de mover o botão ao carregar e ao redimensionar
-            moveThemeToggle();
-            window.addEventListener('resize', moveThemeToggle);
+            updateHeaderControlsLayout();
+            window.addEventListener('resize', updateHeaderControlsLayout);
 
             // 3. HEADER QUE SOME AO ROLAR
             window.addEventListener('scroll', () => {
