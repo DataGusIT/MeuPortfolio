@@ -4,6 +4,11 @@
 const backgroundMusic = document.getElementById('background-music');
 const musicControlBtn = document.getElementById('music-control-btn');
 
+// Define o volume da música para 10% (0.1). Ajuste conforme necessário.
+if (backgroundMusic) {
+    backgroundMusic.volume = 0.2;
+}
+
 // Se não houver elementos de música na página, o resto do script não precisa rodar.
 if (backgroundMusic && musicControlBtn) {
     const musicControlIcon = musicControlBtn.querySelector('i');
