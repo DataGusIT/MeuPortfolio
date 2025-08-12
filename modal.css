@@ -1,0 +1,132 @@
+/* --- ESTILOS DO NOVO MODAL DE MÚSICA E CONTROLES --- */
+
+/* 1. Overlay (fundo escurecido) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.7);
+    /* Cor do seu fundo com 70% de opacidade */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1999;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.light-mode .modal-overlay {
+    background-color: rgba(247, 250, 252, 0.7);
+    /* Fundo do tema claro com opacidade */
+}
+
+/* 2. Modal Centralizado */
+.music-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    z-index: 2000;
+    width: 90%;
+    max-width: 450px;
+    opacity: 0;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* Animações de entrada */
+.modal-overlay.visible,
+.music-modal.visible {
+    opacity: 1;
+}
+
+.music-modal.visible {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.music-modal .modal-content {
+    background: var(--primary);
+    /* Fundo mais sólido */
+    color: var(--text);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 40px var(--shadow);
+    text-align: center;
+}
+
+.light-mode .music-modal .modal-content {
+    background: var(--background);
+}
+
+.music-modal .modal-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem auto;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(129, 140, 248, 0.3);
+}
+
+.music-modal .modal-icon-wrapper i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.music-modal h2 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.music-modal p {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.music-modal .modal-buttons {
+    display: flex;
+    flex-direction: column;
+    /* Botões empilhados para melhor toque */
+    gap: 1rem;
+}
+
+/* 3. Botão de Controle Flutuante */
+.music-control-btn {
+    position: fixed;
+    bottom: 30px;
+    /* Alinhado com o botão "back-to-top" */
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    z-index: 99;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-control-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(129, 140, 248, 0.5);
+}
+
+/* Media query para telas maiores, onde os botões do modal podem ficar lado a lado */
+@media (min-width: 480px) {
+    .music-modal .modal-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+}

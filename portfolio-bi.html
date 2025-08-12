@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style/index/footer.css">
     <link rel="stylesheet" href="style/index/utilities.css">
+    <link rel="stylesheet" href="modal.css">
+
     <style>
         :root {
             --primary: #1e3a8a;
@@ -592,9 +594,18 @@
 </head>
 
 <body>
+    <!-- Elementos de Áudio - ADICIONE EM TODAS AS PÁGINAS -->
+    <audio id="background-music" loop>
+        <source src="assets/audio/Crescent Moon.mp3" audio/mpeg">
+    </audio>
+    <button id="music-control-btn" class="music-control-btn" hidden>
+        <i class="fas fa-pause"></i>
+    </button>
     <a href="/index.html" class="back-to-portfolio">
         <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
     </a>
+
+
 
     <header>
         <!-- Camada de animação de dados -->
@@ -906,6 +917,8 @@
     <a href="#" class="back-to-top" id="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </a>
+
+    <script src="js/music-player.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {

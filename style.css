@@ -532,12 +532,12 @@ footer {
 /* Adicionando as "tags" de volta com CSS */
 .logo-text::before {
     content: '</';
-    margin-right: 5px;
+    margin-right: 2px;
 }
 
 .logo-text::after {
     content: '>';
-    margin-left: 5px;
+    margin-left: 2px;
 }
 
 .light-mode .logo-text {
@@ -608,60 +608,53 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
+/* --- ESTILOS DO BOTÃO DE TEMA MINIMALISTA (SÓ O ÍCONE) --- */
+
+/* 1. Transforma o <button> em um container invisível */
 .theme-toggle {
-    position: relative;
-    width: 60px;
-    height: 30px;
-    border-radius: 15px;
-    background: var(--secondary);
-    border: 2px solid var(--accent);
-    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
-    padding: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    /* Removido margin-left para o novo layout */
-}
-
-.theme-toggle::before {
-    content: "";
-    position: absolute;
-    width: 24px;
-    height: 24px;
+    justify-content: center;
     border-radius: 50%;
-    background-color: var(--accent);
-    left: 2px;
-    transition: transform 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.light-mode .theme-toggle::before {
-    transform: translateX(30px);
-}
-
-.theme-toggle i,
-.theme-toggle span {
-    opacity: 0;
-    position: absolute;
-}
-
-.theme-toggle::after {
-    content: "🌙";
-    position: absolute;
-    right: 10px;
-    font-size: 14px;
-}
-
-.light-mode .theme-toggle::after {
-    content: "☀️";
-    left: 10px;
-    right: auto;
-}
-
+/* 2. Feedback visual sutil ao passar o mouse */
 .theme-toggle:hover {
-    box-shadow: 0 0 8px var(--accent);
-    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: rotate(15deg);
+    /* Gira o ícone no hover para um efeito legal */
 }
+
+.light-mode .theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 3. Estiliza a imagem do ícone */
+#theme-icon {
+    width: 26px;
+    height: 26px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* 
+      TRUQUE IMPORTANTE:
+      O SVG que baixamos é preto. Para o tema escuro, precisamos que ele seja branco.
+      O filtro 'invert(1)' transforma preto em branco.
+    */
+    filter: invert(1);
+}
+
+/* 4. No modo claro, removemos o filtro para que o ícone volte a ser preto */
+.light-mode #theme-icon {
+    filter: none;
+}
+
 
 .mobile-nav-toggle {
     display: none;
@@ -673,48 +666,62 @@ nav ul li a:hover::after {
     z-index: 1001;
 }
 
-/* --- [NOVO] ESTILOS DO BOTÃO DE IDIOMA --- */
+/* --- ESTILOS DO BOTÃO DE IDIOMA MINIMALISTA (SÓ A BANDEIRA) --- */
+
+/* 1. Transforma o <button> em um container invisível */
 .language-toggle {
+    /* Remove toda a aparência padrão do botão */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    /* Define um tamanho para a área de clique ser maior que a bandeira */
+    width: 40px;
+    height: 40px;
+
+    /* Centraliza a bandeira dentro da área de clique */
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    background-color: transparent;
-    border: 2px solid var(--accent);
-    color: var(--accent);
-    padding: 0.4rem 1rem;
-    /* Ajustado para altura similar ao theme-toggle */
-    border-radius: 30px;
+    justify-content: center;
+
+    /* Deixa a área do botão redonda e mantém o cursor */
+    border-radius: 50%;
     cursor: pointer;
-    font-family: 'Chakra Petch', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    height: 34px;
-    /* Altura fixa para alinhar com o seletor de tema */
+
+    /* Adiciona uma transição suave para o efeito de hover */
+    transition: background-color 0.3s ease;
 }
 
+/* 2. Adiciona um feedback visual sutil ao passar o mouse */
 .language-toggle:hover {
-    background-color: var(--accent);
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px var(--shadow);
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Um brilho sutil no tema escuro */
 }
 
-.language-toggle i {
-    font-size: 1rem;
-    transition: transform 0.4s ease;
+.light-mode .language-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    /* Um brilho sutil no tema claro */
 }
 
-.language-toggle:hover i {
-    transform: rotate(20deg);
+/* 3. Estiliza a imagem da bandeira */
+#lang-flag {
+    width: 28px;
+    /* Deixa a bandeira um pouco maior */
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    /* Adiciona uma sombra para "levantar" a bandeira da página */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+
+    /* Adiciona transição para o efeito de escala */
+    transition: transform 0.3s ease;
 }
 
-#lang-indicator {
-    font-size: 0.9em;
-    letter-spacing: 1px;
+/* 4. Efeito de zoom na bandeira ao passar o mouse no botão */
+.language-toggle:hover #lang-flag {
+    transform: scale(1.1);
 }
-
-/* --- [FIM] ESTILOS DO BOTÃO DE IDIOMA --- */
 
 
 @keyframes shimmer {

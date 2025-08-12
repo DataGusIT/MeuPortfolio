@@ -22,8 +22,37 @@
 
     <!-- Sua Folha de Estilo Principal -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
 
 <body>
+    <!-- NOVO: Overlay para o Fundo do Modal -->
+    <div id="modal-overlay" class="modal-overlay" style="display: none;"></div>
+
+    <!-- ATUALIZADO: Modal de Música Centralizado -->
+    <div id="music-consent-modal" class="music-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-icon-wrapper">
+                <i class="fas fa-music"></i>
+            </div>
+            <h2>Experiência Sonora</h2>
+            <p>Gostaria de ativar uma música de fundo suave para uma navegação mais relaxante?</p>
+            <div class="modal-buttons">
+                <button id="accept-music" class="btn btn-primary"><i class="fas fa-check"></i> Ativar Música</button>
+                <button id="reject-music" class="btn btn-secondary"><i class="fas fa-times"></i> Continuar em
+                    Silêncio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Elementos de Áudio - ADICIONE EM TODAS AS PÁGINAS -->
+    <audio id="background-music" loop>
+        <source src="assets/audio/Crescent Moon.mp3" audio/mpeg">
+    </audio>
+    <button id="music-control-btn" class="music-control-btn" hidden>
+        <i class="fas fa-pause"></i>
+    </button>
+
+
     <div id="particles-js"></div>
 
     <!-- Loading Screen -->
@@ -95,11 +124,11 @@
             </nav>
             <div class="header-controls">
                 <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
-                    <i class="fas fa-sun"></i>
+                    <img id="theme-icon" src="img/icons/moon.svg" alt="Ícone do tema">
                 </button>
-                <button class="language-toggle" id="language-toggle" aria-label="Change Language">
-                    <i class="fas fa-globe"></i>
-                    <span id="lang-indicator">EN</span>
+                <!-- CÓDIGO NOVO E MELHORADO -->
+                <button class="language-toggle" id="language-toggle" aria-label="Alterar Idioma">
+                    <img id="lang-flag" src="img/flags/us.svg" alt="Idioma atual">
                 </button>
                 <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Abrir menu de navegação"
                     aria-controls="main-nav" aria-expanded="false">
@@ -698,9 +727,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="js/music-player.js"></script>
+
 
     <script>
-        // Executa todo o nosso código quando o DOM estiver pronto
         document.addEventListener('DOMContentLoaded', () => {
 
             // --- DICIONÁRIO COMPLETO DE TRADUÇÕES ---
@@ -784,26 +814,23 @@
                 'footer-copyright': { 'pt-BR': '© 2025 Gustavo Moreno Souza. Todos os direitos reservados.', 'en-US': '© 2025 Gustavo Moreno Souza. All rights reserved.' }
             };
 
-            // --- LÓGICA DE TRADUÇÃO (CORRIGIDA) ---
+            // --- LÓGICA DE TRADUÇÃO ---
             const languageToggle = document.getElementById('language-toggle');
-            const langIndicator = document.getElementById('lang-indicator');
+            const langFlag = document.getElementById('lang-flag');
             const viewMoreCertsBtnText = document.querySelector('#viewMoreCerts span');
-
-            // Define o idioma inicial a partir do localStorage ou usa 'pt-BR' como padrão
             let currentLanguage = localStorage.getItem('language') || 'pt-BR';
-
             const setLanguage = (lang) => {
                 currentLanguage = lang;
                 localStorage.setItem('language', lang);
                 document.documentElement.lang = lang.substring(0, 2);
-
-                // CORRIGIDO: O botão mostra o idioma para o qual VAI MUDAR
-                langIndicator.textContent = lang === 'pt-BR' ? 'EN' : 'PT';
-
+                if (lang === 'pt-BR') {
+                    langFlag.src = 'img/flags/br.svg';
+                } else {
+                    langFlag.src = 'img/flags/us.svg';
+                }
                 document.querySelectorAll('[data-translate]').forEach(element => {
                     const key = element.getAttribute('data-translate');
                     if (translations[key] && translations[key][lang]) {
-                        // Verifica se o elemento é um placeholder para tratar de forma diferente
                         if (element.placeholder && translations[key][lang]) {
                             element.placeholder = translations[key][lang];
                         } else {
@@ -811,8 +838,6 @@
                         }
                     }
                 });
-
-                // Atualiza o texto do botão "Ver Mais/Menos" separadamente
                 const isExpanded = document.getElementById('educationGrid').classList.contains('show-all');
                 if (viewMoreCertsBtnText) {
                     if (isExpanded) {
@@ -822,109 +847,82 @@
                     }
                 }
             };
-
             languageToggle.addEventListener('click', () => {
                 const newLang = currentLanguage === 'pt-BR' ? 'en-US' : 'pt-BR';
                 setLanguage(newLang);
             });
-
-            // --- INICIALIZAÇÃO E OUTRAS FUNÇÕES ---
-
-            // Inicializa as animações
-            AOS.init({ duration: 800, easing: 'ease-in-out', once: true, mirror: false });
-
-            // Roda a função de tradução ao carregar a página
             setLanguage(currentLanguage);
 
-            // --- INICIALIZAÇÃO DE BIBLIOTECAS ---
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true,
-                mirror: false
+            // --- LÓGICA DO TEMA ---
+            const body = document.body;
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const updateThemeIcon = () => {
+                if (body.classList.contains('light-mode')) {
+                    themeIcon.src = 'img/icons/sun.svg';
+                } else {
+                    themeIcon.src = 'img/icons/moon.svg';
+                }
+            };
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('light-mode');
+                updateThemeIcon();
+                if (body.classList.contains('light-mode')) {
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    localStorage.setItem('theme', 'dark');
+                }
             });
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+            }
+            updateThemeIcon();
 
-            // --- TELA DE LOADING OTIMIZADA ---
+
+            // --- INICIALIZAÇÃO E OUTRAS FUNÇÕES ---
+            AOS.init({ duration: 800, easing: 'ease-in-out', once: true, mirror: false });
+
             const loadingScreen = document.getElementById('loadingScreen');
             if (loadingScreen) {
                 let progress = 0;
                 const loadingPercentage = document.getElementById('loadingPercentage');
-                const mainContent = document.querySelector('main');
                 const progressBar = document.querySelector('.progress-bar-loading');
-
                 const progressInterval = setInterval(() => {
-                    // Incremento mais agressivo para velocidade maior
-                    progress += Math.random() * 25 + 15; // Entre 15-40% por vez (antes era 0-10%)
+                    progress += Math.random() * 25 + 15;
                     if (progress > 100) progress = 100;
-
-                    if (loadingPercentage) {
-                        loadingPercentage.textContent = Math.floor(progress) + '%';
-                    }
-
-                    // Anima a barra de progresso se ela existir
+                    if (loadingPercentage) loadingPercentage.textContent = Math.floor(progress) + '%';
                     if (progressBar) progressBar.style.width = progress + '%';
-
                     if (progress >= 100) {
                         clearInterval(progressInterval);
-                        // Reduzido o timeout de 500ms para 200ms
                         setTimeout(() => {
                             loadingScreen.classList.add('fade-out');
-                            // Reduzido o timeout de 800ms para 400ms
                             setTimeout(() => {
                                 loadingScreen.style.display = 'none';
-                                if (mainContent) mainContent.style.opacity = '1';
                                 document.body.style.overflow = 'auto';
-                                initParticles(); // Inicia as partículas somente após o loading
+                                initParticles();
                             }, 400);
                         }, 200);
                     }
-                }, 100); // Reduzido o intervalo de 200ms para 100ms
+                }, 100);
             } else {
-                initParticles(); // Se não houver loading, inicia as partículas imediatamente
+                initParticles();
+                document.body.style.overflow = 'auto';
             }
 
-
-            // --- CONTROLES DO HEADER E NAVEGAÇÃO ---
             const header = document.querySelector('header');
-            const themeToggle = document.getElementById('theme-toggle');
-            const body = document.body;
             const mobileNavToggle = document.getElementById('mobile-nav-toggle');
             const mainNav = document.getElementById('main-nav');
             const headerControls = document.querySelector('.header-controls');
             let lastScrollY = window.scrollY;
 
-            // 1. LÓGICA DO TEMA (DARK/LIGHT MODE)
-            themeToggle.addEventListener('click', () => {
-                body.classList.toggle('light-mode');
-                // Atualiza o ícone do botão de tema se necessário (opcional, já que usa :after)
-            });
-
-            // 2. LÓGICA DO MENU MOBILE E CONTROLES DO CABEÇALHO
             const updateHeaderControlsLayout = () => {
-                // Pega os seletores de tema e idioma
-                const themeToggle = document.getElementById('theme-toggle');
-                const languageToggle = document.getElementById('language-toggle');
-
                 if (window.innerWidth <= 768) {
-                    // TELA MOBILE: Mover botões para dentro do menu de navegação
-                    if (languageToggle.parentElement !== mainNav) {
-                        mainNav.appendChild(languageToggle);
-                    }
-                    if (themeToggle.parentElement !== mainNav) {
-                        mainNav.appendChild(themeToggle);
-                    }
+                    if (languageToggle.parentElement !== mainNav) mainNav.appendChild(languageToggle);
+                    if (themeToggle.parentElement !== mainNav) mainNav.appendChild(themeToggle);
                 } else {
-                    // TELA DESKTOP: Mover botões de volta para o cabeçalho
-                    if (languageToggle.parentElement !== headerControls) {
-                        // Insere o seletor de idioma antes do seletor de tema
-                        headerControls.insertBefore(languageToggle, themeToggle);
-                    }
-                    if (themeToggle.parentElement !== headerControls) {
-                        // Insere o seletor de tema antes do botão hambúrguer
-                        headerControls.insertBefore(themeToggle, mobileNavToggle);
-                    }
-
-                    // Garante que o menu mobile esteja fechado se a tela for redimensionada para desktop
+                    if (languageToggle.parentElement !== headerControls) headerControls.insertBefore(languageToggle, themeToggle);
+                    if (themeToggle.parentElement !== headerControls) headerControls.insertBefore(themeToggle, mobileNavToggle);
                     mainNav.classList.remove('active');
                     mobileNavToggle.setAttribute('aria-expanded', 'false');
                     const icon = mobileNavToggle.querySelector('i');
@@ -938,7 +936,6 @@
             mobileNavToggle.addEventListener('click', () => {
                 const isOpened = mainNav.classList.toggle('active');
                 mobileNavToggle.setAttribute('aria-expanded', isOpened);
-
                 const icon = mobileNavToggle.querySelector('i');
                 if (isOpened) {
                     icon.classList.remove('fa-bars');
@@ -949,7 +946,6 @@
                 }
             });
 
-            // Fechar o menu ao clicar em um link
             mainNav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (mainNav.classList.contains('active')) {
@@ -961,23 +957,18 @@
                 });
             });
 
-
-            // Executa a função de mover o botão ao carregar e ao redimensionar
             updateHeaderControlsLayout();
             window.addEventListener('resize', updateHeaderControlsLayout);
 
-            // 3. HEADER QUE SOME AO ROLAR
             window.addEventListener('scroll', () => {
                 if (window.scrollY > lastScrollY && window.scrollY > header.offsetHeight) {
-                    header.classList.add('header-hidden'); // Rola para baixo
+                    header.classList.add('header-hidden');
                 } else {
-                    header.classList.remove('header-hidden'); // Rola para cima
+                    header.classList.remove('header-hidden');
                 }
                 lastScrollY = window.scrollY;
             });
 
-
-            // --- BOTÃO 'VOLTAR AO TOPO' ---
             const backToTop = document.getElementById('backToTop');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 300) {
@@ -991,13 +982,13 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-
-            // --- ANIMAÇÃO DAS BARRAS DE SKILLS ---
             const skillBars = document.querySelectorAll('.skill-bar');
             const skillObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
+                        const progressBar = entry.target.querySelector('.progress-bar');
+                        const percent = progressBar.getAttribute('data-percent');
+                        progressBar.style.width = percent + '%';
                         skillObserver.unobserve(entry.target);
                     }
                 });
@@ -1005,159 +996,35 @@
             skillBars.forEach(skillBar => {
                 skillObserver.observe(skillBar);
             });
+        });
 
-        }); // Fim do 'DOMContentLoaded'
-
-
-        // --- VERSÃO AINDA MAIS RÁPIDA (OPCIONAL) ---
-        // Se quiser uma loading screen ULTRA rápida, descomente a função abaixo
-        // e comente a seção "TELA DE LOADING OTIMIZADA" acima
-
-        /*
-        function ultraFastLoading() {
-            const loadingScreen = document.getElementById('loadingScreen');
-            if (loadingScreen) {
-                const loadingPercentage = document.getElementById('loadingPercentage');
-                const mainContent = document.querySelector('main');
-                const progressBar = document.querySelector('.progress-bar-loading');
-                
-                // Loading instantâneo - vai direto para 100%
-                if (loadingPercentage) loadingPercentage.textContent = '100%';
-                if (progressBar) progressBar.style.width = '100%';
-                
-                setTimeout(() => {
-                    loadingScreen.classList.add('fade-out');
-                    setTimeout(() => {
-                        loadingScreen.style.display = 'none';
-                        if (mainContent) mainContent.style.opacity = '1';
-                        document.body.style.overflow = 'auto';
-                        initParticles();
-                    }, 300);
-                }, 500); // Apenas meio segundo total
-            }
-        }
-        */
-
-        // --- FUNCIONALIDADE 'VER MAIS / VER MENOS' PARA CERTIFICADOS ---
         const viewMoreBtn = document.getElementById('viewMoreCerts');
         const educationGrid = document.getElementById('educationGrid');
-        const educationSection = document.getElementById('education'); // Pegamos a seção inteira
-
+        const educationSection = document.getElementById('education');
         if (viewMoreBtn && educationGrid) {
-            // Esconde o container do botão se não houver mais de 3 certificados
-            if (educationGrid.children.length <= 3) {
+            if (educationGrid.children.length <= 4) {
                 viewMoreBtn.parentElement.style.display = 'none';
             }
-
             viewMoreBtn.addEventListener('click', () => {
-                // Verifica se a grade já está expandida pela presença da classe 'show-all'
-                const isExpanded = educationGrid.classList.contains('show-all');
-
+                const isExpanded = educationGrid.classList.toggle('show-all');
+                const viewMoreCertsBtnText = viewMoreBtn.querySelector('span');
+                const lang = localStorage.getItem('language') || 'pt-BR';
                 if (isExpanded) {
-                    // Se ESTÁ EXPANDIDO, então vamos recolher
-                    educationGrid.classList.remove('show-all');
-                    viewMoreBtn.innerHTML = '<i class="fas fa-plus-circle"></i> Ver Mais Certificados';
-
-                    // UX Melhorada: Rola a tela suavemente para o topo da seção de certificados
-                    educationSection.scrollIntoView({ behavior: 'smooth' });
-
+                    viewMoreBtn.querySelector('i').classList.replace('fa-plus-circle', 'fa-minus-circle');
+                    viewMoreCertsBtnText.textContent = lang === 'pt-BR' ? 'Ver Menos' : 'View Less';
                 } else {
-                    // Se NÃO ESTÁ EXPANDIDO, então vamos expandir
-                    educationGrid.classList.add('show-all');
-                    viewMoreBtn.innerHTML = '<i class="fas fa-minus-circle"></i> Ver Menos';
+                    viewMoreBtn.querySelector('i').classList.replace('fa-minus-circle', 'fa-plus-circle');
+                    viewMoreCertsBtnText.textContent = lang === 'pt-BR' ? 'Ver Mais Certificados' : 'View More Certificates';
+                    educationSection.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         }
 
-        // --- FUNÇÃO DAS PARTÍCULAS (pode ficar fora do DOMContentLoaded) ---
         function initParticles() {
             const particlesContainer = document.getElementById('particles-js');
             if (window.particlesJS && particlesContainer) {
                 particlesJS('particles-js', {
-                    "particles": {
-                        "number": {
-                            // Aumentamos o número de partículas para maior densidade
-                            "value": 80,
-                            "density": {
-                                "enable": true,
-                                "value_area": 800
-                            }
-                        },
-                        "color": {
-                            // Mantemos a cor principal do seu tema
-                            "value": "#818cf8"
-                        },
-                        "shape": {
-                            "type": "circle"
-                        },
-                        "opacity": {
-                            // Partículas terão opacidade inicial maior, mas ainda aleatória
-                            "value": 0.6,
-                            "random": true,
-                            "anim": {
-                                // Animação de "piscar" na opacidade para um efeito mais vivo
-                                "enable": true,
-                                "speed": 0.8,
-                                "opacity_min": 0.1,
-                                "sync": false
-                            }
-                        },
-                        "size": {
-                            // Aumentamos o tamanho base e adicionamos uma leve animação
-                            "value": 4,
-                            "random": true,
-                            "anim": {
-                                "enable": true,
-                                "speed": 4,
-                                "size_min": 0.3,
-                                "sync": false
-                            }
-                        },
-                        "line_linked": {
-                            "enable": true,
-                            "distance": 150,
-                            "color": "#818cf8",
-                            // Linhas um pouco mais sutis para destacar as partículas
-                            "opacity": 0.2,
-                            "width": 1
-                        },
-                        "move": {
-                            "enable": true,
-                            // Velocidade reduzida para um movimento mais elegante e "flutuante"
-                            "speed": 1.5,
-                            "direction": "none",
-                            "random": true,
-                            "straight": false,
-                            "out_mode": "out",
-                            "bounce": false
-                        }
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": {
-                            "onhover": {
-                                "enable": true,
-                                // Efeito alterado: agora as partículas se afastam do mouse
-                                "mode": "repulse"
-                            },
-                            "onclick": {
-                                "enable": true,
-                                // Ao clicar, novas partículas são adicionadas
-                                "mode": "push"
-                            },
-                            "resize": true
-                        },
-                        "modes": {
-                            "repulse": {
-                                // Distância do efeito de "repelir"
-                                "distance": 150
-                            },
-                            "push": {
-                                "particles_nb": 4
-                            }
-                        }
-                    },
-                    "retina_detect": true
+                    "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#818cf8" }, "shape": { "type": "circle" }, "opacity": { "value": 0.6, "random": true, "anim": { "enable": true, "speed": 0.8, "opacity_min": 0.1, "sync": false } }, "size": { "value": 4, "random": true, "anim": { "enable": true, "speed": 4, "size_min": 0.3, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#818cf8", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "repulse": { "distance": 150 }, "push": { "particles_nb": 4 } } }, "retina_detect": true
                 });
             }
         }
