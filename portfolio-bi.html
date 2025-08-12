@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1e293b">
     <title>Meu Portfólio de Business Intelligence</title>
-    <link rel="icon" href="/img/favicon/powerbi.ico" type="image/x-icon">
+    <link rel="icon" href="assets/img/favicon/powerbi.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style/index/footer.css">
-    <link rel="stylesheet" href="style/index/utilities.css">
-    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/utilities.css">
 
     <style>
         :root {
@@ -456,54 +456,53 @@
             font-weight: bold;
         }
 
-        .back-to-portfolio {
+        /* === ESTILOS PARA BOTÕES DE AÇÃO FLUTUANTES === */
+        .floating-action-btn {
             position: fixed;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px var(--shadow);
+            z-index: 1000;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .floating-action-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+
+        /* Botão "Voltar ao Portfólio" (Superior Esquerdo) */
+        .back-to-portfolio-btn {
             top: 20px;
             left: 20px;
             background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
             color: white;
-            padding: 10px 15px;
-            border-radius: 30px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            font-weight: 600;
-            z-index: 1000;
-            transition: all 0.3s ease;
         }
 
-        .back-to-portfolio:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Tema escuro botão */
-        .theme-toggle {
-            position: fixed;
+        /* Botão "Alternar Tema" (Superior Direito) */
+        .theme-toggle-portfolio {
             top: 20px;
             right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 20px;
-            padding: 8px 15px;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background-color: var(--card-bg);
+            color: var(--accent);
+            border: 1px solid var(--card-border, #e2e8f0);
+            /* Adicionado fallback */
         }
 
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
+        /* Garante que o ícone dentro do botão de tema mude de cor corretamente */
+        .theme-toggle-portfolio i {
+            color: var(--accent);
         }
 
-        /* Botão voltar ao topo */
+        /* Botão "Voltar ao Topo" (CORRIGIDO: visível novamente no canto inferior direito) */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -521,8 +520,9 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            z-index: 99;
+            box-shadow: 0 5px 15px var(--shadow);
+            z-index: 999;
+            /* Z-index um pouco menor, mas ainda alto */
         }
 
         .back-to-top.active {
@@ -532,7 +532,7 @@
 
         .back-to-top:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px var(--shadow);
         }
 
         .back-to-portfolio,
@@ -598,14 +598,12 @@
     <audio id="background-music" loop>
         <source src="assets/audio/Crescent Moon.mp3" audio/mpeg">
     </audio>
-    <button id="music-control-btn" class="music-control-btn" hidden>
-        <i class="fas fa-pause"></i>
-    </button>
-    <a href="/index.html" class="back-to-portfolio">
-        <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+    <a href="index.html" class="floating-action-btn back-to-portfolio-btn" aria-label="Voltar ao Portfólio Principal">
+        <i class="fas fa-arrow-left"></i>
     </a>
-
-
+    <button class="floating-action-btn theme-toggle-portfolio" id="theme-toggle" aria-label="Alternar Tema">
+        <i class="fas fa-moon"></i>
+    </button>
 
     <header>
         <!-- Camada de animação de dados -->
@@ -675,7 +673,6 @@
         <div class="header-content">
             <h1>Meu Portfólio de Business Intelligence</h1>
             <p>Transformando dados em insights visuais com Power BI</p>
-            <button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i> Modo Escuro</button>
         </div>
     </header>
 
@@ -704,7 +701,7 @@
         <div class="dashboard-grid">
             <!-- Dashboard 1 -->
             <div class="dashboard-card">
-                <img src="/img/bi-vendas.png" alt="Dashboard de Vendas" class="dashboard-img">
+                <img src="assets/img/bi-vendas.png" alt="Dashboard de Vendas" class="dashboard-img">
                 <div class="dashboard-content">
                     <h3>Dashboard de Vendas</h3>
                     <p>Análise completa de métricas de vendas com filtros dinâmicos, gráficos interativos e metas de
@@ -725,7 +722,7 @@
 
             <!-- Dashboard 2 -->
             <div class="dashboard-card">
-                <img src="/img/bi-financeiro.png" alt="Análise Financeira" class="dashboard-img">
+                <img src="assets/img/bi-financeiro.png" alt="Análise Financeira" class="dashboard-img">
                 <div class="dashboard-content">
                     <h3>Análise Financeira</h3>
                     <p>Dashboard para acompanhamento de receitas, despesas e fluxo de caixa com visualizações detalhadas
@@ -746,7 +743,7 @@
 
             <!-- Dashboard 3 -->
             <div class="dashboard-card">
-                <img src="/img/bi-rh.png" alt="Desempenho RH" class="dashboard-img">
+                <img src="assets/img/bi-rh.png" alt="Desempenho RH" class="dashboard-img">
                 <div class="dashboard-content">
                     <h3>Desempenho de RH</h3>
                     <p>Análise de métricas de recursos humanos como turnover, contratações, avaliações de desempenho e
@@ -767,7 +764,7 @@
 
             <!-- Dashboard 4 -->
             <div class="dashboard-card">
-                <img src="/img/bi-producao.png" alt="Dashboard de Produção Industrial" class="dashboard-img">
+                <img src="assets/img/bi-producao.png" alt="Dashboard de Produção Industrial" class="dashboard-img">
                 <div class="dashboard-content">
                     <h3>Dashboard de Produção Industrial</h3>
                     <p>Dashboard desenvolvido no Power BI para análise detalhada de indicadores de produção como total
@@ -922,27 +919,46 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Gerenciamento de tema escuro/claro
-            const themeToggle = document.getElementById('theme-toggle');
-            const backToPortfolio = document.querySelector('.back-to-portfolio');
+            // --- GERENCIAMENTO DE TEMA ---
+            const themeToggleButton = document.getElementById('theme-toggle');
+            const themeIcon = themeToggleButton.querySelector('i');
             const body = document.body;
-            let lastScrollTop = 0;
 
-            // Verificar se há preferência salva
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
+            // Função para atualizar o ícone baseado no tema
+            const updateThemeIcon = () => {
+                if (body.classList.contains('dark-mode')) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            };
+
+            // Verificar tema salvo no localStorage
+            if (localStorage.getItem('theme') === 'dark') {
                 body.classList.add('dark-mode');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
             }
+            updateThemeIcon(); // Atualiza o ícone no carregamento da página
 
-            themeToggle.addEventListener('click', function () {
+            // Evento de clique para alternar o tema
+            themeToggleButton.addEventListener('click', function () {
                 body.classList.toggle('dark-mode');
                 if (body.classList.contains('dark-mode')) {
                     localStorage.setItem('theme', 'dark');
-                    themeToggle.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
                 } else {
-                    localStorage.setItem('theme', 'light');
-                    themeToggle.innerHTML = '<i class="fas fa-moon"></i> Modo Escuro';
+                    localStorage.removeItem('theme');
+                }
+                updateThemeIcon(); // Atualiza o ícone após o clique
+            });
+
+            // Adicione este novo bloco para o botão "Voltar ao Topo"
+            window.addEventListener('scroll', function () {
+                const backToTopButton = document.getElementById('back-to-top');
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('active');
+                } else {
+                    backToTopButton.classList.remove('active');
                 }
             });
 
